@@ -9,7 +9,7 @@ import org.apache.ibatis.type.JdbcType;
 import java.util.List;
 
 @Mapper
-public interface BasicEarthquakeInfoMapper{
+public interface BasicEarthquakeInfoMapper {
 
     @Insert("INSERT INTO `earthquakebackup`.`disasterinfo` (`D_ID`, `date`, `location`, `longitude`, `latitude`, `depth`, `magnitude`, `picture`, `reporting_unit`) VALUES (#{id},#{date},#{location},#{longitude},#{latitude},#{depth},#{magnitude},#{picture},#{reportingUnit})")
     int save(BasicEarthquakeInfo basicEarthquakeInfo);

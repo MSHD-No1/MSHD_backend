@@ -29,7 +29,7 @@ public class BackupScheduleService implements SchedulingConfigurer {
     @Resource
     ScheduleMapper scheduleMapper;
 
-    private  static String cron = "* * * * * *";
+    private static String cron = "* * * * * *";
 
     @Resource
     BackupService backupService;
@@ -39,28 +39,27 @@ public class BackupScheduleService implements SchedulingConfigurer {
 
 
     @Override
-    public void configureTasks(ScheduledTaskRegistrar scheduledTaskRegistrar){
-        scheduledTaskRegistrar.addTriggerTask(doTask(),getTrigger());
+    public void configureTasks(ScheduledTaskRegistrar scheduledTaskRegistrar) {
+        scheduledTaskRegistrar.addTriggerTask(doTask(), getTrigger());
     }
 
-    private Runnable doTask(){
+    private Runnable doTask() {
         return new Runnable() {
             @SneakyThrows
             @Override
             public void run() {
                 int time = backupTimeMapper.getTime();
 
-                if(backupService.backUp(time)){
+                if (backupService.backUp(time)) {
                     log.info("备份成功！");
-                }
-                else{
+                } else {
                     log.info("备份失败！");
                 }
             }
         };
     }
 
-    private Trigger getTrigger(){
+    private Trigger getTrigger() {
         return new Trigger() {
             @SneakyThrows
             @Override
@@ -70,7 +69,7 @@ public class BackupScheduleService implements SchedulingConfigurer {
             }
         };
     }
-    
+
     public String getCron() throws Exception {
         String newCron = scheduleMapper.getSchedule();
         if (StringUtils.isEmpty(newCron)) {

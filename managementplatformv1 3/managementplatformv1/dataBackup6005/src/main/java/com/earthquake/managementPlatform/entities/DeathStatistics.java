@@ -71,10 +71,10 @@ public class DeathStatistics {
     @Override
     public String toString() {
         return "该编码为人员死亡统计编码：" + '\n' +
-                "死亡地点：" + location + '，'+'\n' +
-                "上报日期：" + date + '，'+'\n' +
-                "死亡人数：" + number + '，'+'\n' +
-                "上报单位：" + reportingUnit + '，'+'\n' +
-                "严重程度评级共四级（特大4，大型3，中型2，一般1），\n此次为" + id.substring(18) ;
+                "死亡地点：" + location + '，' + '\n' +
+                "上报日期：" + date + '，' + '\n' +
+                "死亡人数：" + number + '，' + '\n' +
+                "上报单位：" + reportingUnit + '，' + '\n' +
+                "严重程度评级共四级（特大4，大型3，中型2，一般1），\n此次为" + id.substring(18);
     }
 }
