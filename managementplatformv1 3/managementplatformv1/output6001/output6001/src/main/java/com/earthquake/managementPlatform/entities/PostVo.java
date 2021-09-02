@@ -2,7 +2,7 @@ package com.earthquake.managementPlatform.entities;
 
 import java.util.List;
 
-public class PostVo<T> {
+public class PostVo<T>{
     private int code;
     private String msg;
     private List<T> data;
