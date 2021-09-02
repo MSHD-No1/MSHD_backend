@@ -1,7 +1,5 @@
 package com.earthquake.managementPlatform.mapper;
 
-import com.earthquake.managementPlatform.entities.FrameworkStructure;
-import com.earthquake.managementPlatform.entities.OtherRecord;
 import com.earthquake.managementPlatform.entities.OtherStructure;
 import com.earthquake.managementPlatform.entities.SquareStatistics;
 import org.apache.ibatis.annotations.*;
@@ -12,32 +10,32 @@ import java.util.List;
 @Mapper
 public interface OtherStructureMapper {
     @Select("SELECT * FROM earthquake.otherstructure;")
-    @Results(id="otherStructureMap", value={
-            @Result(column="ID", property="id", jdbcType= JdbcType.CHAR, id=true),
-            @Result(column="date", property="date", jdbcType= JdbcType.VARCHAR),
-            @Result(column="location", property="location", jdbcType= JdbcType.VARCHAR),
-            @Result(column="basically_intact_square", property="basicallyIntactSquare", jdbcType= JdbcType.DOUBLE),
-            @Result(column="slight_damaged_square", property="slightDamagedSquare", jdbcType= JdbcType.DOUBLE),
-            @Result(column="moderate_damaged_square", property="moderateDamagedSquare", jdbcType= JdbcType.DOUBLE),
-            @Result(column="serious_damaged_square", property="seriousDamagedSquare", jdbcType= JdbcType.DOUBLE),
-            @Result(column="destroyed_square", property="destroyedSquare", jdbcType= JdbcType.DOUBLE),
-            @Result(column="note", property="note", jdbcType= JdbcType.VARCHAR),
-            @Result(column="reporting_unit", property="reportingUnit", jdbcType= JdbcType.VARCHAR),
-            @Result(column="earthquake_id", property="earthquakeId", jdbcType= JdbcType.CHAR)
+    @Results(id = "otherStructureMap", value = {
+            @Result(column = "ID", property = "id", jdbcType = JdbcType.CHAR, id = true),
+            @Result(column = "date", property = "date", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "location", property = "location", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "basically_intact_square", property = "basicallyIntactSquare", jdbcType = JdbcType.DOUBLE),
+            @Result(column = "slight_damaged_square", property = "slightDamagedSquare", jdbcType = JdbcType.DOUBLE),
+            @Result(column = "moderate_damaged_square", property = "moderateDamagedSquare", jdbcType = JdbcType.DOUBLE),
+            @Result(column = "serious_damaged_square", property = "seriousDamagedSquare", jdbcType = JdbcType.DOUBLE),
+            @Result(column = "destroyed_square", property = "destroyedSquare", jdbcType = JdbcType.DOUBLE),
+            @Result(column = "note", property = "note", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "reporting_unit", property = "reportingUnit", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "earthquake_id", property = "earthquakeId", jdbcType = JdbcType.CHAR)
     })
     List<OtherStructure> getAllOtherStructure();
 
     @Select("select * from earthquake.otherstructure order by date desc limit #{pageNum}, #{limit};")
     @ResultMap(value = "otherStructureMap")
-    List<OtherStructure> getOtherStructureByPage(@Param("pageNum") int pageNum, @Param("limit")int limit);
+    List<OtherStructure> getOtherStructureByPage(@Param("pageNum") int pageNum, @Param("limit") int limit);
 
     @Select("select * from earthquake.otherstructure where date >=  NOW() - interval #{time} hour order by date desc;")
     @ResultMap(value = "otherStructureMap")
-    List<OtherStructure> getRecentOtherStructure(@Param("time") int time );
+    List<OtherStructure> getRecentOtherStructure(@Param("time") int time);
 
     @Select("select * from earthquake.otherstructure where date >=  NOW() - interval #{time} hour order by date desc limit #{pageNum}, #{limit};")
     @ResultMap(value = "otherStructureMap")
-    List<OtherStructure> getRecentOtherStructureByPage(@Param("pageNum") int pageNum,@Param("limit")int limit,@Param("time") int time );
+    List<OtherStructure> getRecentOtherStructureByPage(@Param("pageNum") int pageNum, @Param("limit") int limit, @Param("time") int time);
 
     @Select("SELECT * FROM earthquake.otherstructure WHERE ID = #{id} FOR UPDATE")
     @ResultMap(value = "otherStructureMap")
@@ -63,9 +61,9 @@ public interface OtherStructureMapper {
     OtherStructure getNewCodeDescription();
 
     @Select("SELECT * FROM earthquake.lastotherstructurebytime;")
-    @Results(id="lastOtherStructureByTime", value={
-            @Result(column="date", property="date", jdbcType= JdbcType.CHAR),
-            @Result(column="square", property="square", jdbcType= JdbcType.DOUBLE)
+    @Results(id = "lastOtherStructureByTime", value = {
+            @Result(column = "date", property = "date", jdbcType = JdbcType.CHAR),
+            @Result(column = "square", property = "square", jdbcType = JdbcType.DOUBLE)
     })
     List<SquareStatistics> getLastOtherStructureByTime();
 

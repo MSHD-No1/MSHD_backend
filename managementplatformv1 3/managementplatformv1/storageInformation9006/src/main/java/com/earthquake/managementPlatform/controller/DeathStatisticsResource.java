@@ -1,6 +1,9 @@
 package com.earthquake.managementPlatform.controller;
 
-import com.earthquake.managementPlatform.entities.*;
+import com.earthquake.managementPlatform.entities.DeathStatistics;
+import com.earthquake.managementPlatform.entities.GetVo;
+import com.earthquake.managementPlatform.entities.PersonStatistics;
+import com.earthquake.managementPlatform.entities.PostVo;
 import com.earthquake.managementPlatform.mapper.DeathStatisticsMapper;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,58 +15,53 @@ import java.util.List;
 public class DeathStatisticsResource {
     @Resource
     DeathStatisticsMapper deathStatisticsMapper;
+
     @GetMapping("/v1/deathStatistics")
-    public GetVo deathStatisticsAll(HttpServletRequest request){
-        int limit = Integer.valueOf(request.getParameter("limit"));
-        int page = Integer.valueOf(request.getParameter("page"));
+    public GetVo<DeathStatistics> deathStatisticsAll(HttpServletRequest request) {
+        int limit = Integer.parseInt(request.getParameter("limit"));
+        int page = Integer.parseInt(request.getParameter("page"));
         int size = deathStatisticsMapper.getAllDeathStatistics().size();
-        List<DeathStatistics> deathStatistics = deathStatisticsMapper.getDeathStatisticsByPage((page-1)*limit,limit);
-        GetVo<DeathStatistics> getVo = new GetVo<>(0,"获取数据成功！",size,deathStatistics);
-        return getVo;
+        List<DeathStatistics> deathStatistics = deathStatisticsMapper.getDeathStatisticsByPage((page - 1) * limit, limit);
+        return new GetVo<>(0, "获取数据成功！", size, deathStatistics);
     }
 
     @GetMapping("/v1/deathStatistics/{time}")
-    public GetVo deathStatisticsByTime(@PathVariable("time")int time, HttpServletRequest request){
-        int limit = Integer.valueOf(request.getParameter("limit"));
-        int page = Integer.valueOf(request.getParameter("page"));
-        int timestamp = time*24;
+    public GetVo<DeathStatistics> deathStatisticsByTime(@PathVariable("time") int time, HttpServletRequest request) {
+        int limit = Integer.parseInt(request.getParameter("limit"));
+        int page = Integer.parseInt(request.getParameter("page"));
+        int timestamp = time * 24;
         int size = deathStatisticsMapper.getRecentDeathStatistics(timestamp).size();
-        List<DeathStatistics> deathStatistics = deathStatisticsMapper.getRecentDeathStatisticsByPage((page-1)*limit,limit,timestamp);
-        GetVo<DeathStatistics> getVo = new GetVo<>(0,"获取数据成功！",size,deathStatistics);
-        return getVo;
+        List<DeathStatistics> deathStatistics = deathStatisticsMapper.getRecentDeathStatisticsByPage((page - 1) * limit, limit, timestamp);
+        return new GetVo<>(0, "获取数据成功！", size, deathStatistics);
     }
 
     @GetMapping("/v1/lastDeathStatisticsByTime")
-    public GetVo provinceAid(){
+    public GetVo<PersonStatistics> provinceAid() {
         List<PersonStatistics> personStatistics = deathStatisticsMapper.getLastDeathStatisticsByTime();
-        GetVo<PersonStatistics> getVo = new GetVo<>(0,"获取数据成功！",personStatistics.size(),personStatistics);
-        return getVo;
+        return new GetVo<>(0, "获取数据成功！", personStatistics.size(), personStatistics);
     }
 
     @PutMapping("/v1/deathStatistics/{id}")
-    public PostVo editDeathStatistics(HttpServletRequest request, @PathVariable("id") String id){
+    public PostVo<DeathStatistics> editDeathStatistics(HttpServletRequest request, @PathVariable("id") String id) {
         DeathStatistics deathStatistics = new DeathStatistics();
         deathStatistics.setId(id);
         deathStatistics.setDate(request.getParameter("date"));
         deathStatistics.setLocation(request.getParameter("location"));
-        deathStatistics.setNumber(Integer.valueOf(request.getParameter("number")));
+        deathStatistics.setNumber(Integer.parseInt(request.getParameter("number")));
         deathStatistics.setReportingUnit(request.getParameter("reportingUnit"));
         deathStatistics.setEarthquakeId(request.getParameter("earthquakeId"));
         deathStatisticsMapper.update(deathStatistics);
-        PostVo postVo = new PostVo(0,"编辑成功！",null);
-        return postVo;
+        return new PostVo<>(0, "编辑成功！", null);
     }
 
     @DeleteMapping("/v1/deathStatistics/{id}")
-    public PostVo delDeathStatistics(@PathVariable("id")String id){
+    public PostVo<DeathStatistics> delDeathStatistics(@PathVariable("id") String id) {
         deathStatisticsMapper.deleteById(id);
-        PostVo postVo = new PostVo(0,"删除成功!",null);
-        return postVo;
+        return new PostVo<>(0, "删除成功!", null);
     }
 
     @GetMapping("/v1/deathStatisticsCopy/{time}")
-    public List<DeathStatistics> deathStatisticsCopy(@PathVariable("time") int time){
-        List<DeathStatistics> deathStatistics = deathStatisticsMapper.getCopyDeathStatistics(time*24);
-        return deathStatistics;
+    public List<DeathStatistics> deathStatisticsCopy(@PathVariable("time") int time) {
+        return deathStatisticsMapper.getCopyDeathStatistics(time * 24);
     }
 }

@@ -1,9 +1,7 @@
 package com.earthquake.managementPlatform.service;
 
 import com.earthquake.managementPlatform.entities.BrickwoodStructure;
-import com.earthquake.managementPlatform.entities.CivilStructure;
 import com.earthquake.managementPlatform.mapper.BrickwoodStructureMapper;
-import com.earthquake.managementPlatform.mapper.CivilStructureMapper;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -12,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import javax.annotation.Resource;
 
 @Service
-public class BrickwoodStructureStorage implements DisasterInformationStorage{
+public class BrickwoodStructureStorage implements DisasterInformationStorage {
     @Resource
     BrickwoodStructureMapper brickwoodStructureMapper;
     @Resource
@@ -56,7 +54,7 @@ public class BrickwoodStructureStorage implements DisasterInformationStorage{
         return storageForBrickwoodStructure();
     }
 
-    public String storageForBrickwoodStructure(){
+    public String storageForBrickwoodStructure() {
 
         BrickwoodStructure brickwoodStructure = new BrickwoodStructure();
 
@@ -74,13 +72,13 @@ public class BrickwoodStructureStorage implements DisasterInformationStorage{
 
         brickwoodStructure.setNote(data.getString("note"));
 
-        brickwoodStructure.setReportingUnit(source+data.getString("reportingUnit"));
+        brickwoodStructure.setReportingUnit(source + data.getString("reportingUnit"));
 
         brickwoodStructure.setEarthquakeId(data.getString("earthquakeId"));
 
         brickwoodStructureMapper.save(brickwoodStructure);
 
-        return code+"入库成功";
+        return code + "入库成功";
 
     }
 }

@@ -1,8 +1,6 @@
 package com.earthquake.managementPlatform.service;
 
-import com.earthquake.managementPlatform.entities.MasonryStructure;
 import com.earthquake.managementPlatform.entities.OtherStructure;
-import com.earthquake.managementPlatform.mapper.MasonryStructureMapper;
 import com.earthquake.managementPlatform.mapper.OtherStructureMapper;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import javax.annotation.Resource;
 
 @Service
-public class OtherStructureStorage implements DisasterInformationStorage{
+public class OtherStructureStorage implements DisasterInformationStorage {
     @Resource
     OtherStructureMapper otherStructureMapper;
     @Resource
@@ -56,7 +54,7 @@ public class OtherStructureStorage implements DisasterInformationStorage{
         return storageForOtherStructure();
     }
 
-    public String storageForOtherStructure(){
+    public String storageForOtherStructure() {
 
         OtherStructure otherStructure = new OtherStructure();
 
@@ -78,13 +76,13 @@ public class OtherStructureStorage implements DisasterInformationStorage{
 
         otherStructure.setNote(data.getString("note"));
 
-        otherStructure.setReportingUnit(source+data.getString("reportingUnit"));
+        otherStructure.setReportingUnit(source + data.getString("reportingUnit"));
 
         otherStructure.setEarthquakeId(data.getString("earthquakeId"));
 
         otherStructureMapper.save(otherStructure);
 
-        return code+"入库成功";
+        return code + "入库成功";
 
     }
 }

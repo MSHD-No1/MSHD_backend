@@ -1,8 +1,6 @@
 package com.earthquake.managementPlatform.service;
 
-import com.earthquake.managementPlatform.entities.TrafficDisaster;
 import com.earthquake.managementPlatform.entities.WaterDisaster;
-import com.earthquake.managementPlatform.mapper.TrafficDisasterMapper;
 import com.earthquake.managementPlatform.mapper.WaterDisasterMapper;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import javax.annotation.Resource;
 
 @Service
-public class WaterDisasterStorage implements DisasterInformationStorage{
+public class WaterDisasterStorage implements DisasterInformationStorage {
     @Resource
     WaterDisasterMapper waterDisasterMapper;
     @Resource
@@ -56,7 +54,7 @@ public class WaterDisasterStorage implements DisasterInformationStorage{
         return storageForWaterDisaster();
     }
 
-    public String storageForWaterDisaster(){
+    public String storageForWaterDisaster() {
 
         WaterDisaster waterDisaster = new WaterDisaster();
 
@@ -70,27 +68,25 @@ public class WaterDisasterStorage implements DisasterInformationStorage{
 
         waterDisaster.setGrade(data.get("grade").toString());
 
-        try{
-            if(data.getString("picture").split("/").length>1)
-            {
+        try {
+            if (data.getString("picture").split("/").length > 1) {
                 waterDisaster.setPicture(data.getString("picture"));
+            } else {
+                waterDisaster.setPicture(restTemplate.postForObject(uploadFileUrl + "/v1/filePic" + "/" + source + "/" + data.getString("picture"), null, String.class));
             }
-            else{
-                waterDisaster.setPicture(restTemplate.postForObject(uploadFileUrl + "/v1/filePic"+"/"+source+"/"+data.getString("picture"), null, String.class));
-            }
-        }catch (Exception e){
+        } catch (Exception e) {
             waterDisaster.setPicture(null);
         }
 
         waterDisaster.setNote(data.getString("note"));
 
-        waterDisaster.setReportingUnit(source+data.getString("reportingUnit"));
+        waterDisaster.setReportingUnit(source + data.getString("reportingUnit"));
 
         waterDisaster.setEarthquakeId(data.getString("earthquakeId"));
 
         waterDisasterMapper.save(waterDisaster);
 
-        return code+"入库成功";
+        return code + "入库成功";
 
     }
 }

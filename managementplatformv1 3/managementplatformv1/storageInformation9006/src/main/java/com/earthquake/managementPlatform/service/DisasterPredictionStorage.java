@@ -7,15 +7,13 @@ import lombok.extern.slf4j.Slf4j;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
-import java.sql.SQLException;
 
 @Slf4j
 @Component
-public class DisasterPredictionStorage implements DisasterInformationStorage{
+public class DisasterPredictionStorage implements DisasterInformationStorage {
     @Resource
     DisasterPredictionMapper disasterPredictionMapper;
     @Resource
@@ -52,58 +50,53 @@ public class DisasterPredictionStorage implements DisasterInformationStorage{
         return storageForDisasterPrediction();
     }
 
-    private String storageForDisasterPrediction()
-    {
+    private String storageForDisasterPrediction() {
         DisasterPrediction disasterPrediction = new DisasterPrediction();
         String D_ID = basicEarthquakeInfoMapper.getLastDisasterInfo().getId();
         disasterPrediction.setD_ID(D_ID);
         disasterPrediction.setS_ID(source);
-        try{
+        try {
             disasterPrediction.setDate(data.getString("date"));
-        }catch (Exception e){
+        } catch (Exception e) {
             disasterPrediction.setDate(null);
         }
 
-        try{
+        try {
             disasterPrediction.setGrade(data.get("grade").toString());
-        }catch (Exception e){
+        } catch (Exception e) {
             disasterPrediction.setGrade(null);
         }
 
-        try{
+        try {
             disasterPrediction.setIntensity(data.get("intensity").toString());
-        }catch (Exception e){
+        } catch (Exception e) {
             disasterPrediction.setIntensity(null);
         }
 
-        try{
+        try {
             disasterPrediction.setType(data.get("type").toString());
-        }catch (Exception e){
+        } catch (Exception e) {
             disasterPrediction.setType(null);
         }
 
-        try{
-            if(data.getString("picture").split("/").length>1)
-            {
+        try {
+            if (data.getString("picture").split("/").length > 1) {
                 disasterPrediction.setPicture(data.getString("picture"));
-            }
-            else{
-                String path = restTemplate.postForObject(uploadFileUrl + "/v1/filePic"+"/"+source+"/"+data.getString("picture"), null, String.class);
+            } else {
+                String path = restTemplate.postForObject(uploadFileUrl + "/v1/filePic" + "/" + source + "/" + data.getString("picture"), null, String.class);
                 log.info(path);
                 disasterPrediction.setPicture(path);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             disasterPrediction.setPicture(null);
         }
-        try
-        {
+        try {
             disasterPredictionMapper.save(disasterPrediction);
-        }catch (Exception e)
-        {
+        } catch (Exception e) {
             disasterPredictionMapper.update(disasterPrediction);
         }
 
 
-        return source+"源数据入库成功！";
+        return source + "源数据入库成功！";
     }
 }

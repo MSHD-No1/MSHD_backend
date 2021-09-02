@@ -10,6 +10,6 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 @EnableDiscoveryClient
 public class storageInformation9006 {
     public static void main(String[] args) {
-        SpringApplication.run(storageInformation9006.class,args);
+        SpringApplication.run(storageInformation9006.class, args);
     }
 }

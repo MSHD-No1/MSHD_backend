@@ -9,7 +9,7 @@ public class CodeOfResourceService {
     @Resource
     CodeFactory codeFactory;
 
-    public String getCode(String categoryId){
+    public String getCode(String categoryId) {
         return codeFactory.createCode(categoryId);
     }
 }

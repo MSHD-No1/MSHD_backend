@@ -121,15 +121,15 @@ public class FrameworkStructure {
     @Override
     public String toString() {
         return "该编码为框架结构房屋破坏统计编码：" + '\n' +
-                "地点：" + location + '，'+'\n' +
-                "上报日期：" + date + '，'+'\n' +
-                "基本完好面积：" + basicallyIntactSquare + '，'+'\n' +
-                "轻微破坏面积：" + slightDamagedSquare + '，'+'\n' +
-                "中等破坏面积：" + moderateDamagedSquare + '，'+'\n' +
-                "严重破坏面积：" + seriousDamagedSquare + '，'+'\n' +
-                "毁坏面积：" + destroyedSquare + '，'+'\n' +
-                "破坏情况描述：" + note + '，'+'\n' +
-                "上报单位：" + reportingUnit + '，'+'\n' +
-                "严重程度评级共四级（特大4，大型3，中型2，一般1），\n此次为" + id.substring(18) ;
+                "地点：" + location + '，' + '\n' +
+                "上报日期：" + date + '，' + '\n' +
+                "基本完好面积：" + basicallyIntactSquare + '，' + '\n' +
+                "轻微破坏面积：" + slightDamagedSquare + '，' + '\n' +
+                "中等破坏面积：" + moderateDamagedSquare + '，' + '\n' +
+                "严重破坏面积：" + seriousDamagedSquare + '，' + '\n' +
+                "毁坏面积：" + destroyedSquare + '，' + '\n' +
+                "破坏情况描述：" + note + '，' + '\n' +
+                "上报单位：" + reportingUnit + '，' + '\n' +
+                "严重程度评级共四级（特大4，大型3，中型2，一般1），\n此次为" + id.substring(18);
     }
 }

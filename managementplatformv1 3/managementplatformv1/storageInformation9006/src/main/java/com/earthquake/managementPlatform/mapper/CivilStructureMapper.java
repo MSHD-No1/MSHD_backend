@@ -1,6 +1,7 @@
 package com.earthquake.managementPlatform.mapper;
 
-import com.earthquake.managementPlatform.entities.*;
+import com.earthquake.managementPlatform.entities.CivilStructure;
+import com.earthquake.managementPlatform.entities.SquareStatistics;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
 
@@ -9,30 +10,30 @@ import java.util.List;
 @Mapper
 public interface CivilStructureMapper {
     @Select("SELECT * FROM earthquake.civilstructure;")
-    @Results(id="civilStructureMap", value={
-            @Result(column="ID", property="id", jdbcType= JdbcType.CHAR, id=true),
-            @Result(column="date", property="date", jdbcType= JdbcType.VARCHAR),
-            @Result(column="location", property="location", jdbcType= JdbcType.VARCHAR),
-            @Result(column="basically_intact_square", property="basicallyIntactSquare", jdbcType= JdbcType.DOUBLE),
-            @Result(column="damaged_square", property="damagedSquare", jdbcType= JdbcType.DOUBLE),
-            @Result(column="destroyed_square", property="destroyedSquare", jdbcType= JdbcType.DOUBLE),
-            @Result(column="note", property="note", jdbcType= JdbcType.VARCHAR),
-            @Result(column="reporting_unit", property="reportingUnit", jdbcType= JdbcType.VARCHAR),
-            @Result(column="earthquake_id", property="earthquakeId", jdbcType= JdbcType.CHAR)
+    @Results(id = "civilStructureMap", value = {
+            @Result(column = "ID", property = "id", jdbcType = JdbcType.CHAR, id = true),
+            @Result(column = "date", property = "date", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "location", property = "location", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "basically_intact_square", property = "basicallyIntactSquare", jdbcType = JdbcType.DOUBLE),
+            @Result(column = "damaged_square", property = "damagedSquare", jdbcType = JdbcType.DOUBLE),
+            @Result(column = "destroyed_square", property = "destroyedSquare", jdbcType = JdbcType.DOUBLE),
+            @Result(column = "note", property = "note", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "reporting_unit", property = "reportingUnit", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "earthquake_id", property = "earthquakeId", jdbcType = JdbcType.CHAR)
     })
     List<CivilStructure> getAllCivilStructure();
 
     @Select("select * from earthquake.civilstructure order by date desc limit #{pageNum}, #{limit};")
     @ResultMap(value = "civilStructureMap")
-    List<CivilStructure> getCivilStructureByPage(@Param("pageNum") int pageNum, @Param("limit")int limit);
+    List<CivilStructure> getCivilStructureByPage(@Param("pageNum") int pageNum, @Param("limit") int limit);
 
     @Select("select * from earthquake.civilstructure where date >=  NOW() - interval #{time} hour order by date desc;")
     @ResultMap(value = "civilStructureMap")
-    List<CivilStructure> getRecentCivilStructure(@Param("time") int time );
+    List<CivilStructure> getRecentCivilStructure(@Param("time") int time);
 
     @Select("select * from earthquake.civilstructure where date >=  NOW() - interval #{time} hour order by date desc limit #{pageNum}, #{limit};")
     @ResultMap(value = "civilStructureMap")
-    List<CivilStructure> getRecentCivilStructureByPage(@Param("pageNum") int pageNum,@Param("limit")int limit,@Param("time") int time );
+    List<CivilStructure> getRecentCivilStructureByPage(@Param("pageNum") int pageNum, @Param("limit") int limit, @Param("time") int time);
 
     @Select("SELECT * FROM earthquake.civilstructure WHERE ID = #{id} FOR UPDATE")
     @ResultMap(value = "civilStructureMap")
@@ -58,9 +59,9 @@ public interface CivilStructureMapper {
     CivilStructure getNewCodeDescription();
 
     @Select("SELECT * FROM earthquake.lastcivilstructurebytime;")
-    @Results(id="lastCivilStructureByTime", value={
-            @Result(column="date", property="date", jdbcType= JdbcType.CHAR),
-            @Result(column="square", property="square", jdbcType= JdbcType.DOUBLE)
+    @Results(id = "lastCivilStructureByTime", value = {
+            @Result(column = "date", property = "date", jdbcType = JdbcType.CHAR),
+            @Result(column = "square", property = "square", jdbcType = JdbcType.DOUBLE)
     })
     List<SquareStatistics> getLastCivilStructureByTime();
 

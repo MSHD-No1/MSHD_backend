@@ -3,10 +3,11 @@ package com.earthquake.managementPlatform.entities;
 public class SquareStatistics {
     private String date;
     private double square;
-    public SquareStatistics()
-    {}
-    public SquareStatistics(String date,double square)
-    {
+
+    public SquareStatistics() {
+    }
+
+    public SquareStatistics(String date, double square) {
         this.date = date;
         this.square = square;
     }

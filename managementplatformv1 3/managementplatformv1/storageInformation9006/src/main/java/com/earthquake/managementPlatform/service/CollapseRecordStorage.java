@@ -1,9 +1,7 @@
 package com.earthquake.managementPlatform.service;
 
 import com.earthquake.managementPlatform.entities.CollapseRecord;
-import com.earthquake.managementPlatform.entities.IrrigationDisaster;
 import com.earthquake.managementPlatform.mapper.CollapseRecordMapper;
-import com.earthquake.managementPlatform.mapper.IrrigationDisasterMapper;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -12,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import javax.annotation.Resource;
 
 @Service
-public class CollapseRecordStorage implements DisasterInformationStorage{
+public class CollapseRecordStorage implements DisasterInformationStorage {
     @Resource
     CollapseRecordMapper collapseRecordMapper;
     @Resource
@@ -56,7 +54,7 @@ public class CollapseRecordStorage implements DisasterInformationStorage{
         return storageForCollapseRecord();
     }
 
-    public String storageForCollapseRecord(){
+    public String storageForCollapseRecord() {
 
         CollapseRecord collapseRecord = new CollapseRecord();
 
@@ -70,27 +68,25 @@ public class CollapseRecordStorage implements DisasterInformationStorage{
 
         collapseRecord.setStatus(data.get("status").toString());
 
-        try{
-            if(data.getString("picture").split("/").length>1)
-            {
+        try {
+            if (data.getString("picture").split("/").length > 1) {
                 collapseRecord.setPicture(data.getString("picture"));
+            } else {
+                collapseRecord.setPicture(restTemplate.postForObject(uploadFileUrl + "/v1/filePic" + "/" + source + "/" + data.getString("picture"), null, String.class));
             }
-            else{
-                collapseRecord.setPicture(restTemplate.postForObject(uploadFileUrl + "/v1/filePic"+"/"+source+"/"+data.getString("picture"), null, String.class));
-            }
-        }catch (Exception e){
+        } catch (Exception e) {
             collapseRecord.setPicture(null);
         }
 
         collapseRecord.setNote(data.getString("note"));
 
-        collapseRecord.setReportingUnit(source+data.getString("reportingUnit"));
+        collapseRecord.setReportingUnit(source + data.getString("reportingUnit"));
 
         collapseRecord.setEarthquakeId(data.getString("earthquakeId"));
 
         collapseRecordMapper.save(collapseRecord);
 
-        return code+"入库成功";
+        return code + "入库成功";
 
     }
 }

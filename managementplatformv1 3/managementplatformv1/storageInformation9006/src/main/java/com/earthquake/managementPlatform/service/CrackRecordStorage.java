@@ -1,9 +1,7 @@
 package com.earthquake.managementPlatform.service;
 
 import com.earthquake.managementPlatform.entities.CrackRecord;
-import com.earthquake.managementPlatform.entities.KarstRecord;
 import com.earthquake.managementPlatform.mapper.CrackRecordMapper;
-import com.earthquake.managementPlatform.mapper.KarstRecordMapper;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -12,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import javax.annotation.Resource;
 
 @Service
-public class CrackRecordStorage implements DisasterInformationStorage{
+public class CrackRecordStorage implements DisasterInformationStorage {
     @Resource
     CrackRecordMapper crackRecordMapper;
     @Resource
@@ -56,7 +54,7 @@ public class CrackRecordStorage implements DisasterInformationStorage{
         return storageForCrackRecord();
     }
 
-    public String storageForCrackRecord(){
+    public String storageForCrackRecord() {
 
         CrackRecord crackRecord = new CrackRecord();
 
@@ -70,27 +68,25 @@ public class CrackRecordStorage implements DisasterInformationStorage{
 
         crackRecord.setStatus(data.get("status").toString());
 
-        try{
-            if(data.getString("picture").split("/").length>1)
-            {
+        try {
+            if (data.getString("picture").split("/").length > 1) {
                 crackRecord.setPicture(data.getString("picture"));
+            } else {
+                crackRecord.setPicture(restTemplate.postForObject(uploadFileUrl + "/v1/filePic" + "/" + source + "/" + data.getString("picture"), null, String.class));
             }
-            else{
-                crackRecord.setPicture(restTemplate.postForObject(uploadFileUrl + "/v1/filePic"+"/"+source+"/"+data.getString("picture"), null, String.class));
-            }
-        }catch (Exception e){
+        } catch (Exception e) {
             crackRecord.setPicture(null);
         }
 
         crackRecord.setNote(data.getString("note"));
 
-        crackRecord.setReportingUnit(source+data.getString("reportingUnit"));
+        crackRecord.setReportingUnit(source + data.getString("reportingUnit"));
 
         crackRecord.setEarthquakeId(data.getString("earthquakeId"));
 
         crackRecordMapper.save(crackRecord);
 
-        return code+"入库成功";
+        return code + "入库成功";
 
     }
 }

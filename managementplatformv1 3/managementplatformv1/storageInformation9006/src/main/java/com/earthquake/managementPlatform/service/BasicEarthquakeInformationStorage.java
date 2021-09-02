@@ -12,7 +12,7 @@ import javax.annotation.Resource;
 
 @Slf4j
 @Service
-public class BasicEarthquakeInformationStorage implements DisasterInformationStorage{
+public class BasicEarthquakeInformationStorage implements DisasterInformationStorage {
     @Resource
     BasicEarthquakeInfoMapper basicEarthquakeInfoMapper;
     @Resource
@@ -56,7 +56,7 @@ public class BasicEarthquakeInformationStorage implements DisasterInformationSto
         return storageForBasicEarthquakeInformation();
     }
 
-    public String storageForBasicEarthquakeInformation(){
+    public String storageForBasicEarthquakeInformation() {
 
         BasicEarthquakeInfo basicEarthquakeInfo = new BasicEarthquakeInfo();
 
@@ -78,22 +78,20 @@ public class BasicEarthquakeInformationStorage implements DisasterInformationSto
 
 //        basicEarthquakeInfo.setPicture(data.getString("picture"));
 
-        try{
-            if(data.getString("picture").split("/").length>1)
-            {
+        try {
+            if (data.getString("picture").split("/").length > 1) {
                 basicEarthquakeInfo.setPicture(data.getString("picture"));
+            } else {
+                basicEarthquakeInfo.setPicture(restTemplate.postForObject(uploadFileUrl + "/v1/filePic" + "/" + source + "/" + data.getString("picture"), null, String.class));
             }
-            else{
-                basicEarthquakeInfo.setPicture(restTemplate.postForObject(uploadFileUrl + "/v1/filePic"+"/"+source+"/"+data.getString("picture"), null, String.class));
-            }
-        }catch (Exception e){
+        } catch (Exception e) {
             basicEarthquakeInfo.setPicture(null);
         }
-        basicEarthquakeInfo.setReportingUnit(source+data.getString("reportingUnit"));
+        basicEarthquakeInfo.setReportingUnit(source + data.getString("reportingUnit"));
 
         basicEarthquakeInfoMapper.save(basicEarthquakeInfo);
 
-        return code+"入库成功";
+        return code + "入库成功";
 
     }
 }

@@ -1,9 +1,7 @@
 package com.earthquake.managementPlatform.service;
 
 import com.earthquake.managementPlatform.entities.CivilStructure;
-import com.earthquake.managementPlatform.entities.MissingStatistics;
 import com.earthquake.managementPlatform.mapper.CivilStructureMapper;
-import com.earthquake.managementPlatform.mapper.MissingStatisticsMapper;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -12,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import javax.annotation.Resource;
 
 @Service
-public class CivilStructureStorage implements DisasterInformationStorage{
+public class CivilStructureStorage implements DisasterInformationStorage {
     @Resource
     CivilStructureMapper civilStructureMapper;
     @Resource
@@ -56,7 +54,7 @@ public class CivilStructureStorage implements DisasterInformationStorage{
         return storageForCivilStructure();
     }
 
-    public String storageForCivilStructure(){
+    public String storageForCivilStructure() {
 
         CivilStructure civilStructure = new CivilStructure();
 
@@ -74,13 +72,13 @@ public class CivilStructureStorage implements DisasterInformationStorage{
 
         civilStructure.setNote(data.getString("note"));
 
-        civilStructure.setReportingUnit(source+data.getString("reportingUnit"));
+        civilStructure.setReportingUnit(source + data.getString("reportingUnit"));
 
         civilStructure.setEarthquakeId(data.getString("earthquakeId"));
 
         civilStructureMapper.save(civilStructure);
 
-        return code+"入库成功";
+        return code + "入库成功";
 
     }
 }

@@ -1,7 +1,9 @@
 package com.earthquake.managementPlatform.controller;
 
-import com.earthquake.managementPlatform.entities.*;
-import com.earthquake.managementPlatform.mapper.FrameworkStructureMapper;
+import com.earthquake.managementPlatform.entities.GetVo;
+import com.earthquake.managementPlatform.entities.OtherStructure;
+import com.earthquake.managementPlatform.entities.PostVo;
+import com.earthquake.managementPlatform.entities.SquareStatistics;
 import com.earthquake.managementPlatform.mapper.OtherStructureMapper;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,43 +15,40 @@ import java.util.List;
 public class OtherStructureResource {
     @Resource
     OtherStructureMapper otherStructureMapper;
+
     @GetMapping("/v1/otherStructure")
-    public GetVo otherStructureAll(HttpServletRequest request){
-        int limit = Integer.valueOf(request.getParameter("limit"));
-        int page = Integer.valueOf(request.getParameter("page"));
+    public GetVo<OtherStructure> otherStructureAll(HttpServletRequest request) {
+        int limit = Integer.parseInt(request.getParameter("limit"));
+        int page = Integer.parseInt(request.getParameter("page"));
         int size = otherStructureMapper.getAllOtherStructure().size();
-        List<OtherStructure> otherStructure = otherStructureMapper.getOtherStructureByPage((page-1)*limit,limit);
-        GetVo<OtherStructure> getVo = new GetVo<>(0,"获取数据成功！",size,otherStructure);
-        return getVo;
+        List<OtherStructure> otherStructure = otherStructureMapper.getOtherStructureByPage((page - 1) * limit, limit);
+        return new GetVo<>(0, "获取数据成功！", size, otherStructure);
     }
 
     @GetMapping("/v1/otherStructure/{time}")
-    public GetVo otherStructureByTime(@PathVariable("time")int time, HttpServletRequest request){
-        int limit = Integer.valueOf(request.getParameter("limit"));
-        int page = Integer.valueOf(request.getParameter("page"));
-        int timestamp = time*24;
+    public GetVo<OtherStructure> otherStructureByTime(@PathVariable("time") int time, HttpServletRequest request) {
+        int limit = Integer.parseInt(request.getParameter("limit"));
+        int page = Integer.parseInt(request.getParameter("page"));
+        int timestamp = time * 24;
         int size = otherStructureMapper.getRecentOtherStructure(timestamp).size();
-        List<OtherStructure> otherStructures = otherStructureMapper.getRecentOtherStructureByPage((page-1)*limit,limit,timestamp);
-        GetVo<OtherStructure> getVo = new GetVo<>(0,"获取数据成功！",size,otherStructures);
-        return getVo;
+        List<OtherStructure> otherStructures = otherStructureMapper.getRecentOtherStructureByPage((page - 1) * limit, limit, timestamp);
+        return new GetVo<>(0, "获取数据成功！", size, otherStructures);
     }
 
     @GetMapping("/v1/lastOtherStructureByTime")
-    public GetVo getLastOtherStructureByTime(){
+    public GetVo<SquareStatistics>  getLastOtherStructureByTime() {
         List<SquareStatistics> squareStatistics = otherStructureMapper.getLastOtherStructureByTime();
-        GetVo<SquareStatistics> getVo = new GetVo<>(0,"获取数据成功！",squareStatistics.size(),squareStatistics);
-        return getVo;
+        return new GetVo<>(0, "获取数据成功！", squareStatistics.size(), squareStatistics);
     }
 
     @GetMapping("/v1/lastOtherStructure")
-    public GetVo getLastOtherStructure(){
+    public GetVo<OtherStructure> getLastOtherStructure() {
         List<OtherStructure> otherStructure = otherStructureMapper.getLastOtherStructure();
-        GetVo<OtherStructure> getVo = new GetVo<>(0,"获取数据成功！",otherStructure.size(),otherStructure);
-        return getVo;
+        return new GetVo<>(0, "获取数据成功！", otherStructure.size(), otherStructure);
     }
 
     @PutMapping("/v1/otherStructure/{id}")
-    public PostVo editOtherStructure(HttpServletRequest request, @PathVariable("id") String id){
+    public PostVo<OtherStructure> editOtherStructure(HttpServletRequest request, @PathVariable("id") String id) {
         OtherStructure otherStructure = new OtherStructure();
         otherStructure.setId(id);
         otherStructure.setDate(request.getParameter("date"));
@@ -63,20 +62,17 @@ public class OtherStructureResource {
         otherStructure.setReportingUnit(request.getParameter("reportingUnit"));
         otherStructure.setEarthquakeId(request.getParameter("earthquakeId"));
         otherStructureMapper.update(otherStructure);
-        PostVo postVo = new PostVo(0,"编辑成功！",null);
-        return postVo;
+        return new PostVo<>(0, "编辑成功！", null);
     }
 
     @DeleteMapping("/v1/otherStructure/{id}")
-    public PostVo delOtherStructure(@PathVariable("id")String id){
+    public PostVo<OtherStructure> delOtherStructure(@PathVariable("id") String id) {
         otherStructureMapper.deleteById(id);
-        PostVo postVo = new PostVo(0,"删除成功!",null);
-        return postVo;
+        return new PostVo<>(0, "删除成功!", null);
     }
 
     @GetMapping("/v1/otherStructureCopy/{time}")
-    public List<OtherStructure> otherStructureCopy(@PathVariable("time") int time){
-        List<OtherStructure> otherStructures = otherStructureMapper.getCopyOtherStructure(time*24);
-        return otherStructures;
+    public List<OtherStructure> otherStructureCopy(@PathVariable("time") int time) {
+        return otherStructureMapper.getCopyOtherStructure(time * 24);
     }
 }

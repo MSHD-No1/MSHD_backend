@@ -1,8 +1,10 @@
 package com.earthquake.managementPlatform.controller;
 
-import com.earthquake.managementPlatform.entities.*;
+import com.earthquake.managementPlatform.entities.CommDisaster;
+import com.earthquake.managementPlatform.entities.GetVo;
+import com.earthquake.managementPlatform.entities.LifeLineStatistics;
+import com.earthquake.managementPlatform.entities.PostVo;
 import com.earthquake.managementPlatform.mapper.CommDisasterMapper;
-import com.earthquake.managementPlatform.mapper.PowerDisasterMapper;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -13,36 +15,34 @@ import java.util.List;
 public class CommDisasterResource {
     @Resource
     CommDisasterMapper commDisasterMapper;
+
     @GetMapping("/v1/commDisaster")
-    public GetVo commDisasterAll(HttpServletRequest request){
-        int limit = Integer.valueOf(request.getParameter("limit"));
-        int page = Integer.valueOf(request.getParameter("page"));
+    public GetVo<CommDisaster> commDisasterAll(HttpServletRequest request) {
+        int limit = Integer.parseInt(request.getParameter("limit"));
+        int page = Integer.parseInt(request.getParameter("page"));
         int size = commDisasterMapper.getAllCommDisaster().size();
-        List<CommDisaster> commDisaster = commDisasterMapper.getCommDisasterByPage((page-1)*limit,limit);
-        GetVo<CommDisaster> getVo = new GetVo<>(0,"获取数据成功！",size,commDisaster);
-        return getVo;
+        List<CommDisaster> commDisaster = commDisasterMapper.getCommDisasterByPage((page - 1) * limit, limit);
+        return new GetVo<>(0, "获取数据成功！", size, commDisaster);
     }
 
     @GetMapping("/v1/commDisaster/{time}")
-    public GetVo commDisasterByTime(@PathVariable("time")int time, HttpServletRequest request){
-        int limit = Integer.valueOf(request.getParameter("limit"));
-        int page = Integer.valueOf(request.getParameter("page"));
-        int timestamp = time*24;
+    public GetVo<CommDisaster> commDisasterByTime(@PathVariable("time") int time, HttpServletRequest request) {
+        int limit = Integer.parseInt(request.getParameter("limit"));
+        int page = Integer.parseInt(request.getParameter("page"));
+        int timestamp = time * 24;
         int size = commDisasterMapper.getRecentCommDisaster(timestamp).size();
-        List<CommDisaster> commDisasters = commDisasterMapper.getRecentCommDisasterByPage((page-1)*limit,limit,timestamp);
-        GetVo<CommDisaster> getVo = new GetVo<>(0,"获取数据成功！",size,commDisasters);
-        return getVo;
+        List<CommDisaster> commDisasters = commDisasterMapper.getRecentCommDisasterByPage((page - 1) * limit, limit, timestamp);
+        return new GetVo<>(0, "获取数据成功！", size, commDisasters);
     }
 
     @GetMapping("/v1/lastCommDisasterStatistics")
-    public GetVo getLastCommDisasterStatistics(){
+    public GetVo<LifeLineStatistics> getLastCommDisasterStatistics() {
         List<LifeLineStatistics> lifeLineStatistics = commDisasterMapper.getCommDisasterStatistics();
-        GetVo<LifeLineStatistics> getVo = new GetVo<>(0,"获取数据成功！",lifeLineStatistics.size(),lifeLineStatistics);
-        return getVo;
+        return new GetVo<>(0, "获取数据成功！", lifeLineStatistics.size(), lifeLineStatistics);
     }
 
     @PutMapping("/v1/commDisaster/{id}")
-    public PostVo editCommDisaster(HttpServletRequest request, @PathVariable("id") String id){
+    public PostVo<CommDisaster> editCommDisaster(HttpServletRequest request, @PathVariable("id") String id) {
         CommDisaster commDisaster = new CommDisaster();
         commDisaster.setId(id);
         commDisaster.setDate(request.getParameter("date"));
@@ -54,20 +54,17 @@ public class CommDisasterResource {
         commDisaster.setReportingUnit(request.getParameter("reportingUnit"));
         commDisaster.setEarthquakeId(request.getParameter("earthquakeId"));
         commDisasterMapper.update(commDisaster);
-        PostVo postVo = new PostVo(0,"编辑成功！",null);
-        return postVo;
+        return new PostVo<>(0, "编辑成功！", null);
     }
 
     @DeleteMapping("/v1/commDisaster/{id}")
-    public PostVo delCommDisaster(@PathVariable("id")String id){
+    public PostVo<CommDisaster> delCommDisaster(@PathVariable("id") String id) {
         commDisasterMapper.deleteById(id);
-        PostVo postVo = new PostVo(0,"删除成功!",null);
-        return postVo;
+        return new PostVo<>(0, "删除成功!", null);
     }
 
     @GetMapping("/v1/commDisasterCopy/{time}")
-    public List<CommDisaster> commDisasterCopy(@PathVariable("time") int time){
-        List<CommDisaster> commDisasters = commDisasterMapper.getCopyCommDisaster(time*24);
-        return commDisasters;
+    public List<CommDisaster> commDisasterCopy(@PathVariable("time") int time) {
+        return commDisasterMapper.getCopyCommDisaster(time * 24);
     }
 }

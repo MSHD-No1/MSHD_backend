@@ -1,9 +1,7 @@
 package com.earthquake.managementPlatform.service;
 
 import com.earthquake.managementPlatform.entities.CommDisaster;
-import com.earthquake.managementPlatform.entities.OtherStructure;
 import com.earthquake.managementPlatform.mapper.CommDisasterMapper;
-import com.earthquake.managementPlatform.mapper.OtherStructureMapper;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -12,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import javax.annotation.Resource;
 
 @Service
-public class CommDisasterStorage implements DisasterInformationStorage{
+public class CommDisasterStorage implements DisasterInformationStorage {
     @Resource
     CommDisasterMapper commDisasterMapper;
     @Resource
@@ -56,7 +54,7 @@ public class CommDisasterStorage implements DisasterInformationStorage{
         return storageForCommDisaster();
     }
 
-    public String storageForCommDisaster(){
+    public String storageForCommDisaster() {
 
         CommDisaster commDisaster = new CommDisaster();
 
@@ -70,27 +68,25 @@ public class CommDisasterStorage implements DisasterInformationStorage{
 
         commDisaster.setGrade(data.get("grade").toString());
 
-        try{
-            if(data.getString("picture").split("/").length>1)
-            {
+        try {
+            if (data.getString("picture").split("/").length > 1) {
                 commDisaster.setPicture(data.getString("picture"));
+            } else {
+                commDisaster.setPicture(restTemplate.postForObject(uploadFileUrl + "/v1/filePic" + "/" + source + "/" + data.getString("picture"), null, String.class));
             }
-            else{
-                commDisaster.setPicture(restTemplate.postForObject(uploadFileUrl + "/v1/filePic"+"/"+source+"/"+data.getString("picture"), null, String.class));
-            }
-        }catch (Exception e){
+        } catch (Exception e) {
             commDisaster.setPicture(null);
         }
 
         commDisaster.setNote(data.getString("note"));
 
-        commDisaster.setReportingUnit(source+data.getString("reportingUnit"));
+        commDisaster.setReportingUnit(source + data.getString("reportingUnit"));
 
         commDisaster.setEarthquakeId(data.getString("earthquakeId"));
 
         commDisasterMapper.save(commDisaster);
 
-        return code+"入库成功";
+        return code + "入库成功";
 
     }
 }

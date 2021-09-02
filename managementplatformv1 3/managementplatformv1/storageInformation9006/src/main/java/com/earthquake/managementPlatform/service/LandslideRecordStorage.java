@@ -1,8 +1,6 @@
 package com.earthquake.managementPlatform.service;
 
-import com.earthquake.managementPlatform.entities.CollapseRecord;
 import com.earthquake.managementPlatform.entities.LandslideRecord;
-import com.earthquake.managementPlatform.mapper.CollapseRecordMapper;
 import com.earthquake.managementPlatform.mapper.LandslideRecordMapper;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import javax.annotation.Resource;
 
 @Service
-public class LandslideRecordStorage implements DisasterInformationStorage{
+public class LandslideRecordStorage implements DisasterInformationStorage {
     @Resource
     LandslideRecordMapper landslideRecordMapper;
     @Resource
@@ -56,7 +54,7 @@ public class LandslideRecordStorage implements DisasterInformationStorage{
         return storageForLandslideRecord();
     }
 
-    public String storageForLandslideRecord(){
+    public String storageForLandslideRecord() {
 
         LandslideRecord landslideRecord = new LandslideRecord();
 
@@ -70,27 +68,25 @@ public class LandslideRecordStorage implements DisasterInformationStorage{
 
         landslideRecord.setStatus(data.get("status").toString());
 
-        try{
-            if(data.getString("picture").split("/").length>1)
-            {
+        try {
+            if (data.getString("picture").split("/").length > 1) {
                 landslideRecord.setPicture(data.getString("picture"));
+            } else {
+                landslideRecord.setPicture(restTemplate.postForObject(uploadFileUrl + "/v1/filePic" + "/" + source + "/" + data.getString("picture"), null, String.class));
             }
-            else{
-                landslideRecord.setPicture(restTemplate.postForObject(uploadFileUrl + "/v1/filePic"+"/"+source+"/"+data.getString("picture"), null, String.class));
-            }
-        }catch (Exception e){
+        } catch (Exception e) {
             landslideRecord.setPicture(null);
         }
 
         landslideRecord.setNote(data.getString("note"));
 
-        landslideRecord.setReportingUnit(source+data.getString("reportingUnit"));
+        landslideRecord.setReportingUnit(source + data.getString("reportingUnit"));
 
         landslideRecord.setEarthquakeId(data.getString("earthquakeId"));
 
         landslideRecordMapper.save(landslideRecord);
 
-        return code+"入库成功";
+        return code + "入库成功";
 
     }
 }

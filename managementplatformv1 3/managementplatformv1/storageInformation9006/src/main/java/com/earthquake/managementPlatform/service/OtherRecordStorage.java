@@ -1,9 +1,7 @@
 package com.earthquake.managementPlatform.service;
 
 import com.earthquake.managementPlatform.entities.OtherRecord;
-import com.earthquake.managementPlatform.entities.SettlementRecord;
 import com.earthquake.managementPlatform.mapper.OtherRecordMapper;
-import com.earthquake.managementPlatform.mapper.SettlementRecordMapper;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -12,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import javax.annotation.Resource;
 
 @Service
-public class OtherRecordStorage implements DisasterInformationStorage{
+public class OtherRecordStorage implements DisasterInformationStorage {
     @Resource
     OtherRecordMapper otherRecordMapper;
     @Resource
@@ -56,7 +54,7 @@ public class OtherRecordStorage implements DisasterInformationStorage{
         return storageForOtherRecord();
     }
 
-    public String storageForOtherRecord(){
+    public String storageForOtherRecord() {
 
         OtherRecord otherRecord = new OtherRecord();
 
@@ -70,27 +68,25 @@ public class OtherRecordStorage implements DisasterInformationStorage{
 
         otherRecord.setStatus(data.get("status").toString());
 
-        try{
-            if(data.getString("picture").split("/").length>1)
-            {
+        try {
+            if (data.getString("picture").split("/").length > 1) {
                 otherRecord.setPicture(data.getString("picture"));
+            } else {
+                otherRecord.setPicture(restTemplate.postForObject(uploadFileUrl + "/v1/filePic" + "/" + source + "/" + data.getString("picture"), null, String.class));
             }
-            else{
-                otherRecord.setPicture(restTemplate.postForObject(uploadFileUrl + "/v1/filePic"+"/"+source+"/"+data.getString("picture"), null, String.class));
-            }
-        }catch (Exception e){
+        } catch (Exception e) {
             otherRecord.setPicture(null);
         }
 
         otherRecord.setNote(data.getString("note"));
 
-        otherRecord.setReportingUnit(source+data.getString("reportingUnit"));
+        otherRecord.setReportingUnit(source + data.getString("reportingUnit"));
 
         otherRecord.setEarthquakeId(data.getString("earthquakeId"));
 
         otherRecordMapper.save(otherRecord);
 
-        return code+"入库成功";
+        return code + "入库成功";
 
     }
 }

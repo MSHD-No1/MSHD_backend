@@ -12,13 +12,13 @@ public class DisasterInformationStorageService {
     DisasterInfoFactory disasterInfoFactory;
 
     @Transactional
-    public String disasterInformationStorage(String code, String source, JSONObject data){
+    public String disasterInformationStorage(String code, String source, JSONObject data) {
         DisasterInformationStorage disasterInformationStorage = disasterInfoFactory.createDisasterInformationStorage(code);
         return disasterInformationStorage.storage(code, source, data);
     }
 
     @Transactional
-    public String disasterPredictionInformationStorage(String source, JSONObject data){
+    public String disasterPredictionInformationStorage(String source, JSONObject data) {
         DisasterInformationStorage disasterInformationStorage = disasterInfoFactory.createDisasterInformationStorage(source);
         return disasterInformationStorage.storage(null, source, data);
     }

@@ -1,9 +1,7 @@
 package com.earthquake.managementPlatform.service;
 
 import com.earthquake.managementPlatform.entities.OilDisaster;
-import com.earthquake.managementPlatform.entities.WaterDisaster;
 import com.earthquake.managementPlatform.mapper.OilDisasterMapper;
-import com.earthquake.managementPlatform.mapper.WaterDisasterMapper;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -12,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import javax.annotation.Resource;
 
 @Service
-public class OilDisasterStorage implements DisasterInformationStorage{
+public class OilDisasterStorage implements DisasterInformationStorage {
     @Resource
     OilDisasterMapper oilDisasterMapper;
     @Resource
@@ -56,7 +54,7 @@ public class OilDisasterStorage implements DisasterInformationStorage{
         return storageForOilDisaster();
     }
 
-    public String storageForOilDisaster(){
+    public String storageForOilDisaster() {
 
         OilDisaster oilDisaster = new OilDisaster();
 
@@ -70,27 +68,25 @@ public class OilDisasterStorage implements DisasterInformationStorage{
 
         oilDisaster.setGrade(data.get("grade").toString());
 
-        try{
-            if(data.getString("picture").split("/").length>1)
-            {
+        try {
+            if (data.getString("picture").split("/").length > 1) {
                 oilDisaster.setPicture(data.getString("picture"));
+            } else {
+                oilDisaster.setPicture(restTemplate.postForObject(uploadFileUrl + "/v1/filePic" + "/" + source + "/" + data.getString("picture"), null, String.class));
             }
-            else{
-                oilDisaster.setPicture(restTemplate.postForObject(uploadFileUrl + "/v1/filePic"+"/"+source+"/"+data.getString("picture"), null, String.class));
-            }
-        }catch (Exception e){
+        } catch (Exception e) {
             oilDisaster.setPicture(null);
         }
 
         oilDisaster.setNote(data.getString("note"));
 
-        oilDisaster.setReportingUnit(source+data.getString("reportingUnit"));
+        oilDisaster.setReportingUnit(source + data.getString("reportingUnit"));
 
         oilDisaster.setEarthquakeId(data.getString("earthquakeId"));
 
         oilDisasterMapper.save(oilDisaster);
 
-        return code+"入库成功";
+        return code + "入库成功";
 
     }
 }

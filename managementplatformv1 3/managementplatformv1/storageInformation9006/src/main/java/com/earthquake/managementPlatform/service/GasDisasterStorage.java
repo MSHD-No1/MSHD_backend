@@ -1,9 +1,7 @@
 package com.earthquake.managementPlatform.service;
 
 import com.earthquake.managementPlatform.entities.GasDisaster;
-import com.earthquake.managementPlatform.entities.OilDisaster;
 import com.earthquake.managementPlatform.mapper.GasDisasterMapper;
-import com.earthquake.managementPlatform.mapper.OilDisasterMapper;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -12,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import javax.annotation.Resource;
 
 @Service
-public class GasDisasterStorage implements DisasterInformationStorage{
+public class GasDisasterStorage implements DisasterInformationStorage {
     @Resource
     GasDisasterMapper gasDisasterMapper;
     @Resource
@@ -56,7 +54,7 @@ public class GasDisasterStorage implements DisasterInformationStorage{
         return storageForGasDisaster();
     }
 
-    public String storageForGasDisaster(){
+    public String storageForGasDisaster() {
 
         GasDisaster gasDisaster = new GasDisaster();
 
@@ -70,27 +68,25 @@ public class GasDisasterStorage implements DisasterInformationStorage{
 
         gasDisaster.setGrade(data.get("grade").toString());
 
-        try{
-            if(data.getString("picture").split("/").length>1)
-            {
+        try {
+            if (data.getString("picture").split("/").length > 1) {
                 gasDisaster.setPicture(data.getString("picture"));
+            } else {
+                gasDisaster.setPicture(restTemplate.postForObject(uploadFileUrl + "/v1/filePic" + "/" + source + "/" + data.getString("picture"), null, String.class));
             }
-            else{
-                gasDisaster.setPicture(restTemplate.postForObject(uploadFileUrl + "/v1/filePic"+"/"+source+"/"+data.getString("picture"), null, String.class));
-            }
-        }catch (Exception e){
+        } catch (Exception e) {
             gasDisaster.setPicture(null);
         }
 
         gasDisaster.setNote(data.getString("note"));
 
-        gasDisaster.setReportingUnit(source+data.getString("reportingUnit"));
+        gasDisaster.setReportingUnit(source + data.getString("reportingUnit"));
 
         gasDisaster.setEarthquakeId(data.getString("earthquakeId"));
 
         gasDisasterMapper.save(gasDisaster);
 
-        return code+"入库成功";
+        return code + "入库成功";
 
     }
 }

@@ -1,8 +1,6 @@
 package com.earthquake.managementPlatform.service;
 
-import com.earthquake.managementPlatform.entities.InjuredStatistics;
 import com.earthquake.managementPlatform.entities.MissingStatistics;
-import com.earthquake.managementPlatform.mapper.InjuredStatisticsMapper;
 import com.earthquake.managementPlatform.mapper.MissingStatisticsMapper;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import javax.annotation.Resource;
 
 @Service
-public class MissingStatisticsStorage implements DisasterInformationStorage{
+public class MissingStatisticsStorage implements DisasterInformationStorage {
     @Resource
     MissingStatisticsMapper missingStatisticsMapper;
     @Resource
@@ -56,7 +54,7 @@ public class MissingStatisticsStorage implements DisasterInformationStorage{
         return storageForMissingStatistics();
     }
 
-    public String storageForMissingStatistics(){
+    public String storageForMissingStatistics() {
 
         MissingStatistics missingStatistics = new MissingStatistics();
 
@@ -68,13 +66,13 @@ public class MissingStatisticsStorage implements DisasterInformationStorage{
 
         missingStatistics.setNumber(data.getInt("number"));
 
-        missingStatistics.setReportingUnit(source+data.getString("reportingUnit"));
+        missingStatistics.setReportingUnit(source + data.getString("reportingUnit"));
 
         missingStatistics.setEarthquakeId(data.getString("earthquakeId"));
 
         missingStatisticsMapper.save(missingStatistics);
 
-        return code+"入库成功";
+        return code + "入库成功";
 
     }
 }

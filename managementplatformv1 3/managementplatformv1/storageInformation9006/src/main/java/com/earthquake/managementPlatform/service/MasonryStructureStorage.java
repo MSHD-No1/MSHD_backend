@@ -1,8 +1,6 @@
 package com.earthquake.managementPlatform.service;
 
-import com.earthquake.managementPlatform.entities.BrickwoodStructure;
 import com.earthquake.managementPlatform.entities.MasonryStructure;
-import com.earthquake.managementPlatform.mapper.BrickwoodStructureMapper;
 import com.earthquake.managementPlatform.mapper.MasonryStructureMapper;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import javax.annotation.Resource;
 
 @Service
-public class MasonryStructureStorage implements DisasterInformationStorage{
+public class MasonryStructureStorage implements DisasterInformationStorage {
     @Resource
     MasonryStructureMapper masonryStructureMapper;
     @Resource
@@ -56,7 +54,7 @@ public class MasonryStructureStorage implements DisasterInformationStorage{
         return storageForMasonryStructure();
     }
 
-    public String storageForMasonryStructure(){
+    public String storageForMasonryStructure() {
 
         MasonryStructure masonryStructure = new MasonryStructure();
 
@@ -78,13 +76,13 @@ public class MasonryStructureStorage implements DisasterInformationStorage{
 
         masonryStructure.setNote(data.getString("note"));
 
-        masonryStructure.setReportingUnit(source+data.getString("reportingUnit"));
+        masonryStructure.setReportingUnit(source + data.getString("reportingUnit"));
 
         masonryStructure.setEarthquakeId(data.getString("earthquakeId"));
 
         masonryStructureMapper.save(masonryStructure);
 
-        return code+"入库成功";
+        return code + "入库成功";
 
     }
 }

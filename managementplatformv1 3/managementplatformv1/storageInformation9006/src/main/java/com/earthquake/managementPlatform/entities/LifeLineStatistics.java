@@ -4,11 +4,10 @@ public class LifeLineStatistics {
     private String grade;
     private int count;
 
-    public LifeLineStatistics()
-    {}
+    public LifeLineStatistics() {
+    }
 
-    public LifeLineStatistics(String grade,int count)
-    {
+    public LifeLineStatistics(String grade, int count) {
         this.grade = grade;
         this.count = count;
     }

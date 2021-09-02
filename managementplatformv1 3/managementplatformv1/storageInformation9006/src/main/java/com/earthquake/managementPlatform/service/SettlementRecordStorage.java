@@ -1,8 +1,6 @@
 package com.earthquake.managementPlatform.service;
 
-import com.earthquake.managementPlatform.entities.CrackRecord;
 import com.earthquake.managementPlatform.entities.SettlementRecord;
-import com.earthquake.managementPlatform.mapper.CrackRecordMapper;
 import com.earthquake.managementPlatform.mapper.SettlementRecordMapper;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import javax.annotation.Resource;
 
 @Service
-public class SettlementRecordStorage implements DisasterInformationStorage{
+public class SettlementRecordStorage implements DisasterInformationStorage {
     @Resource
     SettlementRecordMapper settlementRecordMapper;
     @Resource
@@ -56,7 +54,7 @@ public class SettlementRecordStorage implements DisasterInformationStorage{
         return storageForSettlementRecord();
     }
 
-    public String storageForSettlementRecord(){
+    public String storageForSettlementRecord() {
 
         SettlementRecord settlementRecord = new SettlementRecord();
 
@@ -70,27 +68,25 @@ public class SettlementRecordStorage implements DisasterInformationStorage{
 
         settlementRecord.setStatus(data.get("status").toString());
 
-        try{
-            if(data.getString("picture").split("/").length>1)
-            {
+        try {
+            if (data.getString("picture").split("/").length > 1) {
                 settlementRecord.setPicture(data.getString("picture"));
+            } else {
+                settlementRecord.setPicture(restTemplate.postForObject(uploadFileUrl + "/v1/filePic" + "/" + source + "/" + data.getString("picture"), null, String.class));
             }
-            else{
-                settlementRecord.setPicture(restTemplate.postForObject(uploadFileUrl + "/v1/filePic"+"/"+source+"/"+data.getString("picture"), null, String.class));
-            }
-        }catch (Exception e){
+        } catch (Exception e) {
             settlementRecord.setPicture(null);
         }
 
         settlementRecord.setNote(data.getString("note"));
 
-        settlementRecord.setReportingUnit(source+data.getString("reportingUnit"));
+        settlementRecord.setReportingUnit(source + data.getString("reportingUnit"));
 
         settlementRecord.setEarthquakeId(data.getString("earthquakeId"));
 
         settlementRecordMapper.save(settlementRecord);
 
-        return code+"入库成功";
+        return code + "入库成功";
 
     }
 }

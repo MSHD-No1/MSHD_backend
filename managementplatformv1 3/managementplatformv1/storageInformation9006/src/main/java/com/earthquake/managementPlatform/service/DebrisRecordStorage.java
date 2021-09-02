@@ -1,9 +1,7 @@
 package com.earthquake.managementPlatform.service;
 
 import com.earthquake.managementPlatform.entities.DebrisRecord;
-import com.earthquake.managementPlatform.entities.LandslideRecord;
 import com.earthquake.managementPlatform.mapper.DebrisRecordMapper;
-import com.earthquake.managementPlatform.mapper.LandslideRecordMapper;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -12,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import javax.annotation.Resource;
 
 @Service
-public class DebrisRecordStorage implements DisasterInformationStorage{
+public class DebrisRecordStorage implements DisasterInformationStorage {
     @Resource
     DebrisRecordMapper debrisRecordMapper;
     @Resource
@@ -56,7 +54,7 @@ public class DebrisRecordStorage implements DisasterInformationStorage{
         return storageForDebrisRecord();
     }
 
-    public String storageForDebrisRecord(){
+    public String storageForDebrisRecord() {
 
         DebrisRecord debrisRecord = new DebrisRecord();
 
@@ -70,27 +68,25 @@ public class DebrisRecordStorage implements DisasterInformationStorage{
 
         debrisRecord.setStatus(data.get("status").toString());
 
-        try{
-            if(data.getString("picture").split("/").length>1)
-            {
+        try {
+            if (data.getString("picture").split("/").length > 1) {
                 debrisRecord.setPicture(data.getString("picture"));
+            } else {
+                debrisRecord.setPicture(restTemplate.postForObject(uploadFileUrl + "/v1/filePic" + "/" + source + "/" + data.getString("picture"), null, String.class));
             }
-            else{
-                debrisRecord.setPicture(restTemplate.postForObject(uploadFileUrl + "/v1/filePic"+"/"+source+"/"+data.getString("picture"), null, String.class));
-            }
-        }catch (Exception e){
+        } catch (Exception e) {
             debrisRecord.setPicture(null);
         }
 
         debrisRecord.setNote(data.getString("note"));
 
-        debrisRecord.setReportingUnit(source+data.getString("reportingUnit"));
+        debrisRecord.setReportingUnit(source + data.getString("reportingUnit"));
 
         debrisRecord.setEarthquakeId(data.getString("earthquakeId"));
 
         debrisRecordMapper.save(debrisRecord);
 
-        return code+"入库成功";
+        return code + "入库成功";
 
     }
 }

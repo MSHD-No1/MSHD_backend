@@ -1,6 +1,9 @@
 package com.earthquake.managementPlatform.controller;
 
-import com.earthquake.managementPlatform.entities.*;
+import com.earthquake.managementPlatform.entities.GetVo;
+import com.earthquake.managementPlatform.entities.LandslideRecord;
+import com.earthquake.managementPlatform.entities.PostVo;
+import com.earthquake.managementPlatform.entities.SecondaryDisasterStatistics;
 import com.earthquake.managementPlatform.mapper.LandslideRecordMapper;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,36 +15,34 @@ import java.util.List;
 public class LandslideRecordResource {
     @Resource
     LandslideRecordMapper landslideRecordMapper;
+
     @GetMapping("/v1/landslideRecord")
-    public GetVo landslideRecordAll(HttpServletRequest request){
-        int limit = Integer.valueOf(request.getParameter("limit"));
-        int page = Integer.valueOf(request.getParameter("page"));
+    public GetVo<LandslideRecord> landslideRecordAll(HttpServletRequest request) {
+        int limit = Integer.parseInt(request.getParameter("limit"));
+        int page = Integer.parseInt(request.getParameter("page"));
         int size = landslideRecordMapper.getAllLandslideRecord().size();
-        List<LandslideRecord> landslideRecord = landslideRecordMapper.getLandslideRecordByPage((page-1)*limit,limit);
-        GetVo<LandslideRecord> getVo = new GetVo<>(0,"获取数据成功！",size,landslideRecord);
-        return getVo;
+        List<LandslideRecord> landslideRecord = landslideRecordMapper.getLandslideRecordByPage((page - 1) * limit, limit);
+        return new GetVo<>(0, "获取数据成功！", size, landslideRecord);
     }
 
     @GetMapping("/v1/landslideRecord/{time}")
-    public GetVo landslideRecordByTime(@PathVariable("time")int time, HttpServletRequest request){
-        int limit = Integer.valueOf(request.getParameter("limit"));
-        int page = Integer.valueOf(request.getParameter("page"));
-        int timestamp = time*24;
+    public GetVo<LandslideRecord> landslideRecordByTime(@PathVariable("time") int time, HttpServletRequest request) {
+        int limit = Integer.parseInt(request.getParameter("limit"));
+        int page = Integer.parseInt(request.getParameter("page"));
+        int timestamp = time * 24;
         int size = landslideRecordMapper.getRecentLandslideRecord(timestamp).size();
-        List<LandslideRecord> landslideRecords = landslideRecordMapper.getRecentLandslideRecordByPage((page-1)*limit,limit,timestamp);
-        GetVo<LandslideRecord> getVo = new GetVo<>(0,"获取数据成功！",size,landslideRecords);
-        return getVo;
+        List<LandslideRecord> landslideRecords = landslideRecordMapper.getRecentLandslideRecordByPage((page - 1) * limit, limit, timestamp);
+        return new GetVo<>(0, "获取数据成功！", size, landslideRecords);
     }
 
     @GetMapping("/v1/lastLandslideRecordStatistics")
-    public GetVo getLastLandslideRecordStatistics(){
+    public GetVo<SecondaryDisasterStatistics> getLastLandslideRecordStatistics() {
         List<SecondaryDisasterStatistics> secondaryDisasterStatistics = landslideRecordMapper.getLandslideStatistics();
-        GetVo<SecondaryDisasterStatistics> getVo = new GetVo<>(0,"获取数据成功！",secondaryDisasterStatistics .size(),secondaryDisasterStatistics );
-        return getVo;
+        return new GetVo<>(0, "获取数据成功！", secondaryDisasterStatistics.size(), secondaryDisasterStatistics);
     }
 
     @PutMapping("/v1/landslideRecord/{id}")
-    public PostVo editLandslideRecord(HttpServletRequest request, @PathVariable("id") String id){
+    public PostVo<LandslideRecord> editLandslideRecord(HttpServletRequest request, @PathVariable("id") String id) {
         LandslideRecord landslideRecord = new LandslideRecord();
         landslideRecord.setId(id);
         landslideRecord.setDate(request.getParameter("date"));
@@ -53,19 +54,17 @@ public class LandslideRecordResource {
         landslideRecord.setReportingUnit(request.getParameter("reportingUnit"));
         landslideRecord.setEarthquakeId(request.getParameter("earthquakeId"));
         landslideRecordMapper.update(landslideRecord);
-        PostVo postVo = new PostVo(0,"编辑成功！",null);
-        return postVo;
+        return new PostVo<>(0, "编辑成功！", null);
     }
 
     @DeleteMapping("/v1/landslideRecord/{id}")
-    public PostVo delLandslideRecord(@PathVariable("id")String id){
+    public PostVo<LandslideRecord> delLandslideRecord(@PathVariable("id") String id) {
         landslideRecordMapper.deleteById(id);
-        PostVo postVo = new PostVo(0,"删除成功!",null);
-        return postVo;
+        return new PostVo<>(0, "删除成功!", null);
     }
+
     @GetMapping("/v1/landslideRecordCopy/{time}")
-    public List<LandslideRecord> landslideRecordCopy(@PathVariable("time") int time){
-        List<LandslideRecord> landslideRecords = landslideRecordMapper.getCopyLandslideRecord(time*24);
-        return landslideRecords;
+    public List<LandslideRecord> landslideRecordCopy(@PathVariable("time") int time) {
+        return landslideRecordMapper.getCopyLandslideRecord(time * 24);
     }
 }

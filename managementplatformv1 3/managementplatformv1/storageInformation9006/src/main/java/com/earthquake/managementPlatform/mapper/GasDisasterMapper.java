@@ -1,9 +1,7 @@
 package com.earthquake.managementPlatform.mapper;
 
-import com.earthquake.managementPlatform.entities.FrameworkStructure;
 import com.earthquake.managementPlatform.entities.GasDisaster;
 import com.earthquake.managementPlatform.entities.LifeLineStatistics;
-import com.earthquake.managementPlatform.entities.OilDisaster;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
 
@@ -12,30 +10,30 @@ import java.util.List;
 @Mapper
 public interface GasDisasterMapper {
     @Select("SELECT * FROM earthquake.gasdisaster;")
-    @Results(id="gasDisasterMap", value={
-            @Result(column="ID", property="id", jdbcType= JdbcType.CHAR, id=true),
-            @Result(column="date", property="date", jdbcType= JdbcType.VARCHAR),
-            @Result(column="location", property="location", jdbcType= JdbcType.VARCHAR),
-            @Result(column="type", property="type", jdbcType= JdbcType.VARCHAR),
-            @Result(column="grade", property="grade", jdbcType= JdbcType.VARCHAR),
-            @Result(column="picture", property="picture", jdbcType= JdbcType.VARCHAR),
-            @Result(column="note", property="note", jdbcType= JdbcType.VARCHAR),
-            @Result(column="reporting_unit", property="reportingUnit", jdbcType= JdbcType.VARCHAR),
-            @Result(column="earthquake_id", property="earthquakeId", jdbcType= JdbcType.CHAR)
+    @Results(id = "gasDisasterMap", value = {
+            @Result(column = "ID", property = "id", jdbcType = JdbcType.CHAR, id = true),
+            @Result(column = "date", property = "date", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "location", property = "location", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "type", property = "type", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "grade", property = "grade", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "picture", property = "picture", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "note", property = "note", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "reporting_unit", property = "reportingUnit", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "earthquake_id", property = "earthquakeId", jdbcType = JdbcType.CHAR)
     })
     List<GasDisaster> getAllGasDisaster();
 
     @Select("select * from earthquake.gasdisaster order by date desc limit #{pageNum}, #{limit};")
     @ResultMap(value = "gasDisasterMap")
-    List<GasDisaster> getGasDisasterByPage(@Param("pageNum") int pageNum, @Param("limit")int limit);
+    List<GasDisaster> getGasDisasterByPage(@Param("pageNum") int pageNum, @Param("limit") int limit);
 
     @Select("select * from earthquake.gasdisaster where date >=  NOW() - interval #{time} hour order by date desc;")
     @ResultMap(value = "gasDisasterMap")
-    List<GasDisaster> getRecentGasDisaster(@Param("time") int time );
+    List<GasDisaster> getRecentGasDisaster(@Param("time") int time);
 
     @Select("select * from earthquake.gasdisaster where date >=  NOW() - interval #{time} hour order by date desc limit #{pageNum}, #{limit};")
     @ResultMap(value = "gasDisasterMap")
-    List<GasDisaster> getRecentGasDisasterByPage(@Param("pageNum") int pageNum,@Param("limit")int limit,@Param("time") int time );
+    List<GasDisaster> getRecentGasDisasterByPage(@Param("pageNum") int pageNum, @Param("limit") int limit, @Param("time") int time);
 
     @Select("SELECT * FROM earthquake.gasdisaster WHERE ID = #{id} FOR UPDATE")
     @ResultMap(value = "gasDisasterMap")
@@ -61,9 +59,9 @@ public interface GasDisasterMapper {
     GasDisaster getNewCodeDescription();
 
     @Select("SELECT * FROM lastgasdisaster;")
-    @Results(id="lifeLineStatisticsMap", value={
-            @Result(column="grade", property="grade", jdbcType= JdbcType.VARCHAR),
-            @Result(column="count", property="count", jdbcType= JdbcType.INTEGER),
+    @Results(id = "lifeLineStatisticsMap", value = {
+            @Result(column = "grade", property = "grade", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "count", property = "count", jdbcType = JdbcType.INTEGER),
     })
     List<LifeLineStatistics> getGasStatistics();
 

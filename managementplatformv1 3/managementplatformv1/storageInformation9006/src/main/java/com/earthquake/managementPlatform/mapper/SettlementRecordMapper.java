@@ -1,6 +1,5 @@
 package com.earthquake.managementPlatform.mapper;
 
-import com.earthquake.managementPlatform.entities.PowerDisaster;
 import com.earthquake.managementPlatform.entities.SecondaryDisasterStatistics;
 import com.earthquake.managementPlatform.entities.SettlementRecord;
 import org.apache.ibatis.annotations.*;
@@ -11,30 +10,30 @@ import java.util.List;
 @Mapper
 public interface SettlementRecordMapper {
     @Select("SELECT * FROM earthquake.settlementrecord;")
-    @Results(id="settlementRecordMap", value={
-            @Result(column="ID", property="id", jdbcType= JdbcType.CHAR, id=true),
-            @Result(column="date", property="date", jdbcType= JdbcType.VARCHAR),
-            @Result(column="location", property="location", jdbcType= JdbcType.VARCHAR),
-            @Result(column="type", property="type", jdbcType= JdbcType.VARCHAR),
-            @Result(column="status", property="status", jdbcType= JdbcType.VARCHAR),
-            @Result(column="picture", property="picture", jdbcType= JdbcType.VARCHAR),
-            @Result(column="note", property="note", jdbcType= JdbcType.VARCHAR),
-            @Result(column="reporting_unit", property="reportingUnit", jdbcType= JdbcType.VARCHAR),
-            @Result(column="earthquake_id", property="earthquakeId", jdbcType= JdbcType.CHAR)
+    @Results(id = "settlementRecordMap", value = {
+            @Result(column = "ID", property = "id", jdbcType = JdbcType.CHAR, id = true),
+            @Result(column = "date", property = "date", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "location", property = "location", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "type", property = "type", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "status", property = "status", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "picture", property = "picture", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "note", property = "note", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "reporting_unit", property = "reportingUnit", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "earthquake_id", property = "earthquakeId", jdbcType = JdbcType.CHAR)
     })
     List<SettlementRecord> getAllSettlementRecord();
 
     @Select("select * from earthquake.settlementrecord order by date desc limit #{pageNum}, #{limit};")
     @ResultMap(value = "settlementRecordMap")
-    List<SettlementRecord> getSettlementRecordByPage(@Param("pageNum") int pageNum, @Param("limit")int limit);
+    List<SettlementRecord> getSettlementRecordByPage(@Param("pageNum") int pageNum, @Param("limit") int limit);
 
     @Select("select * from earthquake.settlementrecord where date >=  NOW() - interval #{time} hour order by date desc;")
     @ResultMap(value = "settlementRecordMap")
-    List<SettlementRecord> getRecentSettlementRecord(@Param("time") int time );
+    List<SettlementRecord> getRecentSettlementRecord(@Param("time") int time);
 
     @Select("select * from earthquake.settlementrecord where date >=  NOW() - interval #{time} hour order by date desc limit #{pageNum}, #{limit};")
     @ResultMap(value = "settlementRecordMap")
-    List<SettlementRecord> getRecentSettlementRecordByPage(@Param("pageNum") int pageNum,@Param("limit")int limit,@Param("time") int time );
+    List<SettlementRecord> getRecentSettlementRecordByPage(@Param("pageNum") int pageNum, @Param("limit") int limit, @Param("time") int time);
 
     @Select("SELECT * FROM earthquake.settlementrecord WHERE ID = #{id} FOR UPDATE")
     @ResultMap(value = "settlementRecordMap")
@@ -60,9 +59,9 @@ public interface SettlementRecordMapper {
     SettlementRecord getNewCodeDescription();
 
     @Select("SELECT * FROM earthquake.lastsettlementrecord")
-    @Results(id="secondaryDisasterStatisticsMap", value={
-            @Result(column="status", property="status", jdbcType= JdbcType.VARCHAR),
-            @Result(column="count", property="count", jdbcType= JdbcType.INTEGER),
+    @Results(id = "secondaryDisasterStatisticsMap", value = {
+            @Result(column = "status", property = "status", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "count", property = "count", jdbcType = JdbcType.INTEGER),
     })
     List<SecondaryDisasterStatistics> getSettlementStatistics();
 

@@ -1,9 +1,7 @@
 package com.earthquake.managementPlatform.service;
 
 import com.earthquake.managementPlatform.entities.FrameworkStructure;
-import com.earthquake.managementPlatform.entities.MasonryStructure;
 import com.earthquake.managementPlatform.mapper.FrameworkStructureMapper;
-import com.earthquake.managementPlatform.mapper.MasonryStructureMapper;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -12,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import javax.annotation.Resource;
 
 @Service
-public class FrameworkStructureStorage implements DisasterInformationStorage{
+public class FrameworkStructureStorage implements DisasterInformationStorage {
     @Resource
     FrameworkStructureMapper frameworkStructureMapper;
     @Resource
@@ -56,7 +54,7 @@ public class FrameworkStructureStorage implements DisasterInformationStorage{
         return storageForFrameworkStructure();
     }
 
-    public String storageForFrameworkStructure(){
+    public String storageForFrameworkStructure() {
 
         FrameworkStructure frameworkStructure = new FrameworkStructure();
 
@@ -78,13 +76,13 @@ public class FrameworkStructureStorage implements DisasterInformationStorage{
 
         frameworkStructure.setNote(data.getString("note"));
 
-        frameworkStructure.setReportingUnit(source+data.getString("reportingUnit"));
+        frameworkStructure.setReportingUnit(source + data.getString("reportingUnit"));
 
         frameworkStructure.setEarthquakeId(data.getString("earthquakeId"));
 
         frameworkStructureMapper.save(frameworkStructure);
 
-        return code+"入库成功";
+        return code + "入库成功";
 
     }
 }

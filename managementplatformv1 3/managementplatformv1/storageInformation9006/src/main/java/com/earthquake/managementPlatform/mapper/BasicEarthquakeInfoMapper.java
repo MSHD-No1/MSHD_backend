@@ -2,7 +2,6 @@ package com.earthquake.managementPlatform.mapper;
 
 
 import com.earthquake.managementPlatform.entities.BasicEarthquakeInfo;
-import com.earthquake.managementPlatform.entities.BrickwoodStructure;
 import com.earthquake.managementPlatform.entities.ProvEarthquakeFrequency;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
@@ -10,33 +9,33 @@ import org.apache.ibatis.type.JdbcType;
 import java.util.List;
 
 @Mapper
-public interface BasicEarthquakeInfoMapper{
+public interface BasicEarthquakeInfoMapper {
 
     @Select("SELECT * FROM earthquake.disasterinfo;")
-    @Results(id="disasterInfoMap", value={
-            @Result(column="D_ID", property="id", jdbcType= JdbcType.CHAR, id=true),
-            @Result(column="date", property="date", jdbcType= JdbcType.VARCHAR),
-            @Result(column="location", property="location", jdbcType= JdbcType.VARCHAR),
-            @Result(column="longitude", property="longitude", jdbcType= JdbcType.FLOAT),
-            @Result(column="latitude", property="latitude", jdbcType= JdbcType.FLOAT),
-            @Result(column="depth", property="depth", jdbcType= JdbcType.FLOAT),
-            @Result(column="magnitude", property="magnitude", jdbcType= JdbcType.FLOAT),
-            @Result(column="picture", property="picture", jdbcType= JdbcType.VARCHAR),
-            @Result(column="reporting_unit", property="reportingUnit", jdbcType= JdbcType.VARCHAR)
+    @Results(id = "disasterInfoMap", value = {
+            @Result(column = "D_ID", property = "id", jdbcType = JdbcType.CHAR, id = true),
+            @Result(column = "date", property = "date", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "location", property = "location", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "longitude", property = "longitude", jdbcType = JdbcType.FLOAT),
+            @Result(column = "latitude", property = "latitude", jdbcType = JdbcType.FLOAT),
+            @Result(column = "depth", property = "depth", jdbcType = JdbcType.FLOAT),
+            @Result(column = "magnitude", property = "magnitude", jdbcType = JdbcType.FLOAT),
+            @Result(column = "picture", property = "picture", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "reporting_unit", property = "reportingUnit", jdbcType = JdbcType.VARCHAR)
     })
     List<BasicEarthquakeInfo> getAllDisasterInfo();
 
     @Select("select * from earthquake.disasterinfo order by date desc limit #{pageNum}, #{limit};")
     @ResultMap(value = "disasterInfoMap")
-    List<BasicEarthquakeInfo> getDisasterInfoByPage(@Param("pageNum") int pageNum,@Param("limit")int limit);
+    List<BasicEarthquakeInfo> getDisasterInfoByPage(@Param("pageNum") int pageNum, @Param("limit") int limit);
 
     @Select("select * from earthquake.disasterinfo where date >=  NOW() - interval #{time} hour order by date desc;")
     @ResultMap(value = "disasterInfoMap")
-    List<BasicEarthquakeInfo> getRecentDisasterInfo(@Param("time") int time );
+    List<BasicEarthquakeInfo> getRecentDisasterInfo(@Param("time") int time);
 
     @Select("select * from earthquake.disasterinfo where date >=  NOW() - interval #{time} hour order by date desc limit #{pageNum}, #{limit};")
     @ResultMap(value = "disasterInfoMap")
-    List<BasicEarthquakeInfo> getRecentDisasterInfoByPage(@Param("pageNum") int pageNum,@Param("limit")int limit,@Param("time") int time );
+    List<BasicEarthquakeInfo> getRecentDisasterInfoByPage(@Param("pageNum") int pageNum, @Param("limit") int limit, @Param("time") int time);
 
     @Select("SELECT * FROM earthquake.disasterinfo WHERE D_ID = #{id} FOR UPDATE")
     @ResultMap(value = "disasterInfoMap")
@@ -62,9 +61,9 @@ public interface BasicEarthquakeInfoMapper{
     BasicEarthquakeInfo getNewCodeDescription();
 
     @Select("SELECT * FROM earthquake.provinceearthquakefrequency;")
-    @Results(id="provEarthquakeFrequency", value={
-            @Result(column="c", property="proCode", jdbcType= JdbcType.CHAR, id=true),
-            @Result(column="count", property="count", jdbcType= JdbcType.INTEGER),
+    @Results(id = "provEarthquakeFrequency", value = {
+            @Result(column = "c", property = "proCode", jdbcType = JdbcType.CHAR, id = true),
+            @Result(column = "count", property = "count", jdbcType = JdbcType.INTEGER),
     })
     List<ProvEarthquakeFrequency> getProvEarthquakeFrequency();
 

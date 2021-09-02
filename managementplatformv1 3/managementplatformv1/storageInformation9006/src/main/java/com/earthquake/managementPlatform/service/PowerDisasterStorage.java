@@ -1,8 +1,6 @@
 package com.earthquake.managementPlatform.service;
 
-import com.earthquake.managementPlatform.entities.GasDisaster;
 import com.earthquake.managementPlatform.entities.PowerDisaster;
-import com.earthquake.managementPlatform.mapper.GasDisasterMapper;
 import com.earthquake.managementPlatform.mapper.PowerDisasterMapper;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import javax.annotation.Resource;
 
 @Service
-public class PowerDisasterStorage implements DisasterInformationStorage{
+public class PowerDisasterStorage implements DisasterInformationStorage {
     @Resource
     PowerDisasterMapper powerDisasterMapper;
     @Resource
@@ -56,7 +54,7 @@ public class PowerDisasterStorage implements DisasterInformationStorage{
         return storageForPowerDisaster();
     }
 
-    public String storageForPowerDisaster(){
+    public String storageForPowerDisaster() {
 
         PowerDisaster powerDisaster = new PowerDisaster();
 
@@ -70,27 +68,25 @@ public class PowerDisasterStorage implements DisasterInformationStorage{
 
         powerDisaster.setGrade(data.get("grade").toString());
 
-        try{
-            if(data.getString("picture").split("/").length>1)
-            {
+        try {
+            if (data.getString("picture").split("/").length > 1) {
                 powerDisaster.setPicture(data.getString("picture"));
+            } else {
+                powerDisaster.setPicture(restTemplate.postForObject(uploadFileUrl + "/v1/filePic" + "/" + source + "/" + data.getString("picture"), null, String.class));
             }
-            else{
-                powerDisaster.setPicture(restTemplate.postForObject(uploadFileUrl + "/v1/filePic"+"/"+source+"/"+data.getString("picture"), null, String.class));
-            }
-        }catch (Exception e){
+        } catch (Exception e) {
             powerDisaster.setPicture(null);
         }
 
         powerDisaster.setNote(data.getString("note"));
 
-        powerDisaster.setReportingUnit(source+data.getString("reportingUnit"));
+        powerDisaster.setReportingUnit(source + data.getString("reportingUnit"));
 
         powerDisaster.setEarthquakeId(data.getString("earthquakeId"));
 
         powerDisasterMapper.save(powerDisaster);
 
-        return code+"入库成功";
+        return code + "入库成功";
 
     }
 }

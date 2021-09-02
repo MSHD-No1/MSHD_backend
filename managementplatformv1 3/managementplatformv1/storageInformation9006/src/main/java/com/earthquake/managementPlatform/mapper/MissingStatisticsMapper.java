@@ -1,7 +1,5 @@
 package com.earthquake.managementPlatform.mapper;
 
-import com.earthquake.managementPlatform.entities.InjuredStatistics;
-import com.earthquake.managementPlatform.entities.MasonryStructure;
 import com.earthquake.managementPlatform.entities.MissingStatistics;
 import com.earthquake.managementPlatform.entities.PersonStatistics;
 import org.apache.ibatis.annotations.*;
@@ -12,27 +10,27 @@ import java.util.List;
 @Mapper
 public interface MissingStatisticsMapper {
     @Select("SELECT * FROM earthquake.missingstatistics;")
-    @Results(id="missingStatisticsMap", value={
-            @Result(column="ID", property="id", jdbcType= JdbcType.CHAR, id=true),
-            @Result(column="date", property="date", jdbcType= JdbcType.VARCHAR),
-            @Result(column="location", property="location", jdbcType= JdbcType.VARCHAR),
-            @Result(column="number", property="number", jdbcType= JdbcType.INTEGER),
-            @Result(column="reporting_unit", property="reportingUnit", jdbcType= JdbcType.VARCHAR),
-            @Result(column="earthquake_id", property="earthquakeId", jdbcType= JdbcType.CHAR)
+    @Results(id = "missingStatisticsMap", value = {
+            @Result(column = "ID", property = "id", jdbcType = JdbcType.CHAR, id = true),
+            @Result(column = "date", property = "date", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "location", property = "location", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "number", property = "number", jdbcType = JdbcType.INTEGER),
+            @Result(column = "reporting_unit", property = "reportingUnit", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "earthquake_id", property = "earthquakeId", jdbcType = JdbcType.CHAR)
     })
     List<MissingStatistics> getAllMissingStatistics();
 
     @Select("select * from earthquake.missingstatistics order by date desc limit #{pageNum}, #{limit};")
     @ResultMap(value = "missingStatisticsMap")
-    List<MissingStatistics> getMissingStatisticsByPage(@Param("pageNum") int pageNum, @Param("limit")int limit);
+    List<MissingStatistics> getMissingStatisticsByPage(@Param("pageNum") int pageNum, @Param("limit") int limit);
 
     @Select("select * from earthquake.missingstatistics where date >=  NOW() - interval #{time} hour order by date desc;")
     @ResultMap(value = "missingStatisticsMap")
-    List<MissingStatistics> getRecentMissingStatistics(@Param("time") int time );
+    List<MissingStatistics> getRecentMissingStatistics(@Param("time") int time);
 
     @Select("select * from earthquake.missingstatistics where date >=  NOW() - interval #{time} hour order by date desc limit #{pageNum}, #{limit};")
     @ResultMap(value = "missingStatisticsMap")
-    List<MissingStatistics> getRecentMissingStatisticsByPage(@Param("pageNum") int pageNum,@Param("limit")int limit,@Param("time") int time );
+    List<MissingStatistics> getRecentMissingStatisticsByPage(@Param("pageNum") int pageNum, @Param("limit") int limit, @Param("time") int time);
 
     @Select("SELECT * FROM earthquake.missingstatistics WHERE ID = #{id} FOR UPDATE")
     @ResultMap(value = "missingStatisticsMap")
@@ -58,9 +56,9 @@ public interface MissingStatisticsMapper {
     MissingStatistics getNewCodeDescription();
 
     @Select("SELECT * FROM earthquake.lastmissingstatisticsbytime;")
-    @Results(id="lastMissingStatisticsByTime", value={
-            @Result(column="date", property="date", jdbcType= JdbcType.CHAR),
-            @Result(column="number", property="number", jdbcType= JdbcType.INTEGER)
+    @Results(id = "lastMissingStatisticsByTime", value = {
+            @Result(column = "date", property = "date", jdbcType = JdbcType.CHAR),
+            @Result(column = "number", property = "number", jdbcType = JdbcType.INTEGER)
     })
     List<PersonStatistics> getLastMissingStatisticsByTime();
 

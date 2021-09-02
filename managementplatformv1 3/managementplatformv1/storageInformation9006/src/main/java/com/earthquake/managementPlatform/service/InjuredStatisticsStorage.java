@@ -1,8 +1,6 @@
 package com.earthquake.managementPlatform.service;
 
-import com.earthquake.managementPlatform.entities.DeathStatistics;
 import com.earthquake.managementPlatform.entities.InjuredStatistics;
-import com.earthquake.managementPlatform.mapper.DeathStatisticsMapper;
 import com.earthquake.managementPlatform.mapper.InjuredStatisticsMapper;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import javax.annotation.Resource;
 
 @Service
-public class InjuredStatisticsStorage implements DisasterInformationStorage{
+public class InjuredStatisticsStorage implements DisasterInformationStorage {
     @Resource
     InjuredStatisticsMapper injuredStatisticsMapper;
     @Resource
@@ -56,7 +54,7 @@ public class InjuredStatisticsStorage implements DisasterInformationStorage{
         return storageForInjuredStatistics();
     }
 
-    public String storageForInjuredStatistics(){
+    public String storageForInjuredStatistics() {
 
         InjuredStatistics injuredStatistics = new InjuredStatistics();
 
@@ -68,13 +66,13 @@ public class InjuredStatisticsStorage implements DisasterInformationStorage{
 
         injuredStatistics.setNumber(data.getInt("number"));
 
-        injuredStatistics.setReportingUnit(source+data.getString("reportingUnit"));
+        injuredStatistics.setReportingUnit(source + data.getString("reportingUnit"));
 
         injuredStatistics.setEarthquakeId(data.getString("earthquakeId"));
 
         injuredStatisticsMapper.save(injuredStatistics);
 
-        return code+"入库成功";
+        return code + "入库成功";
 
     }
 }

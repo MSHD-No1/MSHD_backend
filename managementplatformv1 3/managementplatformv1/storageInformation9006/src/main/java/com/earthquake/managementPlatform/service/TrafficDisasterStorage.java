@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import javax.annotation.Resource;
 
 @Service
-public class TrafficDisasterStorage implements DisasterInformationStorage{
+public class TrafficDisasterStorage implements DisasterInformationStorage {
     @Resource
     TrafficDisasterMapper trafficDisasterMapper;
     @Resource
@@ -54,7 +54,7 @@ public class TrafficDisasterStorage implements DisasterInformationStorage{
         return storageForTrafficDisaster();
     }
 
-    public String storageForTrafficDisaster(){
+    public String storageForTrafficDisaster() {
 
         TrafficDisaster trafficDisaster = new TrafficDisaster();
 
@@ -68,27 +68,25 @@ public class TrafficDisasterStorage implements DisasterInformationStorage{
 
         trafficDisaster.setGrade(data.get("grade").toString());
 
-        try{
-            if(data.getString("picture").split("/").length>1)
-            {
+        try {
+            if (data.getString("picture").split("/").length > 1) {
                 trafficDisaster.setPicture(data.getString("picture"));
+            } else {
+                trafficDisaster.setPicture(restTemplate.postForObject(uploadFileUrl + "/v1/filePic" + "/" + source + "/" + data.getString("picture"), null, String.class));
             }
-            else{
-                trafficDisaster.setPicture(restTemplate.postForObject(uploadFileUrl + "/v1/filePic"+"/"+source+"/"+data.getString("picture"), null, String.class));
-            }
-        }catch (Exception e){
+        } catch (Exception e) {
             trafficDisaster.setPicture(null);
         }
 
         trafficDisaster.setNote(data.getString("note"));
 
-        trafficDisaster.setReportingUnit(source+data.getString("reportingUnit"));
+        trafficDisaster.setReportingUnit(source + data.getString("reportingUnit"));
 
         trafficDisaster.setEarthquakeId(data.getString("earthquakeId"));
 
         trafficDisasterMapper.save(trafficDisaster);
 
-        return code+"入库成功";
+        return code + "入库成功";
 
     }
 }

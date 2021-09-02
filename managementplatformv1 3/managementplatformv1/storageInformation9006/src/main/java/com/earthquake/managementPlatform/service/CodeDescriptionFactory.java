@@ -1,6 +1,5 @@
 package com.earthquake.managementPlatform.service;
 
-import com.earthquake.managementPlatform.entities.DeathStatistics;
 import com.earthquake.managementPlatform.mapper.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -57,77 +56,55 @@ public class CodeDescriptionFactory {
     @Resource
     BasicEarthquakeInfoMapper basicEarthquakeInfoMapper;
 
-    public Object createCodeDescription(String categoryId){
+    public Object createCodeDescription(String categoryId) {
 
-        Object object = new Object() ;
+        Object object = new Object();
 
-        if(categoryId.equals("111")){
+        if (categoryId.equals("111")) {
             object = deathStatisticsMapper.getNewCodeDescription();
-        }
-        else if(categoryId.equals("112")){
+        } else if (categoryId.equals("112")) {
             object = injuredStatisticsMapper.getNewCodeDescription();
-        }
-        else if(categoryId.equals("113")){
+        } else if (categoryId.equals("113")) {
             object = missingStatisticsMapper.getNewCodeDescription();
-        }
-        else if(categoryId.equals("221")){
+        } else if (categoryId.equals("221")) {
             object = civilStructureMapper.getNewCodeDescription();
-        }
-        else if(categoryId.equals("222")){
+        } else if (categoryId.equals("222")) {
             object = brickwoodStructureMapper.getNewCodeDescription();
-        }
-        else if(categoryId.equals("223")){
+        } else if (categoryId.equals("223")) {
             object = masonryStructureMapper.getNewCodeDescription();
-        }
-        else if(categoryId.equals("224")){
+        } else if (categoryId.equals("224")) {
             object = frameworkStructureMapper.getNewCodeDescription();
-        }
-        else if(categoryId.equals("225")){
+        } else if (categoryId.equals("225")) {
             object = otherStructureMapper.getNewCodeDescription();
-        }
-        else if(categoryId.equals("331")){
+        } else if (categoryId.equals("331")) {
             object = trafficDisasterMapper.getNewCodeDescription();
-        }
-        else if(categoryId.equals("332")){
+        } else if (categoryId.equals("332")) {
             object = waterDisasterMapper.getNewCodeDescription();
-        }
-        else if(categoryId.equals("333")){
+        } else if (categoryId.equals("333")) {
             object = oilDisasterMapper.getNewCodeDescription();
-        }
-        else if(categoryId.equals("334")){
+        } else if (categoryId.equals("334")) {
             object = gasDisasterMapper.getNewCodeDescription();
-        }
-        else if(categoryId.equals("335")){
+        } else if (categoryId.equals("335")) {
             object = powerDisasterMapper.getNewCodeDescription();
-        }
-        else if(categoryId.equals("336")){
+        } else if (categoryId.equals("336")) {
             object = commDisasterMapper.getNewCodeDescription();
-        }
-        else if(categoryId.equals("337")){
+        } else if (categoryId.equals("337")) {
             object = irrigationDisasterMapper.getNewCodeDescription();
-        }
-        else if(categoryId.equals("441")){
+        } else if (categoryId.equals("441")) {
             object = collapseRecordMapper.getNewCodeDescription();
-        }
-        else if(categoryId.equals("442")){
+        } else if (categoryId.equals("442")) {
             object = landslideRecordMapper.getNewCodeDescription();
-        }
-        else if(categoryId.equals("443")){
+        } else if (categoryId.equals("443")) {
             object = debrisRecordMapper.getNewCodeDescription();
-        }
-        else if(categoryId.equals("444")){
+        } else if (categoryId.equals("444")) {
             object = karstRecordMapper.getNewCodeDescription();
-        }
-        else if(categoryId.equals("445")){
+        } else if (categoryId.equals("445")) {
             object = crackRecordMapper.getNewCodeDescription();
-        }
-        else if(categoryId.equals("446")){
+        } else if (categoryId.equals("446")) {
             object = settlementRecordMapper.getNewCodeDescription();
-        }
-        else if(categoryId.equals("447")){
+        } else if (categoryId.equals("447")) {
             object = otherRecordMapper.getNewCodeDescription();
-        }
-        else if(categoryId.equals("551")){
+        } else if (categoryId.equals("551")) {
             object = basicEarthquakeInfoMapper.getNewCodeDescription();
         }
         return object;

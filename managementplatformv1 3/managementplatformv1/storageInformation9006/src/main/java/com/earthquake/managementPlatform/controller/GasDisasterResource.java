@@ -1,8 +1,10 @@
 package com.earthquake.managementPlatform.controller;
 
-import com.earthquake.managementPlatform.entities.*;
+import com.earthquake.managementPlatform.entities.GasDisaster;
+import com.earthquake.managementPlatform.entities.GetVo;
+import com.earthquake.managementPlatform.entities.LifeLineStatistics;
+import com.earthquake.managementPlatform.entities.PostVo;
 import com.earthquake.managementPlatform.mapper.GasDisasterMapper;
-import com.earthquake.managementPlatform.mapper.OilDisasterMapper;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -13,37 +15,35 @@ import java.util.List;
 public class GasDisasterResource {
     @Resource
     GasDisasterMapper gasDisasterMapper;
+
     @GetMapping("/v1/gasDisaster")
-    public GetVo gasDisasterAll(HttpServletRequest request){
-        int limit = Integer.valueOf(request.getParameter("limit"));
-        int page = Integer.valueOf(request.getParameter("page"));
+    public GetVo<GasDisaster> gasDisasterAll(HttpServletRequest request) {
+        int limit = Integer.parseInt(request.getParameter("limit"));
+        int page = Integer.parseInt(request.getParameter("page"));
         int size = gasDisasterMapper.getAllGasDisaster().size();
-        List<GasDisaster> gasDisaster = gasDisasterMapper.getGasDisasterByPage((page-1)*limit,limit);
-        GetVo<GasDisaster> getVo = new GetVo<>(0,"获取数据成功！",size,gasDisaster);
-        return getVo;
+        List<GasDisaster> gasDisaster = gasDisasterMapper.getGasDisasterByPage((page - 1) * limit, limit);
+        return new GetVo<>(0, "获取数据成功！", size, gasDisaster);
     }
 
     @GetMapping("/v1/gasDisaster/{time}")
-    public GetVo gasDisasterByTime(@PathVariable("time")int time, HttpServletRequest request){
-        int limit = Integer.valueOf(request.getParameter("limit"));
-        int page = Integer.valueOf(request.getParameter("page"));
-        int timestamp = time*24;
+    public GetVo<GasDisaster> gasDisasterByTime(@PathVariable("time") int time, HttpServletRequest request) {
+        int limit = Integer.parseInt(request.getParameter("limit"));
+        int page = Integer.parseInt(request.getParameter("page"));
+        int timestamp = time * 24;
         int size = gasDisasterMapper.getRecentGasDisaster(timestamp).size();
-        List<GasDisaster> gasDisasters = gasDisasterMapper.getRecentGasDisasterByPage((page-1)*limit,limit,timestamp);
-        GetVo<GasDisaster> getVo = new GetVo<>(0,"获取数据成功！",size,gasDisasters);
-        return getVo;
+        List<GasDisaster> gasDisasters = gasDisasterMapper.getRecentGasDisasterByPage((page - 1) * limit, limit, timestamp);
+        return new GetVo<>(0, "获取数据成功！", size, gasDisasters);
     }
 
     @GetMapping("/v1/lastGasDisasterStatistics")
-    public GetVo getLastGasDisasterStatistics(){
+    public GetVo<LifeLineStatistics> getLastGasDisasterStatistics() {
         List<LifeLineStatistics> lifeLineStatistics = gasDisasterMapper.getGasStatistics();
-        GetVo<LifeLineStatistics> getVo = new GetVo<>(0,"获取数据成功！",lifeLineStatistics.size(),lifeLineStatistics);
-        return getVo;
+        return new GetVo<>(0, "获取数据成功！", lifeLineStatistics.size(), lifeLineStatistics);
     }
 
     @PutMapping("/v1/gasDisaster/{id}")
-    public PostVo editGasDisaster(HttpServletRequest request, @PathVariable("id") String id){
-        GasDisaster gasDisaster= new GasDisaster();
+    public PostVo<GasDisaster> editGasDisaster(HttpServletRequest request, @PathVariable("id") String id) {
+        GasDisaster gasDisaster = new GasDisaster();
         gasDisaster.setId(id);
         gasDisaster.setDate(request.getParameter("date"));
         gasDisaster.setLocation(request.getParameter("location"));
@@ -54,20 +54,17 @@ public class GasDisasterResource {
         gasDisaster.setReportingUnit(request.getParameter("reportingUnit"));
         gasDisaster.setEarthquakeId(request.getParameter("earthquakeId"));
         gasDisasterMapper.update(gasDisaster);
-        PostVo postVo = new PostVo(0,"编辑成功！",null);
-        return postVo;
+        return new PostVo<>(0, "编辑成功！", null);
     }
 
     @DeleteMapping("/v1/gasDisaster/{id}")
-    public PostVo delGasDisaster(@PathVariable("id")String id){
+    public PostVo<GasDisaster> delGasDisaster(@PathVariable("id") String id) {
         gasDisasterMapper.deleteById(id);
-        PostVo postVo = new PostVo(0,"删除成功!",null);
-        return postVo;
+        return new PostVo<>(0, "删除成功!", null);
     }
 
     @GetMapping("/v1/gasDisasterCopy/{time}")
-    public List<GasDisaster>  gasDisasterCopy(@PathVariable("time") int time){
-        List<GasDisaster> gasDisasters = gasDisasterMapper.getCopyGasDisaster(time*24);
-        return gasDisasters;
+    public List<GasDisaster> gasDisasterCopy(@PathVariable("time") int time) {
+        return gasDisasterMapper.getCopyGasDisaster(time * 24);
     }
 }

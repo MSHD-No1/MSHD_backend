@@ -9,7 +9,7 @@ public class CodeDescriptionOfResourceService {
     @Resource
     CodeDescriptionFactory codeDescriptionFactory;
 
-    public String getCodeDescription(String categoryId){
+    public String getCodeDescription(String categoryId) {
         return codeDescriptionFactory.createCodeDescription(categoryId).toString();
     }
 }

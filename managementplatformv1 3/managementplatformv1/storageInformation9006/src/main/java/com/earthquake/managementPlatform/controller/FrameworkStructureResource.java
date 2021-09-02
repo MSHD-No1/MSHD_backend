@@ -1,8 +1,10 @@
 package com.earthquake.managementPlatform.controller;
 
-import com.earthquake.managementPlatform.entities.*;
+import com.earthquake.managementPlatform.entities.FrameworkStructure;
+import com.earthquake.managementPlatform.entities.GetVo;
+import com.earthquake.managementPlatform.entities.PostVo;
+import com.earthquake.managementPlatform.entities.SquareStatistics;
 import com.earthquake.managementPlatform.mapper.FrameworkStructureMapper;
-import com.earthquake.managementPlatform.mapper.MasonryStructureMapper;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -13,43 +15,40 @@ import java.util.List;
 public class FrameworkStructureResource {
     @Resource
     FrameworkStructureMapper frameworkStructureMapper;
+
     @GetMapping("/v1/frameworkStructure")
-    public GetVo frameworkStructureAll(HttpServletRequest request){
-        int limit = Integer.valueOf(request.getParameter("limit"));
-        int page = Integer.valueOf(request.getParameter("page"));
+    public GetVo<FrameworkStructure> frameworkStructureAll(HttpServletRequest request) {
+        int limit = Integer.parseInt(request.getParameter("limit"));
+        int page = Integer.parseInt(request.getParameter("page"));
         int size = frameworkStructureMapper.getAllFrameworkStructure().size();
-        List<FrameworkStructure> frameworkStructure = frameworkStructureMapper.getFrameworkStructureByPage((page-1)*limit,limit);
-        GetVo<FrameworkStructure> getVo = new GetVo<>(0,"获取数据成功！",size,frameworkStructure);
-        return getVo;
+        List<FrameworkStructure> frameworkStructure = frameworkStructureMapper.getFrameworkStructureByPage((page - 1) * limit, limit);
+        return new GetVo<>(0, "获取数据成功！", size, frameworkStructure);
     }
 
     @GetMapping("/v1/frameworkStructure/{time}")
-    public GetVo frameworkStructureByTime(@PathVariable("time")int time, HttpServletRequest request){
-        int limit = Integer.valueOf(request.getParameter("limit"));
-        int page = Integer.valueOf(request.getParameter("page"));
-        int timestamp = time*24;
+    public GetVo<FrameworkStructure> frameworkStructureByTime(@PathVariable("time") int time, HttpServletRequest request) {
+        int limit = Integer.parseInt(request.getParameter("limit"));
+        int page = Integer.parseInt(request.getParameter("page"));
+        int timestamp = time * 24;
         int size = frameworkStructureMapper.getRecentFrameworkStructure(timestamp).size();
-        List<FrameworkStructure> frameworkStructures = frameworkStructureMapper.getRecentFrameworkStructureByPage((page-1)*limit,limit,timestamp);
-        GetVo<FrameworkStructure> getVo = new GetVo<>(0,"获取数据成功！",size,frameworkStructures);
-        return getVo;
+        List<FrameworkStructure> frameworkStructures = frameworkStructureMapper.getRecentFrameworkStructureByPage((page - 1) * limit, limit, timestamp);
+        return new GetVo<>(0, "获取数据成功！", size, frameworkStructures);
     }
 
     @GetMapping("/v1/lastFrameworkStructureByTime")
-    public GetVo getLastFrameworkStructureByTime(){
+    public GetVo getLastFrameworkStructureByTime() {
         List<SquareStatistics> squareStatistics = frameworkStructureMapper.getLastFrameworkStructureByTime();
-        GetVo<SquareStatistics> getVo = new GetVo<>(0,"获取数据成功！",squareStatistics.size(),squareStatistics);
-        return getVo;
+        return new GetVo<>(0, "获取数据成功！", squareStatistics.size(), squareStatistics);
     }
 
     @GetMapping("/v1/lastFrameworkStructure")
-    public GetVo getLastFrameworkStructure(){
+    public GetVo<FrameworkStructure> getLastFrameworkStructure() {
         List<FrameworkStructure> frameworkStructure = frameworkStructureMapper.getLastFrameworkStructure();
-        GetVo<FrameworkStructure> getVo = new GetVo<>(0,"获取数据成功！",frameworkStructure.size(),frameworkStructure);
-        return getVo;
+        return new GetVo<>(0, "获取数据成功！", frameworkStructure.size(), frameworkStructure);
     }
 
     @PutMapping("/v1/frameworkStructure/{id}")
-    public PostVo editFrameworkStructure(HttpServletRequest request, @PathVariable("id") String id){
+    public PostVo<FrameworkStructure> editFrameworkStructure(HttpServletRequest request, @PathVariable("id") String id) {
         FrameworkStructure frameworkStructure = new FrameworkStructure();
         frameworkStructure.setId(id);
         frameworkStructure.setDate(request.getParameter("date"));
@@ -63,20 +62,17 @@ public class FrameworkStructureResource {
         frameworkStructure.setReportingUnit(request.getParameter("reportingUnit"));
         frameworkStructure.setEarthquakeId(request.getParameter("earthquakeId"));
         frameworkStructureMapper.update(frameworkStructure);
-        PostVo postVo = new PostVo(0,"编辑成功！",null);
-        return postVo;
+        return new PostVo<>(0, "编辑成功！", null);
     }
 
     @DeleteMapping("/v1/frameworkStructure/{id}")
-    public PostVo delFrameworkStructure(@PathVariable("id")String id){
+    public PostVo<FrameworkStructure> delFrameworkStructure(@PathVariable("id") String id) {
         frameworkStructureMapper.deleteById(id);
-        PostVo postVo = new PostVo(0,"删除成功!",null);
-        return postVo;
+        return new PostVo<>(0, "删除成功!", null);
     }
 
     @GetMapping("/v1/frameworkStructureCopy/{time}")
-    public List<FrameworkStructure> frameworkStructureCopy(@PathVariable("time") int time){
-        List<FrameworkStructure> frameworkStructures = frameworkStructureMapper.getCopyFrameworkStructure(time*24);
-        return frameworkStructures;
+    public List<FrameworkStructure> frameworkStructureCopy(@PathVariable("time") int time) {
+        return frameworkStructureMapper.getCopyFrameworkStructure(time * 24);
     }
 }

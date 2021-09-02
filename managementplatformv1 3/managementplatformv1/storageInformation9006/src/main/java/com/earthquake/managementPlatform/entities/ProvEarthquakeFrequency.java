@@ -4,13 +4,11 @@ public class ProvEarthquakeFrequency {
     private String proCode;
     private int count;
 
-    public ProvEarthquakeFrequency()
-    {
+    public ProvEarthquakeFrequency() {
 
     }
 
-    public ProvEarthquakeFrequency(String proCode,int count)
-    {
+    public ProvEarthquakeFrequency(String proCode, int count) {
         this.proCode = proCode;
         this.count = count;
     }

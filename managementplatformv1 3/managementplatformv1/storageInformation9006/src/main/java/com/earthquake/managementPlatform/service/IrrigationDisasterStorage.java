@@ -1,9 +1,7 @@
 package com.earthquake.managementPlatform.service;
 
 import com.earthquake.managementPlatform.entities.IrrigationDisaster;
-import com.earthquake.managementPlatform.entities.PowerDisaster;
 import com.earthquake.managementPlatform.mapper.IrrigationDisasterMapper;
-import com.earthquake.managementPlatform.mapper.PowerDisasterMapper;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -12,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import javax.annotation.Resource;
 
 @Service
-public class IrrigationDisasterStorage implements DisasterInformationStorage{
+public class IrrigationDisasterStorage implements DisasterInformationStorage {
     @Resource
     IrrigationDisasterMapper irrigationDisasterMapper;
     @Resource
@@ -56,7 +54,7 @@ public class IrrigationDisasterStorage implements DisasterInformationStorage{
         return storageForIrrigationDisaster();
     }
 
-    public String storageForIrrigationDisaster(){
+    public String storageForIrrigationDisaster() {
 
         IrrigationDisaster irrigationDisaster = new IrrigationDisaster();
 
@@ -70,27 +68,25 @@ public class IrrigationDisasterStorage implements DisasterInformationStorage{
 
         irrigationDisaster.setGrade(data.get("grade").toString());
 
-        try{
-            if(data.getString("picture").split("/").length>1)
-            {
+        try {
+            if (data.getString("picture").split("/").length > 1) {
                 irrigationDisaster.setPicture(data.getString("picture"));
+            } else {
+                irrigationDisaster.setPicture(restTemplate.postForObject(uploadFileUrl + "/v1/filePic" + "/" + source + "/" + data.getString("picture"), null, String.class));
             }
-            else{
-                irrigationDisaster.setPicture(restTemplate.postForObject(uploadFileUrl + "/v1/filePic"+"/"+source+"/"+data.getString("picture"), null, String.class));
-            }
-        }catch (Exception e){
+        } catch (Exception e) {
             irrigationDisaster.setPicture(null);
         }
 
         irrigationDisaster.setNote(data.getString("note"));
 
-        irrigationDisaster.setReportingUnit(source+data.getString("reportingUnit"));
+        irrigationDisaster.setReportingUnit(source + data.getString("reportingUnit"));
 
         irrigationDisaster.setEarthquakeId(data.getString("earthquakeId"));
 
         irrigationDisasterMapper.save(irrigationDisaster);
 
-        return code+"入库成功";
+        return code + "入库成功";
 
     }
 }

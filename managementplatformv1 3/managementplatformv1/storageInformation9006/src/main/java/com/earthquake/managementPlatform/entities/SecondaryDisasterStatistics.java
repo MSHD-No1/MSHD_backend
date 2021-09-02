@@ -3,11 +3,11 @@ package com.earthquake.managementPlatform.entities;
 public class SecondaryDisasterStatistics {
     private String status;
     private int count;
-    public SecondaryDisasterStatistics()
-    {}
 
-    public SecondaryDisasterStatistics(String status,int count)
-    {
+    public SecondaryDisasterStatistics() {
+    }
+
+    public SecondaryDisasterStatistics(String status, int count) {
         this.status = status;
         this.count = count;
     }
