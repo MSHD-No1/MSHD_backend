@@ -1,8 +1,5 @@
 package com.earthquake.managementPlatform.entities;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;

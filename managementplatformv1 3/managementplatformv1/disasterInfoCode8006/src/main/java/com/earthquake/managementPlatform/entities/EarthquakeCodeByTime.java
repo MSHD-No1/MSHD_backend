@@ -1,7 +1,5 @@
 package com.earthquake.managementPlatform.entities;
 
-import javax.annotation.Resource;
-
 public class EarthquakeCodeByTime implements EarthquakeCode {
 
     private final String administrativeRegionCode;

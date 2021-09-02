@@ -10,6 +10,6 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 @EnableDiscoveryClient
 public class DisasterInfoCode8006 {
     public static void main(String[] args) {
-        SpringApplication.run(DisasterInfoCode8006.class,args);
+        SpringApplication.run(DisasterInfoCode8006.class, args);
     }
 }

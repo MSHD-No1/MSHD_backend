@@ -1,7 +1,8 @@
 package com.earthquake.managementPlatform.mapper;
 
 
-import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 
 @Mapper
 public interface DisasterInfoMapper {

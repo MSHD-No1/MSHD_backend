@@ -14,11 +14,14 @@ import java.util.Collection;
 public interface DistributionCodeMapper {
     @Select("select * from distributioncode")
     Collection<DistributionCode> getAllDistributionCodes();
+
     @Select("select * from distributioncode where ID = #{id} for update")
     DistributionCode getDistributionCodeById(String id);
+
     @Insert("insert into distributioncode(ID,number)\n" +
             "        values (#{id},#{number})")
     void save(DistributionCode distributionCode);
+
     @Update("update distributioncode set number = #{number}\n" +
             "        where ID = #{id}")
     void update(DistributionCode distributionCode);

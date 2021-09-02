@@ -8,15 +8,14 @@ import javax.annotation.Resource;
 
 @Slf4j
 @Repository
-public class AdministrativeRegionCode12 implements AdministrativeRegionCode{
+public class AdministrativeRegionCode12 implements AdministrativeRegionCode {
+    @Resource
+    AdministrativeRegionCode12Mapper administrativeRegionCode12Mapper;
     private String province;
     private String city;
     private String country;
     private String town;
     private String village;
-
-    @Resource
-    AdministrativeRegionCode12Mapper administrativeRegionCode12Mapper;
 
     public String getProvince() {
         return province;
@@ -68,49 +67,44 @@ public class AdministrativeRegionCode12 implements AdministrativeRegionCode{
 
     @Override
     public String codeForAdministrativeRegion() {
-        if(province!=null){
+        if (province != null) {
             province = administrativeRegionCode12Mapper.getProvinceCode(province);
 //            log.info(province);
 
-        }
-        else{
+        } else {
             province = "000000000000";
             return province;
         }
-        if(city!=null){
-            String provinceCode = province +"0000000000";
-            city = administrativeRegionCode12Mapper.getCityCode(city,provinceCode);
+        if (city != null) {
+            String provinceCode = province + "0000000000";
+            city = administrativeRegionCode12Mapper.getCityCode(city, provinceCode);
 //            log.info(city);
-        }
-        else{
+        } else {
             city = "0000000000";
-            return province+city;
+            return province + city;
         }
-        if(country!=null){
-            String cityCode = city+"00000000";
-            country = administrativeRegionCode12Mapper.getCountryCode(country,cityCode);
+        if (country != null) {
+            String cityCode = city + "00000000";
+            country = administrativeRegionCode12Mapper.getCountryCode(country, cityCode);
 //            log.info(country);
-        }
-        else{
+        } else {
             country = "00000000";
-            return city+country;
+            return city + country;
         }
-        if(town!=null){
-            String countryCode = country+"000000";
-            town = administrativeRegionCode12Mapper.getTownCode(town,countryCode);
+        if (town != null) {
+            String countryCode = country + "000000";
+            town = administrativeRegionCode12Mapper.getTownCode(town, countryCode);
 //            log.info(town);
-        }
-        else{
+        } else {
             town = "000000";
-            return country+town;
+            return country + town;
         }
-        if(village!=null){
-            String townCode = town+"000";
-            village = administrativeRegionCode12Mapper.getVillageCode(village,townCode);
-        }
-        else{
+        if (village != null) {
+            String townCode = town + "000";
+            village = administrativeRegionCode12Mapper.getVillageCode(village, townCode);
+        } else {
             village = "000";
-            return town+village;
+            return town + village;
         }
         return village;
     }
