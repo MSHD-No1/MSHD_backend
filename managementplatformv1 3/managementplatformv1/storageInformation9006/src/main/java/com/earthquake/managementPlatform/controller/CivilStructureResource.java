@@ -2,6 +2,7 @@ package com.earthquake.managementPlatform.controller;
 
 import com.earthquake.managementPlatform.entities.*;
 import com.earthquake.managementPlatform.mapper.CivilStructureMapper;
+import com.earthquake.managementPlatform.mapper.MissingStatisticsMapper;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -13,35 +14,39 @@ public class CivilStructureResource {
     @Resource
     CivilStructureMapper civilStructureMapper;
     @GetMapping("/v1/civilStructure")
-    public GetVo<CivilStructure> civilStructureAll(HttpServletRequest request){
-        int limit = Integer.parseInt(request.getParameter("limit"));
-        int page = Integer.parseInt(request.getParameter("page"));
+    public GetVo civilStructureAll(HttpServletRequest request){
+        int limit = Integer.valueOf(request.getParameter("limit"));
+        int page = Integer.valueOf(request.getParameter("page"));
         int size = civilStructureMapper.getAllCivilStructure().size();
         List<CivilStructure> civilStructure = civilStructureMapper.getCivilStructureByPage((page-1)*limit,limit);
-        return new GetVo<>(0,"获取数据成功！",size,civilStructure);
+        GetVo<CivilStructure> getVo = new GetVo<>(0,"获取数据成功！",size,civilStructure);
+        return getVo;
     }
 
     @GetMapping("/v1/civilStructure/{time}")
-    public GetVo<CivilStructure> civilStructureByTime(@PathVariable("time")int time, HttpServletRequest request){
-        int limit = Integer.parseInt(request.getParameter("limit"));
-        int page = Integer.parseInt(request.getParameter("page"));
+    public GetVo civilStructureByTime(@PathVariable("time")int time, HttpServletRequest request){
+        int limit = Integer.valueOf(request.getParameter("limit"));
+        int page = Integer.valueOf(request.getParameter("page"));
         int timestamp = time*24;
         int size = civilStructureMapper.getRecentCivilStructure(timestamp).size();
         List<CivilStructure> civilStructures = civilStructureMapper.getRecentCivilStructureByPage((page-1)*limit,limit,timestamp);
-        return new GetVo<>(0,"获取数据成功！",size,civilStructures);
+        GetVo<CivilStructure> getVo = new GetVo<>(0,"获取数据成功！",size,civilStructures);
+        return getVo;
 
     }
 
     @GetMapping("/v1/lastCivilStructureByTime")
-    public GetVo<SquareStatistics> getLastCivilStructureByTime(){
+    public GetVo getLastCivilStructureByTime(){
         List<SquareStatistics> squareStatistics = civilStructureMapper.getLastCivilStructureByTime();
-        return new GetVo<>(0,"获取数据成功！",squareStatistics.size(),squareStatistics);
+        GetVo<SquareStatistics> getVo = new GetVo<>(0,"获取数据成功！",squareStatistics.size(),squareStatistics);
+        return getVo;
     }
 
     @GetMapping("/v1/lastCivilStructure")
-    public GetVo<CivilStructure> getLastCivilStructure(){
+    public GetVo getLastCivilStructure(){
         List<CivilStructure> civilStructure = civilStructureMapper.getLastCivilStructure();
-        return new GetVo<>(0,"获取数据成功！",civilStructure.size(),civilStructure);
+        GetVo<CivilStructure> getVo = new GetVo<>(0,"获取数据成功！",civilStructure.size(),civilStructure);
+        return getVo;
     }
 
     @PutMapping("/v1/civilStructure/{id}")
@@ -57,17 +62,20 @@ public class CivilStructureResource {
         civilStructure.setReportingUnit(request.getParameter("reportingUnit"));
         civilStructure.setEarthquakeId(request.getParameter("earthquakeId"));
         civilStructureMapper.update(civilStructure);
-        return new PostVo(0,"编辑成功！",null);
+        PostVo postVo = new PostVo(0,"编辑成功！",null);
+        return postVo;
     }
 
     @DeleteMapping("/v1/civilStructure/{id}")
     public PostVo delCivilStructure(@PathVariable("id")String id){
         civilStructureMapper.deleteById(id);
-        return new PostVo(0,"删除成功!",null);
+        PostVo postVo = new PostVo(0,"删除成功!",null);
+        return postVo;
     }
 
     @GetMapping("/v1/civilStructureCopy/{time}")
     public List<CivilStructure> civilStructureCopy(@PathVariable("time") int time){
-        return civilStructureMapper.getCopyCivilStructure(time*24);
+        List<CivilStructure> civilStructures = civilStructureMapper.getCopyCivilStructure(time*24);
+        return civilStructures;
     }
 }

@@ -14,27 +14,30 @@ public class CollapseRecordResource {
     CollapseRecordMapper collapseRecordMapper;
     @GetMapping("/v1/collapseRecord")
     public GetVo collapseRecordAll(HttpServletRequest request){
-        int limit = Integer.parseInt(request.getParameter("limit"));
-        int page = Integer.parseInt(request.getParameter("page"));
+        int limit = Integer.valueOf(request.getParameter("limit"));
+        int page = Integer.valueOf(request.getParameter("page"));
         int size = collapseRecordMapper.getAllCollapseRecord().size();
         List<CollapseRecord> collapseRecord = collapseRecordMapper.getCollapseRecordByPage((page-1)*limit,limit);
-        return new GetVo<>(0,"获取数据成功！",size,collapseRecord);
+        GetVo<CollapseRecord> getVo = new GetVo<>(0,"获取数据成功！",size,collapseRecord);
+        return getVo;
     }
 
     @GetMapping("/v1/collapseRecord/{time}")
     public GetVo collapseRecordByTime(@PathVariable("time")int time, HttpServletRequest request){
-        int limit = Integer.parseInt(request.getParameter("limit"));
-        int page = Integer.parseInt(request.getParameter("page"));
+        int limit = Integer.valueOf(request.getParameter("limit"));
+        int page = Integer.valueOf(request.getParameter("page"));
         int timestamp = time*24;
         int size = collapseRecordMapper.getRecentCollapseRecord(timestamp).size();
         List<CollapseRecord> collapseRecords = collapseRecordMapper.getRecentCollapseRecordByPage((page-1)*limit,limit,timestamp);
-        return new GetVo<>(0,"获取数据成功！",size,collapseRecords);
+        GetVo<CollapseRecord> getVo = new GetVo<>(0,"获取数据成功！",size,collapseRecords);
+        return getVo;
     }
 
     @GetMapping("/v1/lastCollapseRecordStatistics")
     public GetVo getLastCollapseRecordStatistics(){
         List<SecondaryDisasterStatistics> secondaryDisasterStatistics = collapseRecordMapper.getCollapseStatistics();
-        return new GetVo<>(0,"获取数据成功！",secondaryDisasterStatistics .size(),secondaryDisasterStatistics );
+        GetVo<SecondaryDisasterStatistics> getVo = new GetVo<>(0,"获取数据成功！",secondaryDisasterStatistics .size(),secondaryDisasterStatistics );
+        return getVo;
     }
 
     @PutMapping("/v1/collapseRecord/{id}")
@@ -50,17 +53,20 @@ public class CollapseRecordResource {
         collapseRecord.setReportingUnit(request.getParameter("reportingUnit"));
         collapseRecord.setEarthquakeId(request.getParameter("earthquakeId"));
         collapseRecordMapper.update(collapseRecord);
-        return new PostVo(0,"编辑成功！",null);
+        PostVo postVo = new PostVo(0,"编辑成功！",null);
+        return postVo;
     }
 
     @DeleteMapping("/v1/collapseRecord/{id}")
     public PostVo delCollapseRecord(@PathVariable("id")String id){
         collapseRecordMapper.deleteById(id);
-        return new PostVo(0,"删除成功!",null);
+        PostVo postVo = new PostVo(0,"删除成功!",null);
+        return postVo;
     }
 
     @GetMapping("/v1/collapseRecordCopy/{time}")
     public List<CollapseRecord> collapseRecordCopy(@PathVariable("time") int time){
-        return collapseRecordMapper.getCopyCollapseRecord(time*24);
+        List<CollapseRecord> collapseRecords = collapseRecordMapper.getCopyCollapseRecord(time*24);
+        return collapseRecords;
     }
 }
