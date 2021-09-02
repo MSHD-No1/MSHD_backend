@@ -12,7 +12,6 @@ public class DisasterRequest {
     }
 
     public DisasterRequest(String date, String disasterType, String status, String oURL, String requestUnit) {
-        this.id = id;
         this.date = date;
         this.disasterType = disasterType;
         this.status = status;

@@ -9,19 +9,19 @@ import java.util.List;
 @Mapper
 public interface DisasterRequestMapper {
     @Select("SELECT * FROM earthquake.disasterrequest;")
-    @Results(id="disasterRequestMap", value={
-            @Result(column="ID", property="id", jdbcType= JdbcType.INTEGER, id=true),
-            @Result(column="date", property="date", jdbcType= JdbcType.VARCHAR),
-            @Result(column="disaster_type", property="disasterType", jdbcType= JdbcType.VARCHAR),
-            @Result(column="status", property="status", jdbcType= JdbcType.VARCHAR),
-            @Result(column="o_url", property="oURL", jdbcType= JdbcType.VARCHAR),
-            @Result(column="request_unit", property="requestUnit", jdbcType= JdbcType.VARCHAR),
+    @Results(id = "disasterRequestMap", value = {
+            @Result(column = "ID", property = "id", jdbcType = JdbcType.INTEGER, id = true),
+            @Result(column = "date", property = "date", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "disaster_type", property = "disasterType", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "status", property = "status", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "o_url", property = "oURL", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "request_unit", property = "requestUnit", jdbcType = JdbcType.VARCHAR),
     })
     List<DisasterRequest> getAllDisasterRequest();
 
     @Select("select * from earthquake.disasterrequest order by date desc limit #{pageNum}, #{limit};")
     @ResultMap(value = "disasterRequestMap")
-    List<DisasterRequest> getDisasterRequestByPage(@Param("pageNum") int pageNum,@Param("limit")int limit);
+    List<DisasterRequest> getDisasterRequestByPage(@Param("pageNum") int pageNum, @Param("limit") int limit);
 
     @Select("SELECT * FROM earthquake.disasterrequest WHERE ID = #{id} FOR UPDATE")
     @ResultMap(value = "disasterRequestMap")
@@ -48,7 +48,7 @@ public interface DisasterRequestMapper {
 
     @Select("SELECT * FROM earthquake.disasterrequest WHERE status = '1' order by date desc limit #{pageNum}, #{limit} FOR UPDATE;")
     @ResultMap(value = "disasterRequestMap")
-    List<DisasterRequest> getProcessedDisasterRequestByPage(@Param("pageNum") int pageNum,@Param("limit")int limit);
+    List<DisasterRequest> getProcessedDisasterRequestByPage(@Param("pageNum") int pageNum, @Param("limit") int limit);
 
     @Select("SELECT * FROM earthquake.disasterrequest WHERE status = '0' FOR UPDATE")
     @ResultMap(value = "disasterRequestMap")
@@ -56,6 +56,6 @@ public interface DisasterRequestMapper {
 
     @Select("SELECT * FROM earthquake.disasterrequest WHERE status = '0' order by date desc limit #{pageNum}, #{limit} FOR UPDATE")
     @ResultMap(value = "disasterRequestMap")
-    List<DisasterRequest> getNoProcessedDisasterRequestByPage(@Param("pageNum") int pageNum,@Param("limit")int limit);
+    List<DisasterRequest> getNoProcessedDisasterRequestByPage(@Param("pageNum") int pageNum, @Param("limit") int limit);
 }
 

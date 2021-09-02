@@ -11,7 +11,7 @@ public class OutPutService {
     @Resource
     OutPutImpl OutPut;
 
-    public boolean output(String categoryId,String code) throws IOException {
-        return OutPut.outPut(categoryId,code);
+    public boolean output(String categoryId, String code) throws IOException {
+        return OutPut.outPut(categoryId, code);
     }
 }

@@ -10,6 +10,6 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 @EnableDiscoveryClient
 public class OutPut6001 {
     public static void main(String[] args) {
-        SpringApplication.run(OutPut6001.class,args);
+        SpringApplication.run(OutPut6001.class, args);
     }
 }

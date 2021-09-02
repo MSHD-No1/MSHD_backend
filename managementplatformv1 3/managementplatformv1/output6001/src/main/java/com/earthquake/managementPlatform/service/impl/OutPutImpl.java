@@ -13,10 +13,11 @@ import java.io.*;
 @Component
 public class OutPutImpl extends FTPOutPutMethod implements OutPut {
     @Override
-    public boolean outPut(String categoryId,String code) throws IOException {
-        return outPutForCode(categoryId,code);
+    public boolean outPut(String categoryId, String code) throws IOException {
+        return outPutForCode(categoryId, code);
     }
-    private boolean outPutForCode(String categoryId,String code) throws IOException {
+
+    private boolean outPutForCode(String categoryId, String code) throws IOException {
         BufferedWriter out = new BufferedWriter(new FileWriter(categoryId + ".txt"));
         out.write(code);
         out.close();
