@@ -103,12 +103,12 @@ public class BasicEarthquakeInfo implements Serializable {
     @Override
     public String toString() {
         return "该编码为地震基本信息编码：" + '\n' +
-                "地点：" + location + '，'+'\n' +
-                "日期：" + date + '，'+'\n' +
-                "经度：" + longitude + '，'+'\n' +
-                "纬度：" + latitude + '，'+'\n' +
-                "深度：" + depth + '，'+'\n' +
-                "震级：" + magnitude + '，'+'\n' +
-                "上报单位：" + reportingUnit ;
+                "地点：" + location + '，' + '\n' +
+                "日期：" + date + '，' + '\n' +
+                "经度：" + longitude + '，' + '\n' +
+                "纬度：" + latitude + '，' + '\n' +
+                "深度：" + depth + '，' + '\n' +
+                "震级：" + magnitude + '，' + '\n' +
+                "上报单位：" + reportingUnit;
     }
 }

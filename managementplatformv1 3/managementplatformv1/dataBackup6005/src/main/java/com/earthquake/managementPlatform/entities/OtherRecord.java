@@ -101,11 +101,11 @@ public class OtherRecord {
     @Override
     public String toString() {
         return "该编码为其他次生灾害记录编码：" + '\n' +
-                "地点：" + location + '，'+'\n' +
-                "上报日期：" + date + '，'+'\n' +
-                "类型为沙土液化、火灾、毒气泄露、爆炸、环境污染、瘟疫、海啸等，\n此次为" + type + '，'+'\n' +
-                "灾情描述：" + note + '，'+'\n' +
-                "上报单位：" + reportingUnit + '，'+'\n' +
-                "严重程度评级共四级（一般4，较大3，.重大2，特大1），\n此次为" + id.substring(18) ;
+                "地点：" + location + '，' + '\n' +
+                "上报日期：" + date + '，' + '\n' +
+                "类型为沙土液化、火灾、毒气泄露、爆炸、环境污染、瘟疫、海啸等，\n此次为" + type + '，' + '\n' +
+                "灾情描述：" + note + '，' + '\n' +
+                "上报单位：" + reportingUnit + '，' + '\n' +
+                "严重程度评级共四级（一般4，较大3，.重大2，特大1），\n此次为" + id.substring(18);
     }
 }

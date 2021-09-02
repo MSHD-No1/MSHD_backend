@@ -101,11 +101,11 @@ public class TrafficDisaster {
     @Override
     public String toString() {
         return "该编码为交通系统灾情统计编码：" + '\n' +
-                "地点：" + location + '，'+'\n' +
-                "上报日期：" + date + '，'+'\n' +
-                "类型共四类（道路1，桥梁2，隧道3，铁道线路4），\n此次为" + type + '，'+'\n' +
-                "灾情描述：" + note + '，'+'\n' +
-                "上报单位：" + reportingUnit + '，'+'\n' +
-                "严重程度评级共五级（毁坏5，严重破坏4，中等破坏3，轻微破坏2，基本完好1），\n此次为" + id.substring(18) ;
+                "地点：" + location + '，' + '\n' +
+                "上报日期：" + date + '，' + '\n' +
+                "类型共四类（道路1，桥梁2，隧道3，铁道线路4），\n此次为" + type + '，' + '\n' +
+                "灾情描述：" + note + '，' + '\n' +
+                "上报单位：" + reportingUnit + '，' + '\n' +
+                "严重程度评级共五级（毁坏5，严重破坏4，中等破坏3，轻微破坏2，基本完好1），\n此次为" + id.substring(18);
     }
 }
