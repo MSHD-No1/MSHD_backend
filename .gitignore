@@ -1,8 +1,8 @@
-./managementplatformv1 3/managementplatformv1/dataBackup6005/target/
-./managementplatformv1 3/managementplatformv1/output6001/target/
-./managementplatformv1 3/managementplatformv1/uploadfile8001/target/
-./managementplatformv1 3/managementplatformv1/userManagement5001/target/
-./managementplatformv1 3/managementplatformv1/cloudZuulServer6542/target/
-./managementplatformv1 3/managementplatformv1/disasterInfoCode8006/target/
-./managementplatformv1 3/managementplatformv1/cloudEurekaServer7001/target/
-./managementplatformv1 3/managementplatformv1/storageInformation9006/target/
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Maven
+log/
+target/
