@@ -25,7 +25,7 @@ public class DisasterInfoCodeService {
 
     private JSONObject jsonObject;
 
-    public String assignDisasterInfoCode(JSONObject data){
+    public String assignDisasterInfoCode(JSONObject data) {
         String province;
         String city;
         String country;
@@ -34,60 +34,58 @@ public class DisasterInfoCodeService {
         String grade;
         String category;
 
-        try{
+        try {
             province = data.getString("province");
-        }catch (JSONException e){
+        } catch (JSONException e) {
             province = null;
         }
 
-        try{
+        try {
             city = data.getString("city");
-        }catch (JSONException e){
+        } catch (JSONException e) {
             city = null;
         }
 
-        try{
+        try {
             country = data.getString("country");
-        }catch (JSONException e){
+        } catch (JSONException e) {
             country = null;
         }
 
-        try{
+        try {
             town = data.getString("town");
-        }catch (JSONException e){
+        } catch (JSONException e) {
             town = null;
         }
 
-        try{
+        try {
             village = data.getString("village");
-        }catch (JSONException e){
+        } catch (JSONException e) {
             village = null;
         }
 
-        administrativeRegionCode12.setAdministrativeRegionCode12(province,city,country,town,village);
+        administrativeRegionCode12.setAdministrativeRegionCode12(province, city, country, town, village);
         administrativeRegionCode = administrativeRegionCode12;
         String aAdministrativeRegionCode = administrativeRegionCode.codeForAdministrativeRegion();
         categoryCode.setCategoryInfo(data.getString("category"));
         category = categoryCode.codeForCategory();
-        if(category.equals("551"))
-        {
-            EarthquakeCode earthquakeCode = new EarthquakeCodeByTime(aAdministrativeRegionCode,data.getString("date"));
+        if (category.equals("551")) {
+            EarthquakeCode earthquakeCode = new EarthquakeCodeByTime(aAdministrativeRegionCode, data.getString("date"));
             return earthquakeCode.codeForEarthquakeCode();
-        }
-        else {
+        } else {
 
-            try{
+            try {
                 grade = data.get("grade").toString();
-            }catch (JSONException e){
+            } catch (JSONException e) {
                 try {
                     grade = data.get("status").toString();
-                }catch (JSONException E){
-                GradeEvaluation gradeEvaluation = gradeEvaluationFactory.createGradeEvaluation(category);
-                grade = gradeEvaluation.gradeEvaluation(data);
+                } catch (JSONException E) {
+                    GradeEvaluation gradeEvaluation = gradeEvaluationFactory.createGradeEvaluation(category);
+                    grade = gradeEvaluation.gradeEvaluation(data);
                 }
             }
             disasterInfoCode = disasterInfoCode7;
-            return aAdministrativeRegionCode + disasterInfoCode.codeForDisasterInfo(aAdministrativeRegionCode, category, grade );
+            return aAdministrativeRegionCode + disasterInfoCode.codeForDisasterInfo(aAdministrativeRegionCode, category, grade);
         }
     }
 }

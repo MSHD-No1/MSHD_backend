@@ -21,13 +21,11 @@ public class GradeCode {
         this.gradeInfo = gradeInfo;
     }
 
-    public String codeForGrade(){
+    public String codeForGrade() {
         String gradeCode;
-        if(gradeInfo!=null){
+        if (gradeInfo != null) {
             gradeCode = gradeInfo;
-        }
-        else gradeCode = "0";
+        } else gradeCode = "0";
         return gradeCode;
-
     }
 }

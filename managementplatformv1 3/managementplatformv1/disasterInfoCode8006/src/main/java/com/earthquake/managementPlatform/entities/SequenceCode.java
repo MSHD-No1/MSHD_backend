@@ -59,15 +59,14 @@ public class SequenceCode {
     @Resource
     WaterDisasterMapper waterDisasterMapper;
 
-    public String CodeForSequence(String administrativeRegionCode,String categoryCode){
+    public String CodeForSequence(String administrativeRegionCode, String categoryCode) {
         String lastCode = "";
-        log.info(administrativeRegionCode+"..."+categoryCode);
-        DistributionCode distributionCode = distributionCodeMapper.getDistributionCodeById(administrativeRegionCode+categoryCode);
-        if(distributionCode !=null){
-            distributionCode.setNumber(distributionCode.getNumber()+1);
+        log.info(administrativeRegionCode + "..." + categoryCode);
+        DistributionCode distributionCode = distributionCodeMapper.getDistributionCodeById(administrativeRegionCode + categoryCode);
+        if (distributionCode != null) {
+            distributionCode.setNumber(distributionCode.getNumber() + 1);
             distributionCodeMapper.update(distributionCode);
-        }
-        else {
+        } else {
             if (categoryCode.equals("111")) {
                 lastCode = deathStatisticsMapper.getSomeDeathStatisticsByACId(administrativeRegionCode + categoryCode);
             } else if (categoryCode.equals("112")) {
@@ -124,7 +123,7 @@ public class SequenceCode {
             }
         }
 
-        String sequenceCode = String.format("%3d",distributionCode.getNumber()).replace(" ","0");
+        String sequenceCode = String.format("%3d", distributionCode.getNumber()).replace(" ", "0");
         return sequenceCode;
     }
 }
