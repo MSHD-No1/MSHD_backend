@@ -25,22 +25,31 @@ public class GradeEvaluationFactory {
     private GradeEvaluation gradeEvaluation;
 
     public GradeEvaluation createGradeEvaluation(String categoryCode) {
-        if (categoryCode.equals("111")) {
-            gradeEvaluation = gradeEvaluationForDeathStatistics;
-        } else if (categoryCode.equals("112")) {
-            gradeEvaluation = gradeEvaluationForInjuredStatistics;
-        } else if (categoryCode.equals("113")) {
-            gradeEvaluation = gradeEvaluationForMissingStatistics;
-        } else if (categoryCode.equals("221")) {
-            gradeEvaluation = gradeEvaluationForCivilStructure;
-        } else if (categoryCode.equals("222")) {
-            gradeEvaluation = gradeEvaluationForBrickwoodStructure;
-        } else if (categoryCode.equals("223")) {
-            gradeEvaluation = gradeEvaluationForMasonryStructure;
-        } else if (categoryCode.equals("224")) {
-            gradeEvaluation = gradeEvaluationForFrameworkStructure;
-        } else if (categoryCode.equals("225")) {
-            gradeEvaluation = gradeEvaluationForOtherStructure;
+        switch (categoryCode) {
+            case "111":
+                gradeEvaluation = gradeEvaluationForDeathStatistics;
+                break;
+            case "112":
+                gradeEvaluation = gradeEvaluationForInjuredStatistics;
+                break;
+            case "113":
+                gradeEvaluation = gradeEvaluationForMissingStatistics;
+                break;
+            case "221":
+                gradeEvaluation = gradeEvaluationForCivilStructure;
+                break;
+            case "222":
+                gradeEvaluation = gradeEvaluationForBrickwoodStructure;
+                break;
+            case "223":
+                gradeEvaluation = gradeEvaluationForMasonryStructure;
+                break;
+            case "224":
+                gradeEvaluation = gradeEvaluationForFrameworkStructure;
+                break;
+            case "225":
+                gradeEvaluation = gradeEvaluationForOtherStructure;
+                break;
         }
         return gradeEvaluation;
     }
