@@ -7,10 +7,10 @@ import org.springframework.stereotype.Component;
 public class GradeEvaluationForBrickwoodStructure implements GradeEvaluation {
     @Override
     public String gradeEvaluation(JSONObject data) {
-        Double basicallyIntactSquare = data.getDouble("basicallyIntactSquare");
-        Double damagedSquare = data.getDouble("damagedSquare");
-        Double destroyedSquare = data.getDouble("destroyedSquare");
-        Double value = 1 - basicallyIntactSquare / (basicallyIntactSquare + damagedSquare + destroyedSquare);
+        double basicallyIntactSquare = data.getDouble("basicallyIntactSquare");
+        double damagedSquare = data.getDouble("damagedSquare");
+        double destroyedSquare = data.getDouble("destroyedSquare");
+        double value = 1 - basicallyIntactSquare / (basicallyIntactSquare + damagedSquare + destroyedSquare);
         String gradeCode = "0";
         if (value >= 0 && value < 0.25) {
             gradeCode = "1";

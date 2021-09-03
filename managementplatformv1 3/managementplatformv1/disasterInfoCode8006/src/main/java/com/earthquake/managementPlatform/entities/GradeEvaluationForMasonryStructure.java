@@ -7,12 +7,12 @@ import org.springframework.stereotype.Component;
 public class GradeEvaluationForMasonryStructure implements GradeEvaluation {
     @Override
     public String gradeEvaluation(JSONObject data) {
-        Double basicallyIntactSquare = data.getDouble("basicallyIntactSquare");
+        double basicallyIntactSquare = data.getDouble("basicallyIntactSquare");
         Double slightDamagedSquare = data.getDouble("slightDamagedSquare");
         Double moderateDamagedSquare = data.getDouble("moderateDamagedSquare");
         Double seriousDamagedSquare = data.getDouble("seriousDamagedSquare");
         Double destroyedSquare = data.getDouble("destroyedSquare");
-        Double value = 1 - basicallyIntactSquare / (basicallyIntactSquare + slightDamagedSquare + moderateDamagedSquare + seriousDamagedSquare + destroyedSquare);
+        double value = 1 - basicallyIntactSquare / (basicallyIntactSquare + slightDamagedSquare + moderateDamagedSquare + seriousDamagedSquare + destroyedSquare);
         String gradeCode = "0";
         if (value >= 0 && value < 0.25) {
             gradeCode = "1";
