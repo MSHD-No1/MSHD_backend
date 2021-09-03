@@ -50,7 +50,7 @@ public class InformationResource {
     }
 
     @PostMapping("/v1/informationPredictionStorage")
-    public PostVo informationPredictionStorage(@RequestBody Map<JSONArray, String> map) {
+    public PostVo<Object> informationPredictionStorage(@RequestBody Map<JSONArray, String> map) {
 
         if (map != null) {
             for (Map.Entry<JSONArray, String> entry : map.entrySet()) {
@@ -169,12 +169,10 @@ public class InformationResource {
     }
 
     @GetMapping("/v1/lastDisasterInfo")
-    public GetVo getLastDisasterInfo() {
-        List disasterInfos = new ArrayList<>();
+    public GetVo<Object> getLastDisasterInfo() {
+        List<Object> disasterInfos = new ArrayList<>();
         BasicEarthquakeInfo disasterInfo = basicEarthquakeInfoMapper.getLastDisasterInfo();
         disasterInfos.add(disasterInfo);
-        return new GetVo(0, "获取数据成功！", disasterInfos.size(), disasterInfos);
+        return new GetVo<>(0, "获取数据成功！", disasterInfos.size(), disasterInfos);
     }
-
-
 }
