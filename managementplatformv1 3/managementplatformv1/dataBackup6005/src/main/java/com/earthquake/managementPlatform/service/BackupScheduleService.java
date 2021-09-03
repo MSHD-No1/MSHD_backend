@@ -3,7 +3,6 @@ package com.earthquake.managementPlatform.service;
 import com.alibaba.druid.util.StringUtils;
 import com.earthquake.managementPlatform.mapper.BackupTimeMapper;
 import com.earthquake.managementPlatform.mapper.ScheduleMapper;
-//import jdk.internal.instrumentation.Logger;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.Trigger;
@@ -21,11 +20,9 @@ import java.util.Date;
 @Component
 @EnableScheduling
 public class BackupScheduleService implements SchedulingConfigurer {
+    private static String cron = "* * * * * *";
     @Resource
     ScheduleMapper scheduleMapper;
-
-    private static String cron = "* * * * * *";
-
     @Resource
     BackupService backupService;
 
@@ -39,17 +36,12 @@ public class BackupScheduleService implements SchedulingConfigurer {
     }
 
     private Runnable doTask() {
-        return new Runnable() {
-            @SneakyThrows
-            @Override
-            public void run() {
-                int time = backupTimeMapper.getTime();
-
-                if (backupService.backUp(time)) {
-                    log.info("备份成功！");
-                } else {
-                    log.info("备份失败！");
-                }
+        return () -> {
+            int time = backupTimeMapper.getTime();
+            if (backupService.backUp(time)) {
+                log.info("备份成功！");
+            } else {
+                log.info("备份失败！");
             }
         };
     }
