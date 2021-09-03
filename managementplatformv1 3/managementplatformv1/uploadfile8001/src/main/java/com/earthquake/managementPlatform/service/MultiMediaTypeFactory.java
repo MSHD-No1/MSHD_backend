@@ -15,11 +15,7 @@ public class MultiMediaTypeFactory {
 
         switch (strArray[suffixIndex]) {
             case "jpg":
-                multiMediaMethod = picMethod;
-                break;
             case "png":
-                multiMediaMethod = picMethod;
-                break;
             case "jpeg":
                 multiMediaMethod = picMethod;
                 break;

@@ -28,7 +28,7 @@ public abstract class FtpMethod {
     /**
      * FTP协议里面，规定文件名编码为iso-8859-1
      **/
-    public static String serverCharset = "ISO-8859-1";
+    public static final String serverCharset = "ISO-8859-1";
 
     /**
      * UTF-8字符编码

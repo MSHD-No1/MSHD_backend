@@ -1,5 +1,1182 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="EntryPointsManager">
+    <entry_points version="2.0">
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.FtpMethod address" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.FTPOutPutMethod address" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.FtpMethod basePath" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.FTPOutPutMethod basePath" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.impl.CodeOutPutImplTest codeOutPutImpl" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.entities.Schedule cron" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.entities.DisasterPrediction D_ID" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.FtpEarthquakeInfoReading dataSourceEarthquakeInfo" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.entities.DisasterPrediction date" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.FTPOutPutMethod DIR_CONTAINS_NO_FILE" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.AddRecordService disasterInfoCodeUrl" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.controller.FileResource disasterInfoCodeUrl" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.UploadFileScheduleService disasterInfoCodeUrl" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.entities.SequenceCode disasterInfoMapper" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.CodeFactory disasterPredictionMapper" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.FtpMethod filePicSavePath" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.PicMethod filePicSavePath" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.FtpMethod fileSavePath" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.PicMethod fileSavePath" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.FtpMethod ftpRelativePicPath" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.entities.DisasterPrediction grade" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.entities.Schedule id" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.UploadFileScheduleService informationStorageUrl" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.entities.DisasterPrediction intensity" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.DisasterInfoCodeService jsonObject" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.entities.OnOff name" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.FtpMethod nginxIp" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.PicMethod nginxIp" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.FtpMethod nginxPicPath" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.PicMethod nginxPicPath" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.FtpMethod password" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.FTPOutPutMethod password" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.entities.DisasterPrediction picture" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.FtpMethod port" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.FTPOutPutMethod port" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.BrickwoodStructureStorage restTemplate" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.CivilStructureStorage restTemplate" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.DeathStatisticsStorage restTemplate" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.FrameworkStructureStorage restTemplate" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.InjuredStatisticsStorage restTemplate" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.MasonryStructureStorage restTemplate" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.MissingStatisticsStorage restTemplate" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.OtherStructureStorage restTemplate" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.entities.DisasterPrediction S_ID" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.entities.OnOff status" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.BackupService storageInformationUrl" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.controller.CodeResource storageInformationUrl" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.controller.CodeResourceTest storageInformationUrl" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.controller.DisasterRequestResource storageInformationUrl" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.entities.DisasterPrediction type" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.UploadFileServiceTest uploadFileService" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.BasicEarthquakeInformationStorage uploadFileUrl" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.BrickwoodStructureStorage uploadFileUrl" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.CivilStructureStorage uploadFileUrl" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.CollapseRecordStorage uploadFileUrl" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.CommDisasterStorage uploadFileUrl" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.CrackRecordStorage uploadFileUrl" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.DeathStatisticsStorage uploadFileUrl" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.DebrisRecordStorage uploadFileUrl" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.DisasterPredictionStorage uploadFileUrl" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.FrameworkStructureStorage uploadFileUrl" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.GasDisasterStorage uploadFileUrl" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.InjuredStatisticsStorage uploadFileUrl" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.IrrigationDisasterStorage uploadFileUrl" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.KarstRecordStorage uploadFileUrl" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.LandslideRecordStorage uploadFileUrl" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.MasonryStructureStorage uploadFileUrl" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.MissingStatisticsStorage uploadFileUrl" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.OilDisasterStorage uploadFileUrl" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.OtherRecordStorage uploadFileUrl" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.OtherStructureStorage uploadFileUrl" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.PowerDisasterStorage uploadFileUrl" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.SettlementRecordStorage uploadFileUrl" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.TrafficDisasterStorage uploadFileUrl" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.WaterDisasterStorage uploadFileUrl" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.FtpMethod username" />
+      <entry_point TYPE="field" FQNAME="com.earthquake.managementPlatform.service.FTPOutPutMethod username" />
+    </entry_points>
+    <pattern value="com.earthquake.managementPlatform.controller.DisasterRequestResource" method="addDisasterRequest" />
+    <pattern value="com.earthquake.managementPlatform.controller.FileResource" method="addRecode" />
+    <pattern value="com.earthquake.managementPlatform.service.AddRecordService" />
+    <pattern value="com.earthquake.managementPlatform.service.AddRecordServiceTest" />
+    <pattern value="com.earthquake.managementPlatform.service.AddRecordServiceTest" method="addRecordTest" />
+    <pattern value="com.earthquake.managementPlatform.entities.AdministrativeRegionCode" />
+    <pattern value="com.earthquake.managementPlatform.entities.AdministrativeRegionCode12" />
+    <pattern value="com.earthquake.managementPlatform.mapper.AdministrativeRegionCode12Mapper" />
+    <pattern value="com.earthquake.managementPlatform.mapper.AdministrativeRegionCode12MapperTest" />
+    <pattern value="com.earthquake.managementPlatform.entities.AdministrativeRegionCode12Test" />
+    <pattern value="com.earthquake.managementPlatform.controller.UserResource" method="adminUpdateUserpassword" />
+    <pattern value="com.earthquake.managementPlatform.mapper.UserMapper" method="adminUpdateUserPasswordInfo" />
+    <pattern value="com.earthquake.managementPlatform.entities.Aid" />
+    <pattern value="com.earthquake.managementPlatform.entities.Aid" method="Aid" />
+    <pattern value="com.earthquake.managementPlatform.config.ApplicationContextConfig" />
+    <pattern value="com.earthquake.managementPlatform.controller.CodeResource" method="assignDisasterInfoCode" />
+    <pattern value="com.earthquake.managementPlatform.service.DisasterInfoCodeServiceTest" method="assignDisasterInfoCodeTest" />
+    <pattern value="com.earthquake.managementPlatform.controller.BackupResource" />
+    <pattern value="com.earthquake.managementPlatform.service.BackupScheduleService" />
+    <pattern value="com.earthquake.managementPlatform.service.BackupService" />
+    <pattern value="com.earthquake.managementPlatform.entities.BackupTime" />
+    <pattern value="com.earthquake.managementPlatform.mapper.BackupTimeMapper" />
+    <pattern value="com.earthquake.managementPlatform.entities.BasicEarthquakeInfo" />
+    <pattern value="com.earthquake.managementPlatform.entities.BasicEarthquakeInfo" method="BasicEarthquakeInfo" />
+    <pattern value="com.earthquake.managementPlatform.mapper.BasicEarthquakeInfoMapper" />
+    <pattern value="com.earthquake.managementPlatform.service.BasicEarthquakeInformationStorage" />
+    <pattern value="com.earthquake.managementPlatform.entities.BrickwoodStructure" />
+    <pattern value="com.earthquake.managementPlatform.entities.BrickwoodStructure" method="BrickwoodStructure" />
+    <pattern value="com.earthquake.managementPlatform.controller.BrickwoodStructureResource" method="brickwoodStructureAll" />
+    <pattern value="com.earthquake.managementPlatform.controller.BrickwoodStructureResource" method="brickwoodStructureByTime" />
+    <pattern value="com.earthquake.managementPlatform.controller.BrickwoodStructureResource" method="brickwoodStructureCopy" />
+    <pattern value="com.earthquake.managementPlatform.mapper.BrickwoodStructureMapper" />
+    <pattern value="com.earthquake.managementPlatform.controller.BrickwoodStructureResource" />
+    <pattern value="com.earthquake.managementPlatform.service.BrickwoodStructureStorage" />
+    <pattern value="com.earthquake.managementPlatform.entities.CategoryCode" />
+    <pattern value="com.earthquake.managementPlatform.controller.FileResource" method="changeSchedule" />
+    <pattern value="com.earthquake.managementPlatform.controller.BackupResource" method="changeSchedule" />
+    <pattern value="com.earthquake.managementPlatform.entities.CivilStructure" />
+    <pattern value="com.earthquake.managementPlatform.entities.CivilStructure" method="CivilStructure" />
+    <pattern value="com.earthquake.managementPlatform.controller.CivilStructureResource" method="civilStructureAll" />
+    <pattern value="com.earthquake.managementPlatform.controller.CivilStructureResource" method="civilStructureByTime" />
+    <pattern value="com.earthquake.managementPlatform.controller.CivilStructureResource" method="civilStructureCopy" />
+    <pattern value="com.earthquake.managementPlatform.mapper.CivilStructureMapper" />
+    <pattern value="com.earthquake.managementPlatform.controller.CivilStructureResource" />
+    <pattern value="com.earthquake.managementPlatform.service.CivilStructureStorage" />
+    <pattern value="com.earthquake.managementPlatform.service.CodeDescriptionFactory" />
+    <pattern value="com.earthquake.managementPlatform.controller.InformationResource" method="codeDescriptionOfResource" />
+    <pattern value="com.earthquake.managementPlatform.service.CodeDescriptionOfResourceService" />
+    <pattern value="com.earthquake.managementPlatform.service.CodeFactory" />
+    <pattern value="com.earthquake.managementPlatform.entities.AdministrativeRegionCode12Test" method="codeForAdministrativeRegionTest" />
+    <pattern value="com.earthquake.managementPlatform.entities.DisasterInfoCode7Test" method="codeForDisasterInfoTest" />
+    <pattern value="com.earthquake.managementPlatform.entities.EarthquakeCodeByTimeTest" method="codeForEarthquakeCodeTest" />
+    <pattern value="com.earthquake.managementPlatform.entities.SequenceCodeTest" method="CodeForSequenceTest" />
+    <pattern value="com.earthquake.managementPlatform.controller.InformationResource" method="codeOfResource" />
+    <pattern value="com.earthquake.managementPlatform.service.CodeOfResourceService" />
+    <pattern value="com.earthquake.managementPlatform.service.impl.CodeOutPutImplTest" />
+    <pattern value="com.earthquake.managementPlatform.controller.CodeResource" />
+    <pattern value="com.earthquake.managementPlatform.controller.CodeResourceTest" />
+    <pattern value="com.earthquake.managementPlatform.entities.CollapseRecord" />
+    <pattern value="com.earthquake.managementPlatform.entities.CollapseRecord" method="CollapseRecord" />
+    <pattern value="com.earthquake.managementPlatform.controller.CollapseRecordResource" method="collapseRecordAll" />
+    <pattern value="com.earthquake.managementPlatform.controller.CollapseRecordResource" method="collapseRecordByTime" />
+    <pattern value="com.earthquake.managementPlatform.controller.CollapseRecordResource" method="collapseRecordCopy" />
+    <pattern value="com.earthquake.managementPlatform.mapper.CollapseRecordMapper" />
+    <pattern value="com.earthquake.managementPlatform.controller.CollapseRecordResource" />
+    <pattern value="com.earthquake.managementPlatform.service.CollapseRecordStorage" />
+    <pattern value="com.earthquake.managementPlatform.entities.CommDisaster" />
+    <pattern value="com.earthquake.managementPlatform.entities.CommDisaster" method="CommDisaster" />
+    <pattern value="com.earthquake.managementPlatform.controller.CommDisasterResource" method="commDisasterAll" />
+    <pattern value="com.earthquake.managementPlatform.controller.CommDisasterResource" method="commDisasterByTime" />
+    <pattern value="com.earthquake.managementPlatform.controller.CommDisasterResource" method="commDisasterCopy" />
+    <pattern value="com.earthquake.managementPlatform.mapper.CommDisasterMapper" />
+    <pattern value="com.earthquake.managementPlatform.controller.CommDisasterResource" />
+    <pattern value="com.earthquake.managementPlatform.service.CommDisasterStorage" />
+    <pattern value="com.earthquake.managementPlatform.entities.CrackRecord" />
+    <pattern value="com.earthquake.managementPlatform.entities.CrackRecord" method="CrackRecord" />
+    <pattern value="com.earthquake.managementPlatform.controller.CrackRecordResource" method="crackRecordAll" />
+    <pattern value="com.earthquake.managementPlatform.controller.CrackRecordResource" method="crackRecordByTime" />
+    <pattern value="com.earthquake.managementPlatform.controller.CrackRecordResource" method="crackRecordCopy" />
+    <pattern value="com.earthquake.managementPlatform.mapper.CrackRecordMapper" />
+    <pattern value="com.earthquake.managementPlatform.controller.CrackRecordResource" />
+    <pattern value="com.earthquake.managementPlatform.service.CrackRecordStorage" />
+    <pattern value="com.earthquake.managementPlatform.dataBackup6005" />
+    <pattern value="com.earthquake.managementPlatform.service.DayDate" />
+    <pattern value="com.earthquake.managementPlatform.service.DayDate" method="DayDate" />
+    <pattern value="com.earthquake.managementPlatform.service.DayDateTest" />
+    <pattern value="com.earthquake.managementPlatform.service.DayDateTest" method="DayDateTest" />
+    <pattern value="com.earthquake.managementPlatform.entities.DeathStatistics" />
+    <pattern value="com.earthquake.managementPlatform.entities.DeathStatistics" method="DeathStatistics" />
+    <pattern value="com.earthquake.managementPlatform.controller.DeathStatisticsResource" method="deathStatisticsAll" />
+    <pattern value="com.earthquake.managementPlatform.controller.DeathStatisticsResource" method="deathStatisticsByTime" />
+    <pattern value="com.earthquake.managementPlatform.controller.DeathStatisticsResource" method="deathStatisticsCopy" />
+    <pattern value="com.earthquake.managementPlatform.mapper.DeathStatisticsMapper" />
+    <pattern value="com.earthquake.managementPlatform.controller.DeathStatisticsResource" />
+    <pattern value="com.earthquake.managementPlatform.service.DeathStatisticsStorage" />
+    <pattern value="com.earthquake.managementPlatform.entities.DebrisRecord" />
+    <pattern value="com.earthquake.managementPlatform.entities.DebrisRecord" method="DebrisRecord" />
+    <pattern value="com.earthquake.managementPlatform.controller.DebrisRecordResource" method="debrisRecordAll" />
+    <pattern value="com.earthquake.managementPlatform.controller.DebrisRecordResource" method="debrisRecordByTime" />
+    <pattern value="com.earthquake.managementPlatform.controller.DebrisRecordResource" method="debrisRecordCopy" />
+    <pattern value="com.earthquake.managementPlatform.mapper.DebrisRecordMapper" />
+    <pattern value="com.earthquake.managementPlatform.controller.DebrisRecordResource" />
+    <pattern value="com.earthquake.managementPlatform.service.DebrisRecordStorage" />
+    <pattern value="com.earthquake.managementPlatform.controller.BrickwoodStructureResource" method="delBrickwoodStructure" />
+    <pattern value="com.earthquake.managementPlatform.controller.CivilStructureResource" method="delCivilStructure" />
+    <pattern value="com.earthquake.managementPlatform.controller.CollapseRecordResource" method="delCollapseRecord" />
+    <pattern value="com.earthquake.managementPlatform.controller.CommDisasterResource" method="delCommDisaster" />
+    <pattern value="com.earthquake.managementPlatform.controller.CrackRecordResource" method="delCrackRecord" />
+    <pattern value="com.earthquake.managementPlatform.controller.DeathStatisticsResource" method="delDeathStatistics" />
+    <pattern value="com.earthquake.managementPlatform.controller.DebrisRecordResource" method="delDebrisRecord" />
+    <pattern value="com.earthquake.managementPlatform.controller.InformationResource" method="delDisasterInfo" />
+    <pattern value="com.earthquake.managementPlatform.controller.DisasterPredictionResource" method="delDisasterPrediction" />
+    <pattern value="com.earthquake.managementPlatform.controller.DisasterRequestResource" method="delDisasterRequest" />
+    <pattern value="com.earthquake.managementPlatform.controller.UserResource" method="deleteUser" />
+    <pattern value="com.earthquake.managementPlatform.controller.FrameworkStructureResource" method="delFrameworkStructure" />
+    <pattern value="com.earthquake.managementPlatform.controller.GasDisasterResource" method="delGasDisaster" />
+    <pattern value="com.earthquake.managementPlatform.controller.InjuredStatisticsResource" method="delInjuredStatistics" />
+    <pattern value="com.earthquake.managementPlatform.controller.IrrigationDisasterResource" method="delIrrigationDisaster" />
+    <pattern value="com.earthquake.managementPlatform.controller.KarstRecordResource" method="delKarstRecord" />
+    <pattern value="com.earthquake.managementPlatform.controller.LandslideRecordResource" method="delLandslideRecord" />
+    <pattern value="com.earthquake.managementPlatform.controller.MasonryStructureResource" method="delMasonryStructure" />
+    <pattern value="com.earthquake.managementPlatform.controller.MissingStatisticsResource" method="delMissingStatistics" />
+    <pattern value="com.earthquake.managementPlatform.controller.OilDisasterResource" method="delOilDisaster" />
+    <pattern value="com.earthquake.managementPlatform.controller.OtherRecordResource" method="delOtherRecord" />
+    <pattern value="com.earthquake.managementPlatform.controller.OtherStructureResource" method="delOtherStructure" />
+    <pattern value="com.earthquake.managementPlatform.controller.PowerDisasterResource" method="delPowerDisaster" />
+    <pattern value="com.earthquake.managementPlatform.controller.SettlementRecordResource" method="delSettlementRecord" />
+    <pattern value="com.earthquake.managementPlatform.controller.TrafficDisasterResource" method="delTrafficDisaster" />
+    <pattern value="com.earthquake.managementPlatform.controller.WaterDisasterResource" method="delWaterDisaster" />
+    <pattern value="com.earthquake.managementPlatform.service.DisasterFile" />
+    <pattern value="com.earthquake.managementPlatform.controller.DisasterRequestResource" method="disasterInfoAll" />
+    <pattern value="com.earthquake.managementPlatform.controller.InformationResource" method="disasterInfoAll" />
+    <pattern value="com.earthquake.managementPlatform.controller.InformationResource" method="disasterInfoByTime" />
+    <pattern value="com.earthquake.managementPlatform.entities.DisasterInfoCode" />
+    <pattern value="com.earthquake.managementPlatform.entities.DisasterInfoCode7" />
+    <pattern value="com.earthquake.managementPlatform.entities.DisasterInfoCode7Test" />
+    <pattern value="com.earthquake.managementPlatform.DisasterInfoCode8006" />
+    <pattern value="com.earthquake.managementPlatform.service.DisasterInfoCodeService" />
+    <pattern value="com.earthquake.managementPlatform.service.DisasterInfoCodeServiceTest" />
+    <pattern value="com.earthquake.managementPlatform.controller.CodeResource" method="disasterInfoCodeToRecode" />
+    <pattern value="com.earthquake.managementPlatform.controller.InformationResource" method="disasterInfoCopy" />
+    <pattern value="com.earthquake.managementPlatform.service.DisasterInfoFactory" />
+    <pattern value="com.earthquake.managementPlatform.mapper.DisasterInfoMapper" />
+    <pattern value="com.earthquake.managementPlatform.service.DisasterInformationStorage" />
+    <pattern value="com.earthquake.managementPlatform.service.DisasterInformationStorageService" />
+    <pattern value="com.earthquake.managementPlatform.entities.DisasterPrediction" />
+    <pattern value="com.earthquake.managementPlatform.controller.DisasterPredictionResource" method="disasterPredictionAll" />
+    <pattern value="com.earthquake.managementPlatform.controller.DisasterPredictionResource" method="disasterPredictionByTime" />
+    <pattern value="com.earthquake.managementPlatform.controller.DisasterPredictionResource" method="disasterPredictionCopy" />
+    <pattern value="com.earthquake.managementPlatform.mapper.DisasterPredictionMapper" />
+    <pattern value="com.earthquake.managementPlatform.controller.DisasterPredictionResource" />
+    <pattern value="com.earthquake.managementPlatform.controller.DisasterPredictionResourceTest" />
+    <pattern value="com.earthquake.managementPlatform.service.DisasterPredictionStorage" />
+    <pattern value="com.earthquake.managementPlatform.entities.DisasterRequest" />
+    <pattern value="com.earthquake.managementPlatform.entities.DisasterRequest" method="DisasterRequest" />
+    <pattern value="com.earthquake.managementPlatform.mapper.DisasterRequestMapper" />
+    <pattern value="com.earthquake.managementPlatform.controller.DisasterRequestResource" />
+    <pattern value="com.earthquake.managementPlatform.entities.DistributionCode" />
+    <pattern value="com.earthquake.managementPlatform.entities.DistributionCode" method="DistributionCode" />
+    <pattern value="com.earthquake.managementPlatform.mapper.DistributionCodeMapper" />
+    <pattern value="com.earthquake.managementPlatform.service.FtpFileMethodTest" method="downloadFilesTest" />
+    <pattern value="com.earthquake.managementPlatform.entities.EarthquakeCodeByTimeTest" />
+    <pattern value="com.earthquake.managementPlatform.controller.BrickwoodStructureResource" method="editBrickwoodStructure" />
+    <pattern value="com.earthquake.managementPlatform.controller.CivilStructureResource" method="editCivilStructure" />
+    <pattern value="com.earthquake.managementPlatform.controller.CollapseRecordResource" method="editCollapseRecord" />
+    <pattern value="com.earthquake.managementPlatform.controller.CommDisasterResource" method="editCommDisaster" />
+    <pattern value="com.earthquake.managementPlatform.controller.CrackRecordResource" method="editCrackRecord" />
+    <pattern value="com.earthquake.managementPlatform.controller.DeathStatisticsResource" method="editDeathStatistics" />
+    <pattern value="com.earthquake.managementPlatform.controller.DebrisRecordResource" method="editDebrisRecord" />
+    <pattern value="com.earthquake.managementPlatform.controller.InformationResource" method="editDisasterInfo" />
+    <pattern value="com.earthquake.managementPlatform.controller.DisasterPredictionResource" method="editDisasterPrediction" />
+    <pattern value="com.earthquake.managementPlatform.controller.DisasterRequestResource" method="editDisasterRequest" />
+    <pattern value="com.earthquake.managementPlatform.controller.FrameworkStructureResource" method="editFrameworkStructure" />
+    <pattern value="com.earthquake.managementPlatform.controller.GasDisasterResource" method="editGasDisaster" />
+    <pattern value="com.earthquake.managementPlatform.controller.InjuredStatisticsResource" method="editInjuredStatistics" />
+    <pattern value="com.earthquake.managementPlatform.controller.IrrigationDisasterResource" method="editIrrigationDisaster" />
+    <pattern value="com.earthquake.managementPlatform.controller.KarstRecordResource" method="editKarstRecord" />
+    <pattern value="com.earthquake.managementPlatform.controller.LandslideRecordResource" method="editLandslideRecord" />
+    <pattern value="com.earthquake.managementPlatform.controller.MasonryStructureResource" method="editMasonryStructure" />
+    <pattern value="com.earthquake.managementPlatform.controller.MissingStatisticsResource" method="editMissingStatistics" />
+    <pattern value="com.earthquake.managementPlatform.controller.OilDisasterResource" method="editOilDisaster" />
+    <pattern value="com.earthquake.managementPlatform.controller.OtherRecordResource" method="editOtherRecord" />
+    <pattern value="com.earthquake.managementPlatform.controller.OtherStructureResource" method="editOtherStructure" />
+    <pattern value="com.earthquake.managementPlatform.controller.PowerDisasterResource" method="editPowerDisaster" />
+    <pattern value="com.earthquake.managementPlatform.controller.SettlementRecordResource" method="editSettlementRecord" />
+    <pattern value="com.earthquake.managementPlatform.controller.TrafficDisasterResource" method="editTrafficDisaster" />
+    <pattern value="com.earthquake.managementPlatform.controller.WaterDisasterResource" method="editWaterDisaster" />
+    <pattern value="com.earthquake.managementPlatform.Eureka7001" />
+    <pattern value="com.earthquake.managementPlatform.controller.FileResource" />
+    <pattern value="com.earthquake.managementPlatform.service.JsonFileTest" method="fileToJsonTest" />
+    <pattern value="com.earthquake.managementPlatform.service.XmlFileTest" method="fileToJsonTest" />
+    <pattern value="com.earthquake.managementPlatform.service.FileTypeFactory" />
+    <pattern value="com.earthquake.managementPlatform.entities.FrameworkStructure" />
+    <pattern value="com.earthquake.managementPlatform.entities.FrameworkStructure" method="FrameworkStructure" />
+    <pattern value="com.earthquake.managementPlatform.controller.FrameworkStructureResource" method="frameworkStructureAll" />
+    <pattern value="com.earthquake.managementPlatform.controller.FrameworkStructureResource" method="frameworkStructureByTime" />
+    <pattern value="com.earthquake.managementPlatform.controller.FrameworkStructureResource" method="frameworkStructureCopy" />
+    <pattern value="com.earthquake.managementPlatform.mapper.FrameworkStructureMapper" />
+    <pattern value="com.earthquake.managementPlatform.controller.FrameworkStructureResource" />
+    <pattern value="com.earthquake.managementPlatform.service.FrameworkStructureStorage" />
+    <pattern value="com.earthquake.managementPlatform.service.FtpEarthquakeInfoReading" />
+    <pattern value="com.earthquake.managementPlatform.service.FtpFileMethod" />
+    <pattern value="com.earthquake.managementPlatform.service.FtpFileMethodTest" />
+    <pattern value="com.earthquake.managementPlatform.service.FtpMethod" />
+    <pattern value="com.earthquake.managementPlatform.service.FTPOutPutMethod" />
+    <pattern value="com.earthquake.managementPlatform.service.FtpPicMethod" />
+    <pattern value="com.earthquake.managementPlatform.service.FtpPredictionFileMethod" />
+    <pattern value="com.earthquake.managementPlatform.service.FtpRealTimeFileMethod" />
+    <pattern value="com.earthquake.managementPlatform.entities.GasDisaster" />
+    <pattern value="com.earthquake.managementPlatform.entities.GasDisaster" method="GasDisaster" />
+    <pattern value="com.earthquake.managementPlatform.controller.GasDisasterResource" method="gasDisasterAll" />
+    <pattern value="com.earthquake.managementPlatform.controller.GasDisasterResource" method="gasDisasterByTime" />
+    <pattern value="com.earthquake.managementPlatform.controller.GasDisasterResource" method="gasDisasterCopy" />
+    <pattern value="com.earthquake.managementPlatform.mapper.GasDisasterMapper" />
+    <pattern value="com.earthquake.managementPlatform.controller.GasDisasterResource" />
+    <pattern value="com.earthquake.managementPlatform.service.GasDisasterStorage" />
+    <pattern value="com.earthquake.managementPlatform.controller.InformationResource" method="getallDisasterInfo" />
+    <pattern value="com.earthquake.managementPlatform.mapper.DistributionCodeMapper" method="getAllDistributionCodes" />
+    <pattern value="com.earthquake.managementPlatform.entities.BrickwoodStructure" method="getBasicallyIntactSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.CivilStructure" method="getBasicallyIntactSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.FrameworkStructure" method="getBasicallyIntactSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.MasonryStructure" method="getBasicallyIntactSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherStructure" method="getBasicallyIntactSquare" />
+    <pattern value="com.earthquake.managementPlatform.mapper.BrickwoodStructureMapper" method="getBrickwoodStructureById" />
+    <pattern value="com.earthquake.managementPlatform.entities.CategoryCode" method="getCategoryInfo" />
+    <pattern value="com.earthquake.managementPlatform.entities.AdministrativeRegionCode12" method="getCity" />
+    <pattern value="com.earthquake.managementPlatform.controller.CodeResource" method="getCityAid" />
+    <pattern value="com.earthquake.managementPlatform.mapper.CivilStructureMapper" method="getCivilStructureById" />
+    <pattern value="com.earthquake.managementPlatform.entities.Aid" method="getCode" />
+    <pattern value="com.earthquake.managementPlatform.service.BasicEarthquakeInformationStorage" method="getCode" />
+    <pattern value="com.earthquake.managementPlatform.service.BrickwoodStructureStorage" method="getCode" />
+    <pattern value="com.earthquake.managementPlatform.service.CivilStructureStorage" method="getCode" />
+    <pattern value="com.earthquake.managementPlatform.service.CollapseRecordStorage" method="getCode" />
+    <pattern value="com.earthquake.managementPlatform.service.CommDisasterStorage" method="getCode" />
+    <pattern value="com.earthquake.managementPlatform.service.CrackRecordStorage" method="getCode" />
+    <pattern value="com.earthquake.managementPlatform.service.DeathStatisticsStorage" method="getCode" />
+    <pattern value="com.earthquake.managementPlatform.service.DebrisRecordStorage" method="getCode" />
+    <pattern value="com.earthquake.managementPlatform.service.FrameworkStructureStorage" method="getCode" />
+    <pattern value="com.earthquake.managementPlatform.service.GasDisasterStorage" method="getCode" />
+    <pattern value="com.earthquake.managementPlatform.entities.GetVo" method="getCode" />
+    <pattern value="com.earthquake.managementPlatform.service.InjuredStatisticsStorage" method="getCode" />
+    <pattern value="com.earthquake.managementPlatform.service.IrrigationDisasterStorage" method="getCode" />
+    <pattern value="com.earthquake.managementPlatform.service.KarstRecordStorage" method="getCode" />
+    <pattern value="com.earthquake.managementPlatform.service.LandslideRecordStorage" method="getCode" />
+    <pattern value="com.earthquake.managementPlatform.service.MasonryStructureStorage" method="getCode" />
+    <pattern value="com.earthquake.managementPlatform.service.MissingStatisticsStorage" method="getCode" />
+    <pattern value="com.earthquake.managementPlatform.service.OilDisasterStorage" method="getCode" />
+    <pattern value="com.earthquake.managementPlatform.service.OtherRecordStorage" method="getCode" />
+    <pattern value="com.earthquake.managementPlatform.service.OtherStructureStorage" method="getCode" />
+    <pattern value="com.earthquake.managementPlatform.entities.PostVo" method="getCode" />
+    <pattern value="com.earthquake.managementPlatform.entities.PostVoForOne" method="getCode" />
+    <pattern value="com.earthquake.managementPlatform.service.PowerDisasterStorage" method="getCode" />
+    <pattern value="com.earthquake.managementPlatform.service.SettlementRecordStorage" method="getCode" />
+    <pattern value="com.earthquake.managementPlatform.service.TrafficDisasterStorage" method="getCode" />
+    <pattern value="com.earthquake.managementPlatform.service.WaterDisasterStorage" method="getCode" />
+    <pattern value="com.earthquake.managementPlatform.mapper.CollapseRecordMapper" method="getCollapseRecordById" />
+    <pattern value="com.earthquake.managementPlatform.mapper.CommDisasterMapper" method="getCommDisasterById" />
+    <pattern value="com.earthquake.managementPlatform.entities.GetVo" method="getCount" />
+    <pattern value="com.earthquake.managementPlatform.entities.LifeLineStatistics" method="getCount" />
+    <pattern value="com.earthquake.managementPlatform.entities.ProvEarthquakeFrequency" method="getCount" />
+    <pattern value="com.earthquake.managementPlatform.entities.SecondaryDisasterStatistics" method="getCount" />
+    <pattern value="com.earthquake.managementPlatform.entities.AdministrativeRegionCode12" method="getCountry" />
+    <pattern value="com.earthquake.managementPlatform.controller.CodeResource" method="getCountryAid" />
+    <pattern value="com.earthquake.managementPlatform.mapper.CrackRecordMapper" method="getCrackRecordById" />
+    <pattern value="com.earthquake.managementPlatform.entities.DisasterPrediction" method="getD_ID" />
+    <pattern value="com.earthquake.managementPlatform.entities.BrickwoodStructure" method="getDamagedSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.CivilStructure" method="getDamagedSquare" />
+    <pattern value="com.earthquake.managementPlatform.service.BasicEarthquakeInformationStorage" method="getData" />
+    <pattern value="com.earthquake.managementPlatform.service.BrickwoodStructureStorage" method="getData" />
+    <pattern value="com.earthquake.managementPlatform.service.CivilStructureStorage" method="getData" />
+    <pattern value="com.earthquake.managementPlatform.service.CollapseRecordStorage" method="getData" />
+    <pattern value="com.earthquake.managementPlatform.service.CommDisasterStorage" method="getData" />
+    <pattern value="com.earthquake.managementPlatform.service.CrackRecordStorage" method="getData" />
+    <pattern value="com.earthquake.managementPlatform.service.DeathStatisticsStorage" method="getData" />
+    <pattern value="com.earthquake.managementPlatform.service.DebrisRecordStorage" method="getData" />
+    <pattern value="com.earthquake.managementPlatform.service.DisasterPredictionStorage" method="getData" />
+    <pattern value="com.earthquake.managementPlatform.service.FrameworkStructureStorage" method="getData" />
+    <pattern value="com.earthquake.managementPlatform.service.GasDisasterStorage" method="getData" />
+    <pattern value="com.earthquake.managementPlatform.entities.GetVo" method="getData" />
+    <pattern value="com.earthquake.managementPlatform.service.InjuredStatisticsStorage" method="getData" />
+    <pattern value="com.earthquake.managementPlatform.service.IrrigationDisasterStorage" method="getData" />
+    <pattern value="com.earthquake.managementPlatform.service.KarstRecordStorage" method="getData" />
+    <pattern value="com.earthquake.managementPlatform.service.LandslideRecordStorage" method="getData" />
+    <pattern value="com.earthquake.managementPlatform.service.MasonryStructureStorage" method="getData" />
+    <pattern value="com.earthquake.managementPlatform.service.MissingStatisticsStorage" method="getData" />
+    <pattern value="com.earthquake.managementPlatform.service.OilDisasterStorage" method="getData" />
+    <pattern value="com.earthquake.managementPlatform.service.OtherRecordStorage" method="getData" />
+    <pattern value="com.earthquake.managementPlatform.service.OtherStructureStorage" method="getData" />
+    <pattern value="com.earthquake.managementPlatform.entities.PostVo" method="getData" />
+    <pattern value="com.earthquake.managementPlatform.entities.PostVoForOne" method="getData" />
+    <pattern value="com.earthquake.managementPlatform.service.PowerDisasterStorage" method="getData" />
+    <pattern value="com.earthquake.managementPlatform.service.SettlementRecordStorage" method="getData" />
+    <pattern value="com.earthquake.managementPlatform.service.TrafficDisasterStorage" method="getData" />
+    <pattern value="com.earthquake.managementPlatform.service.WaterDisasterStorage" method="getData" />
+    <pattern value="com.earthquake.managementPlatform.entities.BasicEarthquakeInfo" method="getDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.BrickwoodStructure" method="getDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.CivilStructure" method="getDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.CollapseRecord" method="getDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.CommDisaster" method="getDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.CrackRecord" method="getDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.DeathStatistics" method="getDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.DebrisRecord" method="getDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.DisasterPrediction" method="getDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.DisasterRequest" method="getDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.FrameworkStructure" method="getDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.GasDisaster" method="getDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.InjuredStatistics" method="getDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.IrrigationDisaster" method="getDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.KarstRecord" method="getDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.LandslideRecord" method="getDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.MasonryStructure" method="getDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.MissingStatistics" method="getDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.OilDisaster" method="getDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherRecord" method="getDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherStructure" method="getDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.PersonStatistics" method="getDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.PowerDisaster" method="getDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.SettlementRecord" method="getDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.SquareStatistics" method="getDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.TrafficDisaster" method="getDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.WaterDisaster" method="getDate" />
+    <pattern value="com.earthquake.managementPlatform.mapper.DeathStatisticsMapper" method="getDeathStatisticsById" />
+    <pattern value="com.earthquake.managementPlatform.mapper.DebrisRecordMapper" method="getDebrisRecordById" />
+    <pattern value="com.earthquake.managementPlatform.entities.BasicEarthquakeInfo" method="getDepth" />
+    <pattern value="com.earthquake.managementPlatform.entities.BrickwoodStructure" method="getDestroyedSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.CivilStructure" method="getDestroyedSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.FrameworkStructure" method="getDestroyedSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.MasonryStructure" method="getDestroyedSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherStructure" method="getDestroyedSquare" />
+    <pattern value="com.earthquake.managementPlatform.controller.InformationResource" method="getDisaster" />
+    <pattern value="com.earthquake.managementPlatform.mapper.BasicEarthquakeInfoMapper" method="getDisasterInfoById" />
+    <pattern value="com.earthquake.managementPlatform.mapper.DisasterPredictionMapper" method="getDisasterPredictionById" />
+    <pattern value="com.earthquake.managementPlatform.controller.DisasterPredictionResourceTest" method="getDisasterPredictionByPage" />
+    <pattern value="com.earthquake.managementPlatform.mapper.DisasterRequestMapper" method="getDisasterRequestById" />
+    <pattern value="com.earthquake.managementPlatform.entities.DisasterRequest" method="getDisasterType" />
+    <pattern value="com.earthquake.managementPlatform.entities.BrickwoodStructure" method="getEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.CivilStructure" method="getEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.CollapseRecord" method="getEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.CommDisaster" method="getEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.CrackRecord" method="getEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.DeathStatistics" method="getEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.DebrisRecord" method="getEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.FrameworkStructure" method="getEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.GasDisaster" method="getEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.InjuredStatistics" method="getEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.IrrigationDisaster" method="getEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.KarstRecord" method="getEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.LandslideRecord" method="getEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.MasonryStructure" method="getEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.MissingStatistics" method="getEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.OilDisaster" method="getEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherRecord" method="getEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherStructure" method="getEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.PowerDisaster" method="getEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.SettlementRecord" method="getEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.TrafficDisaster" method="getEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.WaterDisaster" method="getEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.mapper.FrameworkStructureMapper" method="getFrameworkStructureById" />
+    <pattern value="com.earthquake.managementPlatform.mapper.GasDisasterMapper" method="getGasDisasterById" />
+    <pattern value="com.earthquake.managementPlatform.entities.CommDisaster" method="getGrade" />
+    <pattern value="com.earthquake.managementPlatform.entities.DisasterPrediction" method="getGrade" />
+    <pattern value="com.earthquake.managementPlatform.entities.GasDisaster" method="getGrade" />
+    <pattern value="com.earthquake.managementPlatform.entities.IrrigationDisaster" method="getGrade" />
+    <pattern value="com.earthquake.managementPlatform.entities.LifeLineStatistics" method="getGrade" />
+    <pattern value="com.earthquake.managementPlatform.entities.OilDisaster" method="getGrade" />
+    <pattern value="com.earthquake.managementPlatform.entities.PowerDisaster" method="getGrade" />
+    <pattern value="com.earthquake.managementPlatform.entities.TrafficDisaster" method="getGrade" />
+    <pattern value="com.earthquake.managementPlatform.entities.WaterDisaster" method="getGrade" />
+    <pattern value="com.earthquake.managementPlatform.entities.GradeCode" method="getGradeInfo" />
+    <pattern value="com.earthquake.managementPlatform.entities.BackupTime" method="getId" />
+    <pattern value="com.earthquake.managementPlatform.entities.BrickwoodStructure" method="getId" />
+    <pattern value="com.earthquake.managementPlatform.entities.CivilStructure" method="getId" />
+    <pattern value="com.earthquake.managementPlatform.entities.CollapseRecord" method="getId" />
+    <pattern value="com.earthquake.managementPlatform.entities.CommDisaster" method="getId" />
+    <pattern value="com.earthquake.managementPlatform.entities.CrackRecord" method="getId" />
+    <pattern value="com.earthquake.managementPlatform.entities.DeathStatistics" method="getId" />
+    <pattern value="com.earthquake.managementPlatform.entities.DebrisRecord" method="getId" />
+    <pattern value="com.earthquake.managementPlatform.entities.DisasterRequest" method="getId" />
+    <pattern value="com.earthquake.managementPlatform.entities.DistributionCode" method="getId" />
+    <pattern value="com.earthquake.managementPlatform.entities.FrameworkStructure" method="getId" />
+    <pattern value="com.earthquake.managementPlatform.entities.GasDisaster" method="getId" />
+    <pattern value="com.earthquake.managementPlatform.entities.InjuredStatistics" method="getId" />
+    <pattern value="com.earthquake.managementPlatform.entities.IrrigationDisaster" method="getId" />
+    <pattern value="com.earthquake.managementPlatform.entities.KarstRecord" method="getId" />
+    <pattern value="com.earthquake.managementPlatform.entities.LandslideRecord" method="getId" />
+    <pattern value="com.earthquake.managementPlatform.entities.MasonryStructure" method="getId" />
+    <pattern value="com.earthquake.managementPlatform.entities.MissingStatistics" method="getId" />
+    <pattern value="com.earthquake.managementPlatform.entities.OilDisaster" method="getId" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherRecord" method="getId" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherStructure" method="getId" />
+    <pattern value="com.earthquake.managementPlatform.entities.PowerDisaster" method="getId" />
+    <pattern value="com.earthquake.managementPlatform.entities.SettlementRecord" method="getId" />
+    <pattern value="com.earthquake.managementPlatform.entities.TrafficDisaster" method="getId" />
+    <pattern value="com.earthquake.managementPlatform.entities.WaterDisaster" method="getId" />
+    <pattern value="com.earthquake.managementPlatform.mapper.InjuredStatisticsMapper" method="getInjuredStatisticsById" />
+    <pattern value="com.earthquake.managementPlatform.entities.DisasterPrediction" method="getIntensity" />
+    <pattern value="com.earthquake.managementPlatform.mapper.IrrigationDisasterMapper" method="getIrrigationDisasterById" />
+    <pattern value="com.earthquake.managementPlatform.mapper.KarstRecordMapper" method="getKarstRecordById" />
+    <pattern value="com.earthquake.managementPlatform.mapper.LandslideRecordMapper" method="getLandslideRecordById" />
+    <pattern value="com.earthquake.managementPlatform.controller.BrickwoodStructureResource" method="getLastBrickwoodStructure" />
+    <pattern value="com.earthquake.managementPlatform.controller.BrickwoodStructureResource" method="getLastBrickwoodStructureByTime" />
+    <pattern value="com.earthquake.managementPlatform.controller.CivilStructureResource" method="getLastCivilStructure" />
+    <pattern value="com.earthquake.managementPlatform.controller.CivilStructureResource" method="getLastCivilStructureByTime" />
+    <pattern value="com.earthquake.managementPlatform.controller.CollapseRecordResource" method="getLastCollapseRecordStatistics" />
+    <pattern value="com.earthquake.managementPlatform.controller.CommDisasterResource" method="getLastCommDisasterStatistics" />
+    <pattern value="com.earthquake.managementPlatform.controller.CrackRecordResource" method="getLastCrackRecordStatistics" />
+    <pattern value="com.earthquake.managementPlatform.controller.DebrisRecordResource" method="getLastDebrisRecordStatistics" />
+    <pattern value="com.earthquake.managementPlatform.controller.InformationResource" method="getLastDisasterInfo" />
+    <pattern value="com.earthquake.managementPlatform.controller.FrameworkStructureResource" method="getLastFrameworkStructure" />
+    <pattern value="com.earthquake.managementPlatform.controller.FrameworkStructureResource" method="getLastFrameworkStructureByTime" />
+    <pattern value="com.earthquake.managementPlatform.controller.GasDisasterResource" method="getLastGasDisasterStatistics" />
+    <pattern value="com.earthquake.managementPlatform.controller.InjuredStatisticsResource" method="getLastInjuredStatisticsByTime" />
+    <pattern value="com.earthquake.managementPlatform.controller.IrrigationDisasterResource" method="getLastIrrigationDisasterStatistics" />
+    <pattern value="com.earthquake.managementPlatform.controller.KarstRecordResource" method="getLastKarstRecordStatistics" />
+    <pattern value="com.earthquake.managementPlatform.controller.LandslideRecordResource" method="getLastLandslideRecordStatistics" />
+    <pattern value="com.earthquake.managementPlatform.entities.User" method="getLastLoginDate" />
+    <pattern value="com.earthquake.managementPlatform.controller.MasonryStructureResource" method="getLastMasonryStructure" />
+    <pattern value="com.earthquake.managementPlatform.controller.MasonryStructureResource" method="getLastMasonryStructureByTime" />
+    <pattern value="com.earthquake.managementPlatform.controller.MissingStatisticsResource" method="getLastMissingStatisticsByTime" />
+    <pattern value="com.earthquake.managementPlatform.controller.OilDisasterResource" method="getLastOilDisasterStatistics" />
+    <pattern value="com.earthquake.managementPlatform.controller.OtherRecordResource" method="getLastOtherRecordStatistics" />
+    <pattern value="com.earthquake.managementPlatform.controller.OtherStructureResource" method="getLastOtherStructure" />
+    <pattern value="com.earthquake.managementPlatform.controller.OtherStructureResource" method="getLastOtherStructureByTime" />
+    <pattern value="com.earthquake.managementPlatform.controller.PowerDisasterResource" method="getLastPowerDisasterStatistics" />
+    <pattern value="com.earthquake.managementPlatform.controller.SettlementRecordResource" method="getLastSettlementRecordStatistics" />
+    <pattern value="com.earthquake.managementPlatform.controller.TrafficDisasterResource" method="getLastTrafficDisasterStatistics" />
+    <pattern value="com.earthquake.managementPlatform.controller.WaterDisasterResource" method="getLastWaterDisasterStatistics" />
+    <pattern value="com.earthquake.managementPlatform.entities.BasicEarthquakeInfo" method="getLatitude" />
+    <pattern value="com.earthquake.managementPlatform.config.ParamConfig" method="getLi" />
+    <pattern value="com.earthquake.managementPlatform.entities.BasicEarthquakeInfo" method="getLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.BrickwoodStructure" method="getLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.CivilStructure" method="getLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.CollapseRecord" method="getLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.CommDisaster" method="getLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.CrackRecord" method="getLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.DeathStatistics" method="getLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.DebrisRecord" method="getLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.FrameworkStructure" method="getLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.GasDisaster" method="getLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.InjuredStatistics" method="getLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.IrrigationDisaster" method="getLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.KarstRecord" method="getLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.LandslideRecord" method="getLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.MasonryStructure" method="getLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.MissingStatistics" method="getLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.OilDisaster" method="getLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherRecord" method="getLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherStructure" method="getLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.PowerDisaster" method="getLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.SettlementRecord" method="getLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.TrafficDisaster" method="getLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.WaterDisaster" method="getLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.User" method="getLoginCount" />
+    <pattern value="com.earthquake.managementPlatform.entities.User" method="getLoginDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.BasicEarthquakeInfo" method="getLongitude" />
+    <pattern value="com.earthquake.managementPlatform.entities.BasicEarthquakeInfo" method="getMagnitude" />
+    <pattern value="com.earthquake.managementPlatform.mapper.MasonryStructureMapper" method="getMasonryStructureById" />
+    <pattern value="com.earthquake.managementPlatform.mapper.MissingStatisticsMapper" method="getMissingStatisticsById" />
+    <pattern value="com.earthquake.managementPlatform.entities.FrameworkStructure" method="getModerateDamagedSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.MasonryStructure" method="getModerateDamagedSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherStructure" method="getModerateDamagedSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.GetVo" method="getMsg" />
+    <pattern value="com.earthquake.managementPlatform.entities.PostVo" method="getMsg" />
+    <pattern value="com.earthquake.managementPlatform.entities.PostVoForOne" method="getMsg" />
+    <pattern value="com.earthquake.managementPlatform.entities.Aid" method="getName" />
+    <pattern value="com.earthquake.managementPlatform.controller.DisasterRequestResource" method="getNoProcessedDisasterRequest" />
+    <pattern value="com.earthquake.managementPlatform.entities.BrickwoodStructure" method="getNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.CivilStructure" method="getNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.CollapseRecord" method="getNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.CommDisaster" method="getNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.CrackRecord" method="getNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.DebrisRecord" method="getNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.FrameworkStructure" method="getNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.GasDisaster" method="getNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.IrrigationDisaster" method="getNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.KarstRecord" method="getNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.LandslideRecord" method="getNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.MasonryStructure" method="getNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.OilDisaster" method="getNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherRecord" method="getNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherStructure" method="getNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.PowerDisaster" method="getNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.SettlementRecord" method="getNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.TrafficDisaster" method="getNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.WaterDisaster" method="getNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.DeathStatistics" method="getNumber" />
+    <pattern value="com.earthquake.managementPlatform.entities.InjuredStatistics" method="getNumber" />
+    <pattern value="com.earthquake.managementPlatform.entities.MissingStatistics" method="getNumber" />
+    <pattern value="com.earthquake.managementPlatform.entities.PersonStatistics" method="getNumber" />
+    <pattern value="com.earthquake.managementPlatform.mapper.OilDisasterMapper" method="getOilDisasterById" />
+    <pattern value="com.earthquake.managementPlatform.mapper.OtherRecordMapper" method="getOtherRecordById" />
+    <pattern value="com.earthquake.managementPlatform.mapper.OtherStructureMapper" method="getOtherStructureById" />
+    <pattern value="com.earthquake.managementPlatform.entities.DisasterRequest" method="getoURL" />
+    <pattern value="com.earthquake.managementPlatform.entities.User" method="getPassword" />
+    <pattern value="com.earthquake.managementPlatform.entities.BasicEarthquakeInfo" method="getPicture" />
+    <pattern value="com.earthquake.managementPlatform.entities.CollapseRecord" method="getPicture" />
+    <pattern value="com.earthquake.managementPlatform.entities.CommDisaster" method="getPicture" />
+    <pattern value="com.earthquake.managementPlatform.entities.CrackRecord" method="getPicture" />
+    <pattern value="com.earthquake.managementPlatform.entities.DebrisRecord" method="getPicture" />
+    <pattern value="com.earthquake.managementPlatform.entities.DisasterPrediction" method="getPicture" />
+    <pattern value="com.earthquake.managementPlatform.entities.GasDisaster" method="getPicture" />
+    <pattern value="com.earthquake.managementPlatform.entities.IrrigationDisaster" method="getPicture" />
+    <pattern value="com.earthquake.managementPlatform.entities.KarstRecord" method="getPicture" />
+    <pattern value="com.earthquake.managementPlatform.entities.LandslideRecord" method="getPicture" />
+    <pattern value="com.earthquake.managementPlatform.entities.OilDisaster" method="getPicture" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherRecord" method="getPicture" />
+    <pattern value="com.earthquake.managementPlatform.entities.PowerDisaster" method="getPicture" />
+    <pattern value="com.earthquake.managementPlatform.entities.SettlementRecord" method="getPicture" />
+    <pattern value="com.earthquake.managementPlatform.entities.TrafficDisaster" method="getPicture" />
+    <pattern value="com.earthquake.managementPlatform.entities.WaterDisaster" method="getPicture" />
+    <pattern value="com.earthquake.managementPlatform.mapper.PowerDisasterMapper" method="getPowerDisasterById" />
+    <pattern value="com.earthquake.managementPlatform.config.ParamConfig" method="getPredictionLi" />
+    <pattern value="com.earthquake.managementPlatform.controller.DisasterRequestResource" method="getProcessedDisasterRequest" />
+    <pattern value="com.earthquake.managementPlatform.entities.ProvEarthquakeFrequency" method="getProCode" />
+    <pattern value="com.earthquake.managementPlatform.controller.InformationResource" method="getProvEarthquakeFrequency" />
+    <pattern value="com.earthquake.managementPlatform.entities.AdministrativeRegionCode12" method="getProvince" />
+    <pattern value="com.earthquake.managementPlatform.controller.CodeResource" method="getProvinceAid" />
+    <pattern value="com.earthquake.managementPlatform.mapper.AdministrativeRegionCode12MapperTest" method="getProvinceTest" />
+    <pattern value="com.earthquake.managementPlatform.entities.User" method="getRegisterDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.BasicEarthquakeInfo" method="getReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.BrickwoodStructure" method="getReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.CivilStructure" method="getReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.CollapseRecord" method="getReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.CommDisaster" method="getReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.CrackRecord" method="getReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.DeathStatistics" method="getReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.DebrisRecord" method="getReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.FrameworkStructure" method="getReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.GasDisaster" method="getReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.InjuredStatistics" method="getReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.IrrigationDisaster" method="getReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.KarstRecord" method="getReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.LandslideRecord" method="getReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.MasonryStructure" method="getReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.MissingStatistics" method="getReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.OilDisaster" method="getReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherRecord" method="getReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherStructure" method="getReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.PowerDisaster" method="getReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.SettlementRecord" method="getReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.TrafficDisaster" method="getReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.WaterDisaster" method="getReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.DisasterRequest" method="getRequestUnit" />
+    <pattern value="com.earthquake.managementPlatform.config.ApplicationContextConfig" method="getRestTemplate" />
+    <pattern value="com.earthquake.managementPlatform.entities.DisasterPrediction" method="getS_ID" />
+    <pattern value="com.earthquake.managementPlatform.entities.FrameworkStructure" method="getSeriousDamagedSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.MasonryStructure" method="getSeriousDamagedSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherStructure" method="getSeriousDamagedSquare" />
+    <pattern value="com.earthquake.managementPlatform.mapper.SettlementRecordMapper" method="getSettlementRecordById" />
+    <pattern value="com.earthquake.managementPlatform.entities.FrameworkStructure" method="getSlightDamagedSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.MasonryStructure" method="getSlightDamagedSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherStructure" method="getSlightDamagedSquare" />
+    <pattern value="com.earthquake.managementPlatform.mapper.DisasterInfoMapper" method="getSomeDisasterInfoByACId" />
+    <pattern value="com.earthquake.managementPlatform.service.BasicEarthquakeInformationStorage" method="getSource" />
+    <pattern value="com.earthquake.managementPlatform.service.BrickwoodStructureStorage" method="getSource" />
+    <pattern value="com.earthquake.managementPlatform.service.CivilStructureStorage" method="getSource" />
+    <pattern value="com.earthquake.managementPlatform.service.CollapseRecordStorage" method="getSource" />
+    <pattern value="com.earthquake.managementPlatform.service.CommDisasterStorage" method="getSource" />
+    <pattern value="com.earthquake.managementPlatform.service.CrackRecordStorage" method="getSource" />
+    <pattern value="com.earthquake.managementPlatform.service.DeathStatisticsStorage" method="getSource" />
+    <pattern value="com.earthquake.managementPlatform.service.DebrisRecordStorage" method="getSource" />
+    <pattern value="com.earthquake.managementPlatform.service.DisasterPredictionStorage" method="getSource" />
+    <pattern value="com.earthquake.managementPlatform.service.FrameworkStructureStorage" method="getSource" />
+    <pattern value="com.earthquake.managementPlatform.service.GasDisasterStorage" method="getSource" />
+    <pattern value="com.earthquake.managementPlatform.service.InjuredStatisticsStorage" method="getSource" />
+    <pattern value="com.earthquake.managementPlatform.service.IrrigationDisasterStorage" method="getSource" />
+    <pattern value="com.earthquake.managementPlatform.service.KarstRecordStorage" method="getSource" />
+    <pattern value="com.earthquake.managementPlatform.service.LandslideRecordStorage" method="getSource" />
+    <pattern value="com.earthquake.managementPlatform.service.MasonryStructureStorage" method="getSource" />
+    <pattern value="com.earthquake.managementPlatform.service.MissingStatisticsStorage" method="getSource" />
+    <pattern value="com.earthquake.managementPlatform.service.OilDisasterStorage" method="getSource" />
+    <pattern value="com.earthquake.managementPlatform.service.OtherRecordStorage" method="getSource" />
+    <pattern value="com.earthquake.managementPlatform.service.OtherStructureStorage" method="getSource" />
+    <pattern value="com.earthquake.managementPlatform.service.PowerDisasterStorage" method="getSource" />
+    <pattern value="com.earthquake.managementPlatform.service.SettlementRecordStorage" method="getSource" />
+    <pattern value="com.earthquake.managementPlatform.service.TrafficDisasterStorage" method="getSource" />
+    <pattern value="com.earthquake.managementPlatform.service.WaterDisasterStorage" method="getSource" />
+    <pattern value="com.earthquake.managementPlatform.service.FtpRealTimeFileMethod" method="getSourcePath" />
+    <pattern value="com.earthquake.managementPlatform.entities.SquareStatistics" method="getSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.CollapseRecord" method="getStatus" />
+    <pattern value="com.earthquake.managementPlatform.entities.CrackRecord" method="getStatus" />
+    <pattern value="com.earthquake.managementPlatform.entities.DebrisRecord" method="getStatus" />
+    <pattern value="com.earthquake.managementPlatform.entities.DisasterRequest" method="getStatus" />
+    <pattern value="com.earthquake.managementPlatform.entities.KarstRecord" method="getStatus" />
+    <pattern value="com.earthquake.managementPlatform.entities.LandslideRecord" method="getStatus" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherRecord" method="getStatus" />
+    <pattern value="com.earthquake.managementPlatform.entities.SecondaryDisasterStatistics" method="getStatus" />
+    <pattern value="com.earthquake.managementPlatform.entities.SettlementRecord" method="getStatus" />
+    <pattern value="com.earthquake.managementPlatform.entities.BackupTime" method="getTime" />
+    <pattern value="com.earthquake.managementPlatform.entities.AdministrativeRegionCode12" method="getTown" />
+    <pattern value="com.earthquake.managementPlatform.controller.CodeResource" method="getTownAid" />
+    <pattern value="com.earthquake.managementPlatform.mapper.TrafficDisasterMapper" method="getTrafficDisasterById" />
+    <pattern value="com.earthquake.managementPlatform.entities.CollapseRecord" method="getType" />
+    <pattern value="com.earthquake.managementPlatform.entities.CommDisaster" method="getType" />
+    <pattern value="com.earthquake.managementPlatform.entities.CrackRecord" method="getType" />
+    <pattern value="com.earthquake.managementPlatform.entities.DebrisRecord" method="getType" />
+    <pattern value="com.earthquake.managementPlatform.entities.DisasterPrediction" method="getType" />
+    <pattern value="com.earthquake.managementPlatform.entities.GasDisaster" method="getType" />
+    <pattern value="com.earthquake.managementPlatform.entities.IrrigationDisaster" method="getType" />
+    <pattern value="com.earthquake.managementPlatform.entities.KarstRecord" method="getType" />
+    <pattern value="com.earthquake.managementPlatform.entities.LandslideRecord" method="getType" />
+    <pattern value="com.earthquake.managementPlatform.entities.OilDisaster" method="getType" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherRecord" method="getType" />
+    <pattern value="com.earthquake.managementPlatform.entities.PowerDisaster" method="getType" />
+    <pattern value="com.earthquake.managementPlatform.entities.SettlementRecord" method="getType" />
+    <pattern value="com.earthquake.managementPlatform.entities.TrafficDisaster" method="getType" />
+    <pattern value="com.earthquake.managementPlatform.entities.WaterDisaster" method="getType" />
+    <pattern value="com.earthquake.managementPlatform.entities.AdministrativeRegionCode12" method="getVillage" />
+    <pattern value="com.earthquake.managementPlatform.controller.CodeResource" method="getVillageAid" />
+    <pattern value="com.earthquake.managementPlatform.entities.GetVo" />
+    <pattern value="com.earthquake.managementPlatform.entities.GetVo" method="GetVo" />
+    <pattern value="com.earthquake.managementPlatform.mapper.WaterDisasterMapper" method="getWaterDisasterById" />
+    <pattern value="com.earthquake.managementPlatform.entities.GradeCode" />
+    <pattern value="com.earthquake.managementPlatform.entities.GradeCode" method="GradeCode" />
+    <pattern value="com.earthquake.managementPlatform.entities.GradeEvaluation" />
+    <pattern value="com.earthquake.managementPlatform.entities.GradeEvaluationFactory" />
+    <pattern value="com.earthquake.managementPlatform.entities.GradeEvaluationForBrickwoodStructure" />
+    <pattern value="com.earthquake.managementPlatform.entities.GradeEvaluationForCivilStructure" />
+    <pattern value="com.earthquake.managementPlatform.entities.GradeEvaluationForDeathStatistics" />
+    <pattern value="com.earthquake.managementPlatform.entities.GradeEvaluationForFrameworkStructure" />
+    <pattern value="com.earthquake.managementPlatform.entities.GradeEvaluationForInjuredStatistics" />
+    <pattern value="com.earthquake.managementPlatform.entities.GradeEvaluationForMasonryStructure" />
+    <pattern value="com.earthquake.managementPlatform.entities.GradeEvaluationForMissingStatistics" />
+    <pattern value="com.earthquake.managementPlatform.entities.GradeEvaluationForOtherStructure" />
+    <pattern value="com.earthquake.managementPlatform.controller.CodeResource" method="helloWorld" />
+    <pattern value="com.earthquake.managementPlatform.controller.InformationResource" method="helloWorld" />
+    <pattern value="com.earthquake.managementPlatform.controller.InformationResource" />
+    <pattern value="com.earthquake.managementPlatform.controller.InjuredStatisticsResource" />
+    <pattern value="com.earthquake.managementPlatform.service.InjuredStatisticsStorage" />
+    <pattern value="com.earthquake.managementPlatform.controller.IrrigationDisasterResource" />
+    <pattern value="com.earthquake.managementPlatform.service.IrrigationDisasterStorage" />
+    <pattern value="com.earthquake.managementPlatform.service.JsonFileTest" />
+    <pattern value="com.earthquake.managementPlatform.controller.KarstRecordResource" />
+    <pattern value="com.earthquake.managementPlatform.service.KarstRecordStorage" />
+    <pattern value="com.earthquake.managementPlatform.controller.LandslideRecordResource" />
+    <pattern value="com.earthquake.managementPlatform.service.LandslideRecordStorage" />
+    <pattern value="com.earthquake.managementPlatform.controller.MasonryStructureResource" />
+    <pattern value="com.earthquake.managementPlatform.service.MasonryStructureStorage" />
+    <pattern value="com.earthquake.managementPlatform.controller.MissingStatisticsResource" />
+    <pattern value="com.earthquake.managementPlatform.service.MissingStatisticsStorage" />
+    <pattern value="com.earthquake.managementPlatform.service.MultiMediaMethodService" />
+    <pattern value="com.earthquake.managementPlatform.service.MultiMediaMethodServiceTest" />
+    <pattern value="com.earthquake.managementPlatform.service.MultiMediaTypeFactory" />
+    <pattern value="com.earthquake.managementPlatform.config.MyMvcConfig" />
+    <pattern value="com.earthquake.managementPlatform.controller.OilDisasterResource" />
+    <pattern value="com.earthquake.managementPlatform.service.OilDisasterStorage" />
+    <pattern value="com.earthquake.managementPlatform.entities.OnOff" />
+    <pattern value="com.earthquake.managementPlatform.controller.OtherRecordResource" />
+    <pattern value="com.earthquake.managementPlatform.service.OtherRecordStorage" />
+    <pattern value="com.earthquake.managementPlatform.controller.OtherStructureResource" />
+    <pattern value="com.earthquake.managementPlatform.service.OtherStructureStorage" />
+    <pattern value="com.earthquake.managementPlatform.OutPut6001" />
+    <pattern value="com.earthquake.managementPlatform.service.impl.OutPutImpl" />
+    <pattern value="com.earthquake.managementPlatform.service.OutPutService" />
+    <pattern value="com.earthquake.managementPlatform.config.ParamConfig" />
+    <pattern value="com.earthquake.managementPlatform.service.PicMethod" />
+    <pattern value="com.earthquake.managementPlatform.controller.PowerDisasterResource" />
+    <pattern value="com.earthquake.managementPlatform.service.PowerDisasterStorage" />
+    <pattern value="com.earthquake.managementPlatform.entities.Schedule" />
+    <pattern value="com.earthquake.managementPlatform.entities.SequenceCode" />
+    <pattern value="com.earthquake.managementPlatform.entities.SequenceCodeTest" />
+    <pattern value="com.earthquake.managementPlatform.controller.SettlementRecordResource" />
+    <pattern value="com.earthquake.managementPlatform.service.SettlementRecordStorage" />
+    <pattern value="com.earthquake.managementPlatform.storageInformation9006" />
+    <pattern value="com.earthquake.managementPlatform.controller.TrafficDisasterResource" />
+    <pattern value="com.earthquake.managementPlatform.service.TrafficDisasterStorage" />
+    <pattern value="com.earthquake.managementPlatform.UploadFile8001" />
+    <pattern value="com.earthquake.managementPlatform.service.UploadFileScheduleService" />
+    <pattern value="com.earthquake.managementPlatform.service.UploadFileScheduleServiceTest" />
+    <pattern value="com.earthquake.managementPlatform.service.UploadFileService" />
+    <pattern value="com.earthquake.managementPlatform.service.UploadFileServiceTest" />
+    <pattern value="com.earthquake.managementPlatform.service.UserInfoUpdateServiceImpl" />
+    <pattern value="com.earthquake.managementPlatform.service.UserLoginServiceImpl" />
+    <pattern value="com.earthquake.managementPlatform.UserManagement5001" />
+    <pattern value="com.earthquake.managementPlatform.service.UserRegisterServiceImpl" />
+    <pattern value="com.earthquake.managementPlatform.service.UserRemoveServiceImpl" />
+    <pattern value="com.earthquake.managementPlatform.controller.UserResource" />
+    <pattern value="com.earthquake.managementPlatform.controller.WaterDisasterResource" />
+    <pattern value="com.earthquake.managementPlatform.service.WaterDisasterStorage" />
+    <pattern value="com.earthquake.managementPlatform.service.XmlFileTest" />
+    <pattern value="com.earthquake.managementPlatform.Zuul6542" />
+    <pattern value="com.earthquake.managementPlatform.controller.InformationResource" method="informationPredictionStorage" />
+    <pattern value="com.earthquake.managementPlatform.controller.InformationResource" method="informationPredictionStorgeRecord" />
+    <pattern value="com.earthquake.managementPlatform.controller.InformationResource" method="informationStorage" />
+    <pattern value="com.earthquake.managementPlatform.entities.InjuredStatistics" />
+    <pattern value="com.earthquake.managementPlatform.entities.InjuredStatistics" method="InjuredStatistics" />
+    <pattern value="com.earthquake.managementPlatform.controller.InjuredStatisticsResource" method="injuredStatisticsAll" />
+    <pattern value="com.earthquake.managementPlatform.controller.InjuredStatisticsResource" method="injuredStatisticsByTime" />
+    <pattern value="com.earthquake.managementPlatform.controller.InjuredStatisticsResource" method="injuredStatisticsCopy" />
+    <pattern value="com.earthquake.managementPlatform.mapper.InjuredStatisticsMapper" />
+    <pattern value="com.earthquake.managementPlatform.entities.IrrigationDisaster" />
+    <pattern value="com.earthquake.managementPlatform.entities.IrrigationDisaster" method="IrrigationDisaster" />
+    <pattern value="com.earthquake.managementPlatform.controller.IrrigationDisasterResource" method="irrigationDisasterAll" />
+    <pattern value="com.earthquake.managementPlatform.controller.IrrigationDisasterResource" method="irrigationDisasterByTime" />
+    <pattern value="com.earthquake.managementPlatform.controller.IrrigationDisasterResource" method="irrigationDisasterCopy" />
+    <pattern value="com.earthquake.managementPlatform.mapper.IrrigationDisasterMapper" />
+    <pattern value="com.earthquake.managementPlatform.controller.UserResource" method="isPermitted" />
+    <pattern value="com.earthquake.managementPlatform.service.JsonFile" />
+    <pattern value="com.earthquake.managementPlatform.service.JsonFile" method="JsonFile" />
+    <pattern value="com.earthquake.managementPlatform.entities.KarstRecord" />
+    <pattern value="com.earthquake.managementPlatform.entities.KarstRecord" method="KarstRecord" />
+    <pattern value="com.earthquake.managementPlatform.controller.KarstRecordResource" method="karstRecordAll" />
+    <pattern value="com.earthquake.managementPlatform.controller.KarstRecordResource" method="karstRecordByTime" />
+    <pattern value="com.earthquake.managementPlatform.controller.KarstRecordResource" method="karstRecordCopy" />
+    <pattern value="com.earthquake.managementPlatform.mapper.KarstRecordMapper" />
+    <pattern value="com.earthquake.managementPlatform.entities.LandslideRecord" />
+    <pattern value="com.earthquake.managementPlatform.entities.LandslideRecord" method="LandslideRecord" />
+    <pattern value="com.earthquake.managementPlatform.controller.LandslideRecordResource" method="landslideRecordAll" />
+    <pattern value="com.earthquake.managementPlatform.controller.LandslideRecordResource" method="landslideRecordByTime" />
+    <pattern value="com.earthquake.managementPlatform.controller.LandslideRecordResource" method="landslideRecordCopy" />
+    <pattern value="com.earthquake.managementPlatform.mapper.LandslideRecordMapper" />
+    <pattern value="com.earthquake.managementPlatform.entities.LifeLineStatistics" />
+    <pattern value="com.earthquake.managementPlatform.entities.LifeLineStatistics" method="LifeLineStatistics" />
+    <pattern value="com.earthquake.managementPlatform.controller.UserResource" method="loginOut" />
+    <pattern value="com.earthquake.managementPlatform.dataBackup6005" method="main" />
+    <pattern value="com.earthquake.managementPlatform.DisasterInfoCode8006" method="main" />
+    <pattern value="com.earthquake.managementPlatform.Eureka7001" method="main" />
+    <pattern value="com.earthquake.managementPlatform.OutPut6001" method="main" />
+    <pattern value="com.earthquake.managementPlatform.storageInformation9006" method="main" />
+    <pattern value="com.earthquake.managementPlatform.UploadFile8001" method="main" />
+    <pattern value="com.earthquake.managementPlatform.UserManagement5001" method="main" />
+    <pattern value="com.earthquake.managementPlatform.Zuul6542" method="main" />
+    <pattern value="com.earthquake.managementPlatform.entities.MasonryStructure" />
+    <pattern value="com.earthquake.managementPlatform.entities.MasonryStructure" method="MasonryStructure" />
+    <pattern value="com.earthquake.managementPlatform.controller.MasonryStructureResource" method="masonryStructureAll" />
+    <pattern value="com.earthquake.managementPlatform.controller.MasonryStructureResource" method="masonryStructureByTime" />
+    <pattern value="com.earthquake.managementPlatform.controller.MasonryStructureResource" method="masonryStructureCopy" />
+    <pattern value="com.earthquake.managementPlatform.mapper.MasonryStructureMapper" />
+    <pattern value="com.earthquake.managementPlatform.entities.MissingStatistics" />
+    <pattern value="com.earthquake.managementPlatform.entities.MissingStatistics" method="MissingStatistics" />
+    <pattern value="com.earthquake.managementPlatform.controller.MissingStatisticsResource" method="missingStatisticsAll" />
+    <pattern value="com.earthquake.managementPlatform.controller.MissingStatisticsResource" method="missingStatisticsByTime" />
+    <pattern value="com.earthquake.managementPlatform.controller.MissingStatisticsResource" method="missingStatisticsCopy" />
+    <pattern value="com.earthquake.managementPlatform.mapper.MissingStatisticsMapper" />
+    <pattern value="com.earthquake.managementPlatform.service.MultiMediaMethod" />
+    <pattern value="com.earthquake.managementPlatform.UploadFile8001.MyAuthenticator" />
+    <pattern value="com.earthquake.managementPlatform.UploadFile8001.MyAuthenticator" method="MyAuthenticator" />
+    <pattern value="com.earthquake.managementPlatform.entities.OilDisaster" />
+    <pattern value="com.earthquake.managementPlatform.entities.OilDisaster" method="OilDisaster" />
+    <pattern value="com.earthquake.managementPlatform.controller.OilDisasterResource" method="oilDisasterAll" />
+    <pattern value="com.earthquake.managementPlatform.controller.OilDisasterResource" method="oilDisasterByTime" />
+    <pattern value="com.earthquake.managementPlatform.controller.OilDisasterResource" method="oilDisasterCopy" />
+    <pattern value="com.earthquake.managementPlatform.mapper.OilDisasterMapper" />
+    <pattern value="com.earthquake.managementPlatform.mapper.OnOffMapper" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherRecord" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherRecord" method="OtherRecord" />
+    <pattern value="com.earthquake.managementPlatform.controller.OtherRecordResource" method="otherRecordAll" />
+    <pattern value="com.earthquake.managementPlatform.controller.OtherRecordResource" method="otherRecordByTime" />
+    <pattern value="com.earthquake.managementPlatform.controller.OtherRecordResource" method="otherRecordCopy" />
+    <pattern value="com.earthquake.managementPlatform.mapper.OtherRecordMapper" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherStructure" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherStructure" method="OtherStructure" />
+    <pattern value="com.earthquake.managementPlatform.controller.OtherStructureResource" method="otherStructureAll" />
+    <pattern value="com.earthquake.managementPlatform.controller.OtherStructureResource" method="otherStructureByTime" />
+    <pattern value="com.earthquake.managementPlatform.controller.OtherStructureResource" method="otherStructureCopy" />
+    <pattern value="com.earthquake.managementPlatform.mapper.OtherStructureMapper" />
+    <pattern value="com.earthquake.managementPlatform.service.OutPut" />
+    <pattern value="com.earthquake.managementPlatform.service.OutPut" method="outPut" />
+    <pattern value="com.earthquake.managementPlatform.entities.PersonStatistics" />
+    <pattern value="com.earthquake.managementPlatform.entities.PersonStatistics" method="PersonStatistics" />
+    <pattern value="com.earthquake.managementPlatform.entities.PostVo" />
+    <pattern value="com.earthquake.managementPlatform.entities.PostVo" method="PostVo" />
+    <pattern value="com.earthquake.managementPlatform.entities.PostVoForOne" />
+    <pattern value="com.earthquake.managementPlatform.entities.PowerDisaster" />
+    <pattern value="com.earthquake.managementPlatform.entities.PowerDisaster" method="PowerDisaster" />
+    <pattern value="com.earthquake.managementPlatform.controller.PowerDisasterResource" method="powerDisasterAll" />
+    <pattern value="com.earthquake.managementPlatform.controller.PowerDisasterResource" method="powerDisasterByTime" />
+    <pattern value="com.earthquake.managementPlatform.controller.PowerDisasterResource" method="powerDisasterCopy" />
+    <pattern value="com.earthquake.managementPlatform.mapper.PowerDisasterMapper" />
+    <pattern value="com.earthquake.managementPlatform.entities.ProvEarthquakeFrequency" />
+    <pattern value="com.earthquake.managementPlatform.entities.ProvEarthquakeFrequency" method="ProvEarthquakeFrequency" />
+    <pattern value="com.earthquake.managementPlatform.controller.DeathStatisticsResource" method="provinceAid" />
+    <pattern value="com.earthquake.managementPlatform.controller.CodeResourceTest" method="resTemplateTest" />
+    <pattern value="com.earthquake.managementPlatform.mapper.ScheduleMapper" />
+    <pattern value="com.earthquake.managementPlatform.entities.SecondaryDisasterStatistics" />
+    <pattern value="com.earthquake.managementPlatform.entities.SecondaryDisasterStatistics" method="SecondaryDisasterStatistics" />
+    <pattern value="com.earthquake.managementPlatform.controller.UserResource" method="selectUserAll" />
+    <pattern value="com.earthquake.managementPlatform.entities.BrickwoodStructure" method="setBasicallyIntactSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.CivilStructure" method="setBasicallyIntactSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.FrameworkStructure" method="setBasicallyIntactSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.MasonryStructure" method="setBasicallyIntactSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherStructure" method="setBasicallyIntactSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.AdministrativeRegionCode12" method="setCity" />
+    <pattern value="com.earthquake.managementPlatform.entities.GetVo" method="setCode" />
+    <pattern value="com.earthquake.managementPlatform.entities.PostVo" method="setCode" />
+    <pattern value="com.earthquake.managementPlatform.entities.PostVoForOne" method="setCode" />
+    <pattern value="com.earthquake.managementPlatform.entities.Aid" method="setCode" />
+    <pattern value="com.earthquake.managementPlatform.entities.GetVo" method="setCount" />
+    <pattern value="com.earthquake.managementPlatform.entities.LifeLineStatistics" method="setCount" />
+    <pattern value="com.earthquake.managementPlatform.entities.ProvEarthquakeFrequency" method="setCount" />
+    <pattern value="com.earthquake.managementPlatform.entities.SecondaryDisasterStatistics" method="setCount" />
+    <pattern value="com.earthquake.managementPlatform.entities.AdministrativeRegionCode12" method="setCountry" />
+    <pattern value="com.earthquake.managementPlatform.entities.BrickwoodStructure" method="setDamagedSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.CivilStructure" method="setDamagedSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.GetVo" method="setData" />
+    <pattern value="com.earthquake.managementPlatform.entities.PostVo" method="setData" />
+    <pattern value="com.earthquake.managementPlatform.entities.PostVoForOne" method="setData" />
+    <pattern value="com.earthquake.managementPlatform.entities.BasicEarthquakeInfo" method="setDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.BrickwoodStructure" method="setDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.CivilStructure" method="setDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.CollapseRecord" method="setDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.CommDisaster" method="setDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.CrackRecord" method="setDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.DeathStatistics" method="setDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.DebrisRecord" method="setDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.DisasterRequest" method="setDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.FrameworkStructure" method="setDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.GasDisaster" method="setDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.InjuredStatistics" method="setDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.IrrigationDisaster" method="setDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.KarstRecord" method="setDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.LandslideRecord" method="setDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.MasonryStructure" method="setDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.MissingStatistics" method="setDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.OilDisaster" method="setDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherRecord" method="setDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherStructure" method="setDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.PersonStatistics" method="setDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.PowerDisaster" method="setDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.SettlementRecord" method="setDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.SquareStatistics" method="setDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.TrafficDisaster" method="setDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.WaterDisaster" method="setDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.BasicEarthquakeInfo" method="setDepth" />
+    <pattern value="com.earthquake.managementPlatform.entities.BrickwoodStructure" method="setDestroyedSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.CivilStructure" method="setDestroyedSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.FrameworkStructure" method="setDestroyedSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.MasonryStructure" method="setDestroyedSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherStructure" method="setDestroyedSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.DisasterRequest" method="setDisasterType" />
+    <pattern value="com.earthquake.managementPlatform.entities.BrickwoodStructure" method="setEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.CivilStructure" method="setEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.CollapseRecord" method="setEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.CommDisaster" method="setEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.CrackRecord" method="setEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.DeathStatistics" method="setEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.DebrisRecord" method="setEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.FrameworkStructure" method="setEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.GasDisaster" method="setEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.InjuredStatistics" method="setEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.IrrigationDisaster" method="setEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.KarstRecord" method="setEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.LandslideRecord" method="setEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.MasonryStructure" method="setEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.MissingStatistics" method="setEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.OilDisaster" method="setEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherRecord" method="setEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherStructure" method="setEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.PowerDisaster" method="setEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.SettlementRecord" method="setEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.TrafficDisaster" method="setEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.entities.WaterDisaster" method="setEarthquakeId" />
+    <pattern value="com.earthquake.managementPlatform.service.DisasterFile" method="setFilePath" />
+    <pattern value="com.earthquake.managementPlatform.entities.CommDisaster" method="setGrade" />
+    <pattern value="com.earthquake.managementPlatform.entities.GasDisaster" method="setGrade" />
+    <pattern value="com.earthquake.managementPlatform.entities.IrrigationDisaster" method="setGrade" />
+    <pattern value="com.earthquake.managementPlatform.entities.LifeLineStatistics" method="setGrade" />
+    <pattern value="com.earthquake.managementPlatform.entities.OilDisaster" method="setGrade" />
+    <pattern value="com.earthquake.managementPlatform.entities.PowerDisaster" method="setGrade" />
+    <pattern value="com.earthquake.managementPlatform.entities.TrafficDisaster" method="setGrade" />
+    <pattern value="com.earthquake.managementPlatform.entities.WaterDisaster" method="setGrade" />
+    <pattern value="com.earthquake.managementPlatform.entities.BackupTime" method="setId" />
+    <pattern value="com.earthquake.managementPlatform.entities.DisasterRequest" method="setId" />
+    <pattern value="com.earthquake.managementPlatform.entities.BasicEarthquakeInfo" method="setId" />
+    <pattern value="com.earthquake.managementPlatform.entities.BrickwoodStructure" method="setId" />
+    <pattern value="com.earthquake.managementPlatform.entities.CivilStructure" method="setId" />
+    <pattern value="com.earthquake.managementPlatform.entities.CollapseRecord" method="setId" />
+    <pattern value="com.earthquake.managementPlatform.entities.CommDisaster" method="setId" />
+    <pattern value="com.earthquake.managementPlatform.entities.CrackRecord" method="setId" />
+    <pattern value="com.earthquake.managementPlatform.entities.DeathStatistics" method="setId" />
+    <pattern value="com.earthquake.managementPlatform.entities.DebrisRecord" method="setId" />
+    <pattern value="com.earthquake.managementPlatform.entities.DistributionCode" method="setId" />
+    <pattern value="com.earthquake.managementPlatform.entities.FrameworkStructure" method="setId" />
+    <pattern value="com.earthquake.managementPlatform.entities.GasDisaster" method="setId" />
+    <pattern value="com.earthquake.managementPlatform.entities.InjuredStatistics" method="setId" />
+    <pattern value="com.earthquake.managementPlatform.entities.IrrigationDisaster" method="setId" />
+    <pattern value="com.earthquake.managementPlatform.entities.KarstRecord" method="setId" />
+    <pattern value="com.earthquake.managementPlatform.entities.LandslideRecord" method="setId" />
+    <pattern value="com.earthquake.managementPlatform.entities.MasonryStructure" method="setId" />
+    <pattern value="com.earthquake.managementPlatform.entities.MissingStatistics" method="setId" />
+    <pattern value="com.earthquake.managementPlatform.entities.OilDisaster" method="setId" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherRecord" method="setId" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherStructure" method="setId" />
+    <pattern value="com.earthquake.managementPlatform.entities.PowerDisaster" method="setId" />
+    <pattern value="com.earthquake.managementPlatform.entities.SettlementRecord" method="setId" />
+    <pattern value="com.earthquake.managementPlatform.entities.TrafficDisaster" method="setId" />
+    <pattern value="com.earthquake.managementPlatform.entities.WaterDisaster" method="setId" />
+    <pattern value="com.earthquake.managementPlatform.entities.User" method="setLastLoginDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.BasicEarthquakeInfo" method="setLatitude" />
+    <pattern value="com.earthquake.managementPlatform.config.ParamConfig" method="setLi" />
+    <pattern value="com.earthquake.managementPlatform.entities.BasicEarthquakeInfo" method="setLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.BrickwoodStructure" method="setLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.CivilStructure" method="setLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.CollapseRecord" method="setLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.CommDisaster" method="setLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.CrackRecord" method="setLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.DeathStatistics" method="setLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.DebrisRecord" method="setLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.FrameworkStructure" method="setLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.GasDisaster" method="setLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.InjuredStatistics" method="setLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.IrrigationDisaster" method="setLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.KarstRecord" method="setLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.LandslideRecord" method="setLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.MasonryStructure" method="setLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.MissingStatistics" method="setLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.OilDisaster" method="setLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherRecord" method="setLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherStructure" method="setLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.PowerDisaster" method="setLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.SettlementRecord" method="setLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.TrafficDisaster" method="setLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.WaterDisaster" method="setLocation" />
+    <pattern value="com.earthquake.managementPlatform.entities.User" method="setLoginCount" />
+    <pattern value="com.earthquake.managementPlatform.entities.User" method="setLoginDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.BasicEarthquakeInfo" method="setLongitude" />
+    <pattern value="com.earthquake.managementPlatform.entities.BasicEarthquakeInfo" method="setMagnitude" />
+    <pattern value="com.earthquake.managementPlatform.entities.FrameworkStructure" method="setModerateDamagedSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.MasonryStructure" method="setModerateDamagedSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherStructure" method="setModerateDamagedSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.GetVo" method="setMsg" />
+    <pattern value="com.earthquake.managementPlatform.entities.PostVo" method="setMsg" />
+    <pattern value="com.earthquake.managementPlatform.entities.PostVoForOne" method="setMsg" />
+    <pattern value="com.earthquake.managementPlatform.entities.Aid" method="setName" />
+    <pattern value="com.earthquake.managementPlatform.entities.BrickwoodStructure" method="setNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.CivilStructure" method="setNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.CollapseRecord" method="setNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.CommDisaster" method="setNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.CrackRecord" method="setNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.DebrisRecord" method="setNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.FrameworkStructure" method="setNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.GasDisaster" method="setNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.IrrigationDisaster" method="setNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.KarstRecord" method="setNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.LandslideRecord" method="setNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.MasonryStructure" method="setNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.OilDisaster" method="setNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherRecord" method="setNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherStructure" method="setNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.PowerDisaster" method="setNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.SettlementRecord" method="setNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.TrafficDisaster" method="setNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.WaterDisaster" method="setNote" />
+    <pattern value="com.earthquake.managementPlatform.entities.DeathStatistics" method="setNumber" />
+    <pattern value="com.earthquake.managementPlatform.entities.InjuredStatistics" method="setNumber" />
+    <pattern value="com.earthquake.managementPlatform.entities.MissingStatistics" method="setNumber" />
+    <pattern value="com.earthquake.managementPlatform.entities.PersonStatistics" method="setNumber" />
+    <pattern value="com.earthquake.managementPlatform.entities.DisasterRequest" method="setoURL" />
+    <pattern value="com.earthquake.managementPlatform.entities.BasicEarthquakeInfo" method="setPicture" />
+    <pattern value="com.earthquake.managementPlatform.entities.CollapseRecord" method="setPicture" />
+    <pattern value="com.earthquake.managementPlatform.entities.CommDisaster" method="setPicture" />
+    <pattern value="com.earthquake.managementPlatform.entities.CrackRecord" method="setPicture" />
+    <pattern value="com.earthquake.managementPlatform.entities.DebrisRecord" method="setPicture" />
+    <pattern value="com.earthquake.managementPlatform.entities.GasDisaster" method="setPicture" />
+    <pattern value="com.earthquake.managementPlatform.entities.IrrigationDisaster" method="setPicture" />
+    <pattern value="com.earthquake.managementPlatform.entities.KarstRecord" method="setPicture" />
+    <pattern value="com.earthquake.managementPlatform.entities.LandslideRecord" method="setPicture" />
+    <pattern value="com.earthquake.managementPlatform.entities.OilDisaster" method="setPicture" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherRecord" method="setPicture" />
+    <pattern value="com.earthquake.managementPlatform.entities.PowerDisaster" method="setPicture" />
+    <pattern value="com.earthquake.managementPlatform.entities.SettlementRecord" method="setPicture" />
+    <pattern value="com.earthquake.managementPlatform.entities.TrafficDisaster" method="setPicture" />
+    <pattern value="com.earthquake.managementPlatform.entities.WaterDisaster" method="setPicture" />
+    <pattern value="com.earthquake.managementPlatform.config.ParamConfig" method="setPredictionLi" />
+    <pattern value="com.earthquake.managementPlatform.entities.ProvEarthquakeFrequency" method="setProCode" />
+    <pattern value="com.earthquake.managementPlatform.entities.AdministrativeRegionCode12" method="setProvince" />
+    <pattern value="com.earthquake.managementPlatform.controller.FileResource" method="SetReadingFiles" />
+    <pattern value="com.earthquake.managementPlatform.entities.User" method="setRegisterDate" />
+    <pattern value="com.earthquake.managementPlatform.entities.BasicEarthquakeInfo" method="setReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.BrickwoodStructure" method="setReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.CivilStructure" method="setReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.CollapseRecord" method="setReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.CommDisaster" method="setReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.CrackRecord" method="setReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.DeathStatistics" method="setReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.DebrisRecord" method="setReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.FrameworkStructure" method="setReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.GasDisaster" method="setReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.InjuredStatistics" method="setReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.IrrigationDisaster" method="setReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.KarstRecord" method="setReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.LandslideRecord" method="setReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.MasonryStructure" method="setReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.MissingStatistics" method="setReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.OilDisaster" method="setReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherRecord" method="setReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherStructure" method="setReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.PowerDisaster" method="setReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.SettlementRecord" method="setReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.TrafficDisaster" method="setReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.WaterDisaster" method="setReportingUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.DisasterRequest" method="setRequestUnit" />
+    <pattern value="com.earthquake.managementPlatform.entities.FrameworkStructure" method="setSeriousDamagedSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.MasonryStructure" method="setSeriousDamagedSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherStructure" method="setSeriousDamagedSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.FrameworkStructure" method="setSlightDamagedSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.MasonryStructure" method="setSlightDamagedSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherStructure" method="setSlightDamagedSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.SquareStatistics" method="setSquare" />
+    <pattern value="com.earthquake.managementPlatform.entities.CollapseRecord" method="setStatus" />
+    <pattern value="com.earthquake.managementPlatform.entities.CrackRecord" method="setStatus" />
+    <pattern value="com.earthquake.managementPlatform.entities.DebrisRecord" method="setStatus" />
+    <pattern value="com.earthquake.managementPlatform.entities.DisasterRequest" method="setStatus" />
+    <pattern value="com.earthquake.managementPlatform.entities.KarstRecord" method="setStatus" />
+    <pattern value="com.earthquake.managementPlatform.entities.LandslideRecord" method="setStatus" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherRecord" method="setStatus" />
+    <pattern value="com.earthquake.managementPlatform.entities.SecondaryDisasterStatistics" method="setStatus" />
+    <pattern value="com.earthquake.managementPlatform.entities.SettlementRecord" method="setStatus" />
+    <pattern value="com.earthquake.managementPlatform.entities.BackupTime" method="setTime" />
+    <pattern value="com.earthquake.managementPlatform.entities.SettlementRecord" />
+    <pattern value="com.earthquake.managementPlatform.entities.SettlementRecord" method="SettlementRecord" />
+    <pattern value="com.earthquake.managementPlatform.controller.SettlementRecordResource" method="settlementRecordAll" />
+    <pattern value="com.earthquake.managementPlatform.controller.SettlementRecordResource" method="settlementRecordByTime" />
+    <pattern value="com.earthquake.managementPlatform.controller.SettlementRecordResource" method="settlementRecordCopy" />
+    <pattern value="com.earthquake.managementPlatform.mapper.SettlementRecordMapper" />
+    <pattern value="com.earthquake.managementPlatform.entities.AdministrativeRegionCode12" method="setTown" />
+    <pattern value="com.earthquake.managementPlatform.entities.CollapseRecord" method="setType" />
+    <pattern value="com.earthquake.managementPlatform.entities.CommDisaster" method="setType" />
+    <pattern value="com.earthquake.managementPlatform.entities.CrackRecord" method="setType" />
+    <pattern value="com.earthquake.managementPlatform.entities.DebrisRecord" method="setType" />
+    <pattern value="com.earthquake.managementPlatform.entities.GasDisaster" method="setType" />
+    <pattern value="com.earthquake.managementPlatform.entities.IrrigationDisaster" method="setType" />
+    <pattern value="com.earthquake.managementPlatform.entities.KarstRecord" method="setType" />
+    <pattern value="com.earthquake.managementPlatform.entities.LandslideRecord" method="setType" />
+    <pattern value="com.earthquake.managementPlatform.entities.OilDisaster" method="setType" />
+    <pattern value="com.earthquake.managementPlatform.entities.OtherRecord" method="setType" />
+    <pattern value="com.earthquake.managementPlatform.entities.PowerDisaster" method="setType" />
+    <pattern value="com.earthquake.managementPlatform.entities.SettlementRecord" method="setType" />
+    <pattern value="com.earthquake.managementPlatform.entities.TrafficDisaster" method="setType" />
+    <pattern value="com.earthquake.managementPlatform.entities.WaterDisaster" method="setType" />
+    <pattern value="com.earthquake.managementPlatform.entities.AdministrativeRegionCode12" method="setVillage" />
+    <pattern value="com.earthquake.managementPlatform.service.UserRegisterService" method="signIn" />
+    <pattern value="com.earthquake.managementPlatform.entities.SquareStatistics" />
+    <pattern value="com.earthquake.managementPlatform.entities.SquareStatistics" method="SquareStatistics" />
+    <pattern value="com.earthquake.managementPlatform.service.UploadFileScheduleServiceTest" method="TemplateTest" />
+    <pattern value="com.earthquake.managementPlatform.entities.TrafficDisaster" />
+    <pattern value="com.earthquake.managementPlatform.entities.TrafficDisaster" method="TrafficDisaster" />
+    <pattern value="com.earthquake.managementPlatform.controller.TrafficDisasterResource" method="trafficDisasterAll" />
+    <pattern value="com.earthquake.managementPlatform.controller.TrafficDisasterResource" method="trafficDisasterByTime" />
+    <pattern value="com.earthquake.managementPlatform.controller.TrafficDisasterResource" method="trafficDisasterCopy" />
+    <pattern value="com.earthquake.managementPlatform.mapper.TrafficDisasterMapper" />
+    <pattern value="com.earthquake.managementPlatform.mapper.BasicEarthquakeInfoMapper" method="update" />
+    <pattern value="com.earthquake.managementPlatform.mapper.BrickwoodStructureMapper" method="update" />
+    <pattern value="com.earthquake.managementPlatform.mapper.CivilStructureMapper" method="update" />
+    <pattern value="com.earthquake.managementPlatform.mapper.CollapseRecordMapper" method="update" />
+    <pattern value="com.earthquake.managementPlatform.mapper.CommDisasterMapper" method="update" />
+    <pattern value="com.earthquake.managementPlatform.mapper.CrackRecordMapper" method="update" />
+    <pattern value="com.earthquake.managementPlatform.mapper.DeathStatisticsMapper" method="update" />
+    <pattern value="com.earthquake.managementPlatform.mapper.DebrisRecordMapper" method="update" />
+    <pattern value="com.earthquake.managementPlatform.mapper.DisasterPredictionMapper" method="update" />
+    <pattern value="com.earthquake.managementPlatform.mapper.DisasterRequestMapper" method="update" />
+    <pattern value="com.earthquake.managementPlatform.mapper.FrameworkStructureMapper" method="update" />
+    <pattern value="com.earthquake.managementPlatform.mapper.GasDisasterMapper" method="update" />
+    <pattern value="com.earthquake.managementPlatform.mapper.InjuredStatisticsMapper" method="update" />
+    <pattern value="com.earthquake.managementPlatform.mapper.IrrigationDisasterMapper" method="update" />
+    <pattern value="com.earthquake.managementPlatform.mapper.KarstRecordMapper" method="update" />
+    <pattern value="com.earthquake.managementPlatform.mapper.LandslideRecordMapper" method="update" />
+    <pattern value="com.earthquake.managementPlatform.mapper.MasonryStructureMapper" method="update" />
+    <pattern value="com.earthquake.managementPlatform.mapper.MissingStatisticsMapper" method="update" />
+    <pattern value="com.earthquake.managementPlatform.mapper.OilDisasterMapper" method="update" />
+    <pattern value="com.earthquake.managementPlatform.mapper.OtherRecordMapper" method="update" />
+    <pattern value="com.earthquake.managementPlatform.mapper.OtherStructureMapper" method="update" />
+    <pattern value="com.earthquake.managementPlatform.mapper.PowerDisasterMapper" method="update" />
+    <pattern value="com.earthquake.managementPlatform.mapper.SettlementRecordMapper" method="update" />
+    <pattern value="com.earthquake.managementPlatform.mapper.TrafficDisasterMapper" method="update" />
+    <pattern value="com.earthquake.managementPlatform.mapper.WaterDisasterMapper" method="update" />
+    <pattern value="com.earthquake.managementPlatform.service.UserInfoUpdateService" method="updatePassword" />
+    <pattern value="com.earthquake.managementPlatform.mapper.ScheduleMapper" method="updateSchedule" />
+    <pattern value="com.earthquake.managementPlatform.controller.UserResource" method="updateUsername" />
+    <pattern value="com.earthquake.managementPlatform.service.UserInfoUpdateService" method="updateUsername" />
+    <pattern value="com.earthquake.managementPlatform.controller.UserResource" method="updateUserpassword" />
+    <pattern value="com.earthquake.managementPlatform.controller.FileResource" method="uploadFilePic" />
+    <pattern value="com.earthquake.managementPlatform.service.UploadFileServiceTest" method="uploadFilesTest" />
+    <pattern value="com.earthquake.managementPlatform.service.MultiMediaMethodServiceTest" method="uploadMultiMediaTest" />
+    <pattern value="com.earthquake.managementPlatform.controller.FileResource" method="uploadRealTimeFile" />
+    <pattern value="com.earthquake.managementPlatform.service.UploadFileServiceTest" method="uploadRealTimeFilesTest" />
+    <pattern value="com.earthquake.managementPlatform.controller.FileResource" method="uploadRecordPic" />
+    <pattern value="com.earthquake.managementPlatform.entities.User" />
+    <pattern value="com.earthquake.managementPlatform.entities.User" method="User" />
+    <pattern value="com.earthquake.managementPlatform.service.UserInfoUpdateService" />
+    <pattern value="com.earthquake.managementPlatform.controller.UserResource" method="userLogin" />
+    <pattern value="com.earthquake.managementPlatform.service.UserLoginService" method="userLogin" />
+    <pattern value="com.earthquake.managementPlatform.service.UserLoginService" />
+    <pattern value="com.earthquake.managementPlatform.mapper.UserMapper" />
+    <pattern value="com.earthquake.managementPlatform.service.UserRegisterService" />
+    <pattern value="com.earthquake.managementPlatform.service.UserRemoveService" method="userRemove" />
+    <pattern value="com.earthquake.managementPlatform.service.UserRemoveService" />
+    <pattern value="com.earthquake.managementPlatform.controller.UserResource" method="userSignIn" />
+    <pattern value="com.earthquake.managementPlatform.entities.WaterDisaster" />
+    <pattern value="com.earthquake.managementPlatform.entities.WaterDisaster" method="WaterDisaster" />
+    <pattern value="com.earthquake.managementPlatform.controller.WaterDisasterResource" method="waterDisasterAll" />
+    <pattern value="com.earthquake.managementPlatform.controller.WaterDisasterResource" method="waterDisasterByTime" />
+    <pattern value="com.earthquake.managementPlatform.controller.WaterDisasterResource" method="waterDisasterCopy" />
+    <pattern value="com.earthquake.managementPlatform.mapper.WaterDisasterMapper" />
+    <pattern value="com.earthquake.managementPlatform.service.XmlFile" />
+    <pattern value="com.earthquake.managementPlatform.service.XmlFile" method="XmlFile" />
+  </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
