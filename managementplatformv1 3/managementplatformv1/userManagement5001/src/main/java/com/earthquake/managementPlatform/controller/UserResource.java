@@ -62,7 +62,7 @@ public class UserResource {
             session.setAttribute("USER",user);
             List list = new ArrayList();
             list.add(user);
-            return new GetVo(Integer.valueOf(user.getUserType()),"登录成功！",0,list);
+            return new GetVo(Integer.parseInt(user.getUserType()),"登录成功！",0,list);
         }
 
     }
@@ -142,8 +142,8 @@ public class UserResource {
 
     @GetMapping("/v1/adminalluser")
     public GetVo selectUserAll(HttpServletRequest request){
-        int limit = Integer.valueOf(request.getParameter("limit"));
-        int page = Integer.valueOf(request.getParameter("page"));
+        int limit = Integer.parseInt(request.getParameter("limit"));
+        int page = Integer.parseInt(request.getParameter("page"));
         int size = userMapper.getAdminUserInfo().size();
         List<User> user = userMapper.getAdminUserInfoByPage((page-1)*limit,limit);
         return new GetVo<>(0,"获取数据成功！",size,user);
