@@ -1,13 +1,7 @@
 package com.earthquake.managementPlatform.mapper;
 
-import com.earthquake.managementPlatform.entities.BasicEarthquakeInfo;
-import com.earthquake.managementPlatform.entities.DebrisRecord;
 import com.earthquake.managementPlatform.entities.DisasterPrediction;
-import com.earthquake.managementPlatform.entities.FrameworkStructure;
 import org.apache.ibatis.annotations.*;
-import org.apache.ibatis.type.JdbcType;
-
-import java.util.List;
 
 @Mapper
 public interface DisasterPredictionMapper {

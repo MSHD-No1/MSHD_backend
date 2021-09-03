@@ -1,12 +1,7 @@
 package com.earthquake.managementPlatform.mapper;
 
-import com.earthquake.managementPlatform.entities.CommDisaster;
-import com.earthquake.managementPlatform.entities.SettlementRecord;
 import com.earthquake.managementPlatform.entities.TrafficDisaster;
 import org.apache.ibatis.annotations.*;
-import org.apache.ibatis.type.JdbcType;
-
-import java.util.List;
 
 @Mapper
 public interface TrafficDisasterMapper {

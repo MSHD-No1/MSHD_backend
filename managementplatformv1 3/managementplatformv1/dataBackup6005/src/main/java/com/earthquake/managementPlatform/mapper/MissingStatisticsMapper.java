@@ -1,12 +1,7 @@
 package com.earthquake.managementPlatform.mapper;
 
-import com.earthquake.managementPlatform.entities.InjuredStatistics;
-import com.earthquake.managementPlatform.entities.MasonryStructure;
 import com.earthquake.managementPlatform.entities.MissingStatistics;
 import org.apache.ibatis.annotations.*;
-import org.apache.ibatis.type.JdbcType;
-
-import java.util.List;
 
 @Mapper
 public interface MissingStatisticsMapper {

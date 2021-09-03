@@ -1,12 +1,7 @@
 package com.earthquake.managementPlatform.mapper;
 
-import com.earthquake.managementPlatform.entities.MissingStatistics;
 import com.earthquake.managementPlatform.entities.OilDisaster;
-import com.earthquake.managementPlatform.entities.WaterDisaster;
 import org.apache.ibatis.annotations.*;
-import org.apache.ibatis.type.JdbcType;
-
-import java.util.List;
 
 @Mapper
 public interface OilDisasterMapper {

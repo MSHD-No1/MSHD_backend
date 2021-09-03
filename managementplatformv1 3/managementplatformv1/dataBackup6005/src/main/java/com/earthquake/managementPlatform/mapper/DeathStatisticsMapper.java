@@ -1,12 +1,7 @@
 package com.earthquake.managementPlatform.mapper;
 
-import com.earthquake.managementPlatform.entities.BasicEarthquakeInfo;
-import com.earthquake.managementPlatform.entities.CrackRecord;
 import com.earthquake.managementPlatform.entities.DeathStatistics;
 import org.apache.ibatis.annotations.*;
-import org.apache.ibatis.type.JdbcType;
-
-import java.util.List;
 
 @Mapper
 public interface DeathStatisticsMapper {

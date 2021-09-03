@@ -1,11 +1,7 @@
 package com.earthquake.managementPlatform.mapper;
 
-import com.earthquake.managementPlatform.entities.OilDisaster;
 import com.earthquake.managementPlatform.entities.OtherRecord;
 import org.apache.ibatis.annotations.*;
-import org.apache.ibatis.type.JdbcType;
-
-import java.util.List;
 
 @Mapper
 public interface OtherRecordMapper {

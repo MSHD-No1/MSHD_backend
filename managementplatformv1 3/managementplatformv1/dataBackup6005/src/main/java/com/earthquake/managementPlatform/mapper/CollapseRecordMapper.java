@@ -1,11 +1,7 @@
 package com.earthquake.managementPlatform.mapper;
 
-import com.earthquake.managementPlatform.entities.CivilStructure;
 import com.earthquake.managementPlatform.entities.CollapseRecord;
 import org.apache.ibatis.annotations.*;
-import org.apache.ibatis.type.JdbcType;
-
-import java.util.List;
 
 @Mapper
 public interface CollapseRecordMapper {
