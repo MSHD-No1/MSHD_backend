@@ -14,7 +14,6 @@ public class FtpPicMethod extends FtpMethod{
     @Override
     public String downloadPic(String source, String picName) {
         String ftpPathPic = source+File.separator+ftpRelativePicPath;
-        String picPathName = picName;
         DayDate dayDate = new DayDate();
         String date = dayDate.getYear()+dayDate.getMonth()+dayDate.getDay();
         String savePathPic = fileSavePath+File.separator+date+File.separator+filePicSavePath;
@@ -48,7 +47,7 @@ public class FtpPicMethod extends FtpMethod{
                 }
                 for (String ff : fs) {
                     String ftpName = new String(ff.getBytes(serverCharset), localCharset);
-                    if(ftpName.equals(picPathName)) {
+                    if(ftpName.equals(picName)) {
                         log.info(savePathPic + File.separator + ftpName);
                         File file = new File(savePathPic + File.separator + ftpName);
                         try (OutputStream os = new FileOutputStream(file)) {

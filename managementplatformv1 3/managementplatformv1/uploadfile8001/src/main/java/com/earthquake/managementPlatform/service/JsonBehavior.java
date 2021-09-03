@@ -20,7 +20,6 @@ public class JsonBehavior implements FileBehavior{
         String[] splitData = metaData.split("\\{");
         String rootNode = splitData[1].replace(":","").replace("\"","");
         String secondNode = splitData[2].replace(":[","").replace("\"","");
-        JSONArray datas = JsonJsonObj.getJSONObject(rootNode).getJSONArray(secondNode);
-        return datas;
+        return JsonJsonObj.getJSONObject(rootNode).getJSONArray(secondNode);
     }
 }

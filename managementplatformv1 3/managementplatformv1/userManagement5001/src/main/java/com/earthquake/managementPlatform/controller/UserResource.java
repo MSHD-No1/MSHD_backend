@@ -147,8 +147,7 @@ public class UserResource {
         int page = Integer.valueOf(request.getParameter("page"));
         int size = userMapper.getAdminUserInfo().size();
         List<User> user = userMapper.getAdminUserInfoByPage((page-1)*limit,limit);
-        GetVo<User> getVo = new GetVo<>(0,"获取数据成功！",size,user);
-        return getVo;
+        return new GetVo<>(0,"获取数据成功！",size,user);
     }
 
 

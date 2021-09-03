@@ -112,17 +112,15 @@ public class SequenceCode {
                 lastCode = otherRecordMapper.getSomeOtherRecordByACId(administrativeRegionCode + categoryCode);
             }
 
-            if (lastCode != null && lastCode != "") {
-                int codeCount = Integer.valueOf(lastCode.substring(15, 18)) + 1;
+            if (lastCode != null && !lastCode.equals("")) {
+                int codeCount = Integer.parseInt(lastCode.substring(15, 18)) + 1;
                 distributionCode = new DistributionCode(administrativeRegionCode + categoryCode, codeCount);
-                distributionCodeMapper.save(distributionCode);
             } else {
                 distributionCode = new DistributionCode(administrativeRegionCode + categoryCode, 1);
-                distributionCodeMapper.save(distributionCode);
             }
+            distributionCodeMapper.save(distributionCode);
         }
 
-        String sequenceCode = String.format("%3d", distributionCode.getNumber()).replace(" ", "0");
-        return sequenceCode;
+        return String.format("%3d", distributionCode.getNumber()).replace(" ", "0");
     }
 }

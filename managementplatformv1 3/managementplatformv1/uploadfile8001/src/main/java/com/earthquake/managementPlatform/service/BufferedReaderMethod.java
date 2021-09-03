@@ -14,7 +14,6 @@ public class BufferedReaderMethod {
         while ((inputStr = bufferedReader.readLine()) != null) {
             responseStrBuilder.append(inputStr);
         }
-        JSONObject jsonObject = new JSONObject(responseStrBuilder.toString());
-        return jsonObject;
+        return new JSONObject(responseStrBuilder.toString());
     }
 }

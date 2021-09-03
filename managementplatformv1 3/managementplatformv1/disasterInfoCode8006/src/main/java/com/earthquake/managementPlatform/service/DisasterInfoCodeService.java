@@ -20,9 +20,6 @@ public class DisasterInfoCodeService {
     @Resource
     GradeEvaluationFactory gradeEvaluationFactory;
 
-    private AdministrativeRegionCode administrativeRegionCode;
-    private DisasterInfoCode disasterInfoCode;
-
     private JSONObject jsonObject;
 
     public String assignDisasterInfoCode(JSONObject data) {
@@ -65,7 +62,7 @@ public class DisasterInfoCodeService {
         }
 
         administrativeRegionCode12.setAdministrativeRegionCode12(province, city, country, town, village);
-        administrativeRegionCode = administrativeRegionCode12;
+        AdministrativeRegionCode administrativeRegionCode = administrativeRegionCode12;
         String aAdministrativeRegionCode = administrativeRegionCode.codeForAdministrativeRegion();
         categoryCode.setCategoryInfo(data.getString("category"));
         category = categoryCode.codeForCategory();
@@ -84,7 +81,7 @@ public class DisasterInfoCodeService {
                     grade = gradeEvaluation.gradeEvaluation(data);
                 }
             }
-            disasterInfoCode = disasterInfoCode7;
+            DisasterInfoCode disasterInfoCode = disasterInfoCode7;
             return aAdministrativeRegionCode + disasterInfoCode.codeForDisasterInfo(aAdministrativeRegionCode, category, grade);
         }
     }

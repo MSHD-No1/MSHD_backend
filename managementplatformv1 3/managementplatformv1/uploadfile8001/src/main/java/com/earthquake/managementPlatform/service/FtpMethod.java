@@ -154,7 +154,6 @@ public abstract class FtpMethod {
     //删除文件
     public boolean removeFile(String remotePath, String filename) throws Exception {
         ftpClient.changeWorkingDirectory(remotePath);
-        boolean bok = ftpClient.deleteFile(filename) ;
-        return bok ;
+        return ftpClient.deleteFile(filename);
     }
 }
