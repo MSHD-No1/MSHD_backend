@@ -1,14 +1,11 @@
 package com.earthquake.managementPlatform.service;
 
 import com.alibaba.druid.util.StringUtils;
-import com.earthquake.managementPlatform.entities.PostVo;
 import com.earthquake.managementPlatform.mapper.BackupTimeMapper;
 import com.earthquake.managementPlatform.mapper.ScheduleMapper;
 //import jdk.internal.instrumentation.Logger;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.json.JSONArray;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.Trigger;
 import org.springframework.scheduling.TriggerContext;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -16,11 +13,9 @@ import org.springframework.scheduling.annotation.SchedulingConfigurer;
 import org.springframework.scheduling.config.ScheduledTaskRegistrar;
 import org.springframework.scheduling.support.CronTrigger;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
 import java.util.Date;
-import java.util.Map;
 
 @Slf4j
 @Component

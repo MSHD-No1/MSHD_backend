@@ -1,6 +1,5 @@
 package com.earthquake.managementPlatform.service;
 
-import lombok.extern.slf4j.Slf4j;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;

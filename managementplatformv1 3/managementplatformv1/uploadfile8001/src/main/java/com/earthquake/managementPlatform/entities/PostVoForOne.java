@@ -1,7 +1,5 @@
 package com.earthquake.managementPlatform.entities;
 
-import java.util.List;
-
 public class PostVoForOne<T> {
     private int code;
     private String msg;

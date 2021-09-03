@@ -96,15 +96,15 @@ public class FileResource {
         int result = -1;
         PostVoForOne<String> postVoForOne = null;
         if (flag == status) {
-            if (status == true)
+            if (status)
                 postVoForOne = new PostVoForOne<String>(-1, "读取文件开关已经开启！", "读取文件开关已经开启！");
-            if (status == false)
+            if (!status)
                 postVoForOne = new PostVoForOne<String>(-1, "读取文件开关已经关闭！", "读取文件开关已经关闭！");
         } else {
-            if (status == true) {
+            if (status) {
                 result = onOffMapper.StartReadingFiles();
             }
-            if (status == false) {
+            if (!status) {
                 result = onOffMapper.StopReadingFiles();
             }
             if (result == 1) {

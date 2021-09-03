@@ -60,7 +60,7 @@ public class FtpRealTimeFileMethod extends FtpFileMethod{
                     }
                     for (String ff : fs) {
                         String ftpName = new String(ff.getBytes(localCharset), serverCharset);
-                        if (ftpName.equals(ftpRelativePicPath)==false) {
+                        if (!ftpName.equals(ftpRelativePicPath)) {
                             log.info(fileSavePath + File.separator + date+File.separator +ftpName);
                             File dir = new File(fileSavePath + File.separator + date);
                             if(!dir.exists()){
@@ -87,7 +87,6 @@ public class FtpRealTimeFileMethod extends FtpFileMethod{
                 } catch (IOException e) {
                     log.error("下载文件失败", e);
                     return null;
-                } finally {
                 }
 
         }

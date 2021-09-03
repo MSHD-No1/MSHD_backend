@@ -9,7 +9,6 @@ import com.earthquake.managementPlatform.service.UserInfoUpdateServiceImpl;
 import com.earthquake.managementPlatform.service.UserLoginServiceImpl;
 import com.earthquake.managementPlatform.service.UserRegisterServiceImpl;
 import com.earthquake.managementPlatform.service.UserRemoveServiceImpl;
-import org.apache.ibatis.annotations.Delete;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;

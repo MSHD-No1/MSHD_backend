@@ -2,14 +2,12 @@ package com.earthquake.managementPlatform.controller;
 
 import com.earthquake.managementPlatform.entities.BackupTime;
 import com.earthquake.managementPlatform.entities.PostVo;
-import com.earthquake.managementPlatform.entities.Schedule;
 import com.earthquake.managementPlatform.mapper.BackupTimeMapper;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 
 @RestController
 public class BackupResource {

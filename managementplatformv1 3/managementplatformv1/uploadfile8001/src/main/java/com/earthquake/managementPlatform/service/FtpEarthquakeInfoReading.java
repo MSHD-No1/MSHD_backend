@@ -86,7 +86,6 @@ public class FtpEarthquakeInfoReading extends FtpMethod{
                 } catch (IOException e) {
                     log.error("下载文件失败", e);
                     return null;
-                } finally {
                 }
 
         }

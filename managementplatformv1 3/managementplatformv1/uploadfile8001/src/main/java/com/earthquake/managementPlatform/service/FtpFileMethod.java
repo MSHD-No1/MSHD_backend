@@ -2,12 +2,9 @@ package com.earthquake.managementPlatform.service;
 
 import com.earthquake.managementPlatform.config.ParamConfig;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPReply;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.io.File;
@@ -162,7 +159,6 @@ public class FtpFileMethod extends FtpMethod{
                 } catch (IOException e) {
                     log.error("下载文件失败", e);
                     return null;
-                } finally {
                 }
             }
         }

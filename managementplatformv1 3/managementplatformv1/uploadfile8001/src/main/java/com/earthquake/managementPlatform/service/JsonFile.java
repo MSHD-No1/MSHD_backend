@@ -1,7 +1,5 @@
 package com.earthquake.managementPlatform.service;
 
-import org.json.JSONArray;
-
 public class JsonFile extends DisasterFile{
     public JsonFile() {
         this.fileBehavior = new JsonBehavior();

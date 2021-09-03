@@ -6,7 +6,6 @@ import org.apache.commons.net.ftp.FTPReply;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.io.IOException;
-import java.util.Map;
 
 @Slf4j
 public abstract class FTPOutPutMethod {

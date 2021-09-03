@@ -8,12 +8,8 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @Slf4j
 @SpringBootTest
