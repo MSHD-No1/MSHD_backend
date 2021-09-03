@@ -42,7 +42,7 @@ public class CodeResource {
                 for (int i = 0; i < entry.getKey().length(); i++) {
                     JSONObject jsonObject = entry.getKey().getJSONObject(i);
                     String code = disasterInfoCodeService.assignDisasterInfoCode(jsonObject);
-                    Map<String, String> map = new HashMap<String, String>();
+                    Map<String, String> map = new HashMap<>();
                     map.put("code", code);
                     map.put("source", entry.getValue());
                     map.put("data", jsonObject.toString());
@@ -62,7 +62,7 @@ public class CodeResource {
         JSONObject jsonObject = new JSONObject(data);
         ArrayList<String> codes = new ArrayList<>();
         String code = disasterInfoCodeService.assignDisasterInfoCode(jsonObject);
-        Map<String, String> map = new HashMap<String, String>();
+        Map<String, String> map = new HashMap<>();
         map.put("code", code);
         map.put("source", jsonObject.getString("source"));
         map.put("data", jsonObject.toString());

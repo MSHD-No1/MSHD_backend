@@ -87,9 +87,9 @@ public class DisasterRequestResource {
     }
 
     @DeleteMapping("/v1/disasterRequest/{id}")
-    public PostVo<DisasterRequest> delDisasterRequest(@PathVariable("id") int id) {
+    public PostVo delDisasterRequest(@PathVariable("id") int id) {
         disasterRequestMapper.deleteById(id);
-        return (PostVo) new PostVo<Object>(0, "删除成功!", null);
+        return new PostVo<>(0, "删除成功!", null);
     }
 
 }

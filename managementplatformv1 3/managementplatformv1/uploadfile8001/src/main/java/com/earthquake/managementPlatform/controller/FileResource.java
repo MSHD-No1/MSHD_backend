@@ -85,9 +85,9 @@ public class FileResource {
                 result = restTemplate.postForObject(disasterInfoCodeUrl + "/v1/disasterInfoCode", map, PostVo.class).getData().toString();
             else
                 result = "目前无文件";
-            return new PostVoForOne<String>(0, "即时文件执行成功！", result);
+            return new PostVoForOne<>(0, "即时文件执行成功！", result);
         }
-        return new PostVoForOne<String>(-1, "即时文件执行失败！", null);
+        return new PostVoForOne<>(-1, "即时文件执行失败！", null);
     }
 
     @PostMapping("/v1/on_off/readingFiles/{status}")
@@ -97,9 +97,9 @@ public class FileResource {
         PostVoForOne<String> postVoForOne = null;
         if (flag == status) {
             if (status)
-                postVoForOne = new PostVoForOne<String>(-1, "读取文件开关已经开启！", "读取文件开关已经开启！");
+                postVoForOne = new PostVoForOne<>(-1, "读取文件开关已经开启！", "读取文件开关已经开启！");
             if (!status)
-                postVoForOne = new PostVoForOne<String>(-1, "读取文件开关已经关闭！", "读取文件开关已经关闭！");
+                postVoForOne = new PostVoForOne<>(-1, "读取文件开关已经关闭！", "读取文件开关已经关闭！");
         } else {
             if (status) {
                 result = onOffMapper.StartReadingFiles();
@@ -108,9 +108,9 @@ public class FileResource {
                 result = onOffMapper.StopReadingFiles();
             }
             if (result == 1) {
-                postVoForOne = new PostVoForOne<String>(0, "设置成功！", "设置成功！");
+                postVoForOne = new PostVoForOne<>(0, "设置成功！", "设置成功！");
             } else {
-                postVoForOne = new PostVoForOne<String>(-1, "设置失败！", "设置失败！");
+                postVoForOne = new PostVoForOne<>(-1, "设置失败！", "设置失败！");
             }
         }
         return postVoForOne;

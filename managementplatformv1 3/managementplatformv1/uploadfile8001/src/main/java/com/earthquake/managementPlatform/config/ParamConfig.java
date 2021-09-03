@@ -9,7 +9,7 @@ import java.util.List;
 @Configuration
 @ConfigurationProperties("data-source")
 public class ParamConfig {
-    public List<String> li = new ArrayList<String>();
+    public List<String> li = new ArrayList<>();
 
     public List<String> getLi() {
         return li;
