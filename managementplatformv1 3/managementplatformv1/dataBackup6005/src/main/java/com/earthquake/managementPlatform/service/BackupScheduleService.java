@@ -72,7 +72,7 @@ public class BackupScheduleService implements SchedulingConfigurer {
         }
         if (!newCron.equals(cron)) {
             //new StringBuffer("Cron has been changed to:'").append(newCron).append("'. Old cron was:'").append(cron).append("'").toString();
-            log.info(new StringBuffer("Cron has been changed to:'").append(newCron).append("'. Old cron was:'").append(cron).append("'").toString());
+            log.info("Cron has been changed to:'" + newCron + "'. Old cron was:'" + cron + "'");
             cron = newCron;
         }
         return cron;

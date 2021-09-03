@@ -40,7 +40,7 @@ public class OutPutImpl extends FTPOutPutMethod implements OutPut {
                 return false;
             }
             try {
-                FileInputStream in = new FileInputStream(new File(categoryId + ".txt"));
+                FileInputStream in = new FileInputStream(categoryId + ".txt");
                 ftpClient.storeFile(categoryId + ".txt", in);
                 in.close();
                 closeConnect();
