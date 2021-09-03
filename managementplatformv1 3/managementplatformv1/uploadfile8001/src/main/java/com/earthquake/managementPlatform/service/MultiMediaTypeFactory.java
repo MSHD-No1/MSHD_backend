@@ -13,14 +13,16 @@ public class MultiMediaTypeFactory {
         String[] strArray = filePath.split("\\.");
         int suffixIndex = strArray.length-1;
 
-        if(strArray[suffixIndex].equals("jpg")){
-            multiMediaMethod = picMethod;
-        }
-        else if(strArray[suffixIndex].equals("png")){
-            multiMediaMethod = picMethod;
-        }
-        else if(strArray[suffixIndex].equals("jpeg")){
-            multiMediaMethod = picMethod;
+        switch (strArray[suffixIndex]) {
+            case "jpg":
+                multiMediaMethod = picMethod;
+                break;
+            case "png":
+                multiMediaMethod = picMethod;
+                break;
+            case "jpeg":
+                multiMediaMethod = picMethod;
+                break;
         }
         return multiMediaMethod;
     }
