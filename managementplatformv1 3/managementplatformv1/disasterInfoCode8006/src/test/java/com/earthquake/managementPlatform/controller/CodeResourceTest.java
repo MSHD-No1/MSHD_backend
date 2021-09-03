@@ -27,7 +27,6 @@ class CodeResourceTest {
         map.put("data",string);
         map.put("code","1101010010015510708");
         map.put("source","101");
-//        DisasterInfoCodeWithStorageInformation disasterInfoCodeWithStorageInformation = new DisasterInfoCodeWithStorageInformation("1101010010015510708",jsonObject, "101");
         log.info(restTemplate.postForObject(storageInformationUrl+"/v1/informationStorage",map,String.class));
 //        log.info(restTemplate.getForObject(storageInformationUrl+"/v1/hello",String.class));
     }

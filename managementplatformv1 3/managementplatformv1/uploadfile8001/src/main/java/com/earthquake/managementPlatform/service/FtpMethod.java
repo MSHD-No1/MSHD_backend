@@ -94,7 +94,6 @@ public abstract class FtpMethod {
 
 //            String proxyIP = "11.22.3.44";//代理服务器地址
 //            int proxyPort = 2232;//代理服务器端口
-//            Proxy proxy = new Proxy(Type.SOCKS, new InetSocketAddress(proxyIP, proxyPort));
 //            ftpClient.setProxy(proxy);
             ftpClient.connect(address, port);
             ftpClient.login(username, password);
