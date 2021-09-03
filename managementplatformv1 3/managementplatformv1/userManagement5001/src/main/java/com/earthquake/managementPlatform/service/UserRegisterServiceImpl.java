@@ -12,7 +12,7 @@ public class UserRegisterServiceImpl implements UserRegisterService {
     UserMapper userMapper;
     @Override
     public int signIn(User user) {
-        int res = 0;
+        int res;
         if(userMapper.getUserByUsername(user.getUsername()) != null){
             res = -1;
         }

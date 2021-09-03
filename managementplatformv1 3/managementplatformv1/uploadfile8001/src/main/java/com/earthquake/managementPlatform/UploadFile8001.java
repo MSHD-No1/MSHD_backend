@@ -31,8 +31,8 @@ public class UploadFile8001 {
         SpringApplication.run(UploadFile8001.class,args);
     }
     static class MyAuthenticator extends Authenticator {
-        private String user = "jzzx";
-        private String password = "jzzx";
+        private final String user;
+        private final String password;
         public MyAuthenticator(String user, String password) {
             this.user = user;
             this.password = password;
