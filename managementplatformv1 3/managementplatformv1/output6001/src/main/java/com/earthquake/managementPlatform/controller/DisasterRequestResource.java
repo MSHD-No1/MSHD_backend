@@ -1,4 +1,3 @@
-
 package com.earthquake.managementPlatform.controller;
 
 import com.earthquake.managementPlatform.entities.DisasterRequest;
@@ -6,6 +5,7 @@ import com.earthquake.managementPlatform.entities.GetVo;
 import com.earthquake.managementPlatform.entities.PostVo;
 import com.earthquake.managementPlatform.mapper.DisasterRequestMapper;
 import com.earthquake.managementPlatform.service.OutPutService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
@@ -15,17 +15,17 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.List;
 
+@Slf4j
 @RestController
 public class DisasterRequestResource {
     @Resource
     DisasterRequestMapper disasterRequestMapper;
     @Resource
     RestTemplate restTemplate;
-    @Value("${storageInformation.url}")
-    private String storageInformationUrl;
-
     @Resource
     OutPutService outPutService;
+    @Value("${storageInformation.url}")
+    private String storageInformationUrl;
 
     @GetMapping("/v1/disasterRequest")
     public GetVo<DisasterRequest> disasterInfoAll(HttpServletRequest request) {

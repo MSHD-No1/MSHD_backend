@@ -1,15 +1,13 @@
 package com.earthquake.managementPlatform.service.impl;
 
-import com.earthquake.managementPlatform.service.OutPut;
 import com.earthquake.managementPlatform.service.FTPOutPutMethod;
-import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.net.ftp.FTPClient;
-import org.apache.commons.net.ftp.FTPReply;
+import com.earthquake.managementPlatform.service.OutPut;
 import org.springframework.stereotype.Component;
 
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
-@Slf4j
 @Component
 public class OutPutImpl extends FTPOutPutMethod implements OutPut {
     @Override
@@ -21,35 +19,6 @@ public class OutPutImpl extends FTPOutPutMethod implements OutPut {
         BufferedWriter out = new BufferedWriter(new FileWriter(categoryId + ".txt"));
         out.write(code);
         out.close();
-        //登录
-        super.login();
-        if (!FTPReply.isPositiveCompletion(ftpClient.getReplyCode())) {
-            closeConnect();
-            return false;
-        }
-        ftpClient.setControlEncoding("UTF-8");
-        ftpClient.setFileType(FTPClient.BINARY_FILE_TYPE);
-        // 设置被动模式，开通一个端口来传输数据
-        ftpClient.enterLocalPassiveMode();
-        if (ftpClient != null) {
-            // 对路径进行编码
-            String path = changeEncoding(basePath);
-            // 判断是否存在该目录
-            if (!ftpClient.changeWorkingDirectory(path)) {
-                log.error(basePath + DIR_NOT_EXIST);
-                return false;
-            }
-            try {
-                FileInputStream in = new FileInputStream(categoryId + ".txt");
-                ftpClient.storeFile(categoryId + ".txt", in);
-                in.close();
-                closeConnect();
-                return true;
-            } catch (Exception e) {
-                return false;
-            }
-
-        }
-        return false;
+        return true;
     }
 }
