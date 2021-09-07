@@ -7,10 +7,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.XML;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 @Slf4j
-public class XmlBehavior implements FileBehavior{
+public class XmlBehavior implements FileBehavior {
     @Override
     public JSONArray transferToJson(String filePath) throws IOException {
         File xmlFile = new File(filePath);
@@ -19,21 +22,20 @@ public class XmlBehavior implements FileBehavior{
         JSONObject xmlJSONObj = XML.toJSONObject(xml);
         String metaData = xmlJSONObj.toString();
         String[] splitData = metaData.split("\\{");
-        for (String item:splitData
-             ) {
+        for (String item : splitData) {
             log.info(item);
         }
-        String rootNode = splitData[1].replace(":","").replace("\"","");
+        String rootNode = splitData[1].replace(":", "").replace("\"", "");
         log.info(rootNode);
         JSONArray datas = new JSONArray();
-        try{
-        String secondNode = splitData[2].replace(":[","").replace("\"","");
-        log.info(secondNode);
-        datas = xmlJSONObj.getJSONObject(rootNode).getJSONArray(secondNode);
-        }catch (JSONException e){
-            String secondNode = splitData[2].replace(":","").replace("\"","");
+        try {
+            String secondNode = splitData[2].replace(":[", "").replace("\"", "");
             log.info(secondNode);
-            JSONObject jsonObject= xmlJSONObj.getJSONObject(rootNode).getJSONObject(secondNode);
+            datas = xmlJSONObj.getJSONObject(rootNode).getJSONArray(secondNode);
+        } catch (JSONException e) {
+            String secondNode = splitData[2].replace(":", "").replace("\"", "");
+            log.info(secondNode);
+            JSONObject jsonObject = xmlJSONObj.getJSONObject(rootNode).getJSONObject(secondNode);
             datas.put(jsonObject);
         }
         return datas;
