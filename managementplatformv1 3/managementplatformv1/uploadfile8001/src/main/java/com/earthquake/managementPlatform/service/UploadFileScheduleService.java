@@ -1,7 +1,6 @@
 package com.earthquake.managementPlatform.service;
 
 import com.alibaba.druid.util.StringUtils;
-//import com.earthquake.managementPlatform.entities.PostVo;
 import com.earthquake.managementPlatform.entities.PostVo;
 import com.earthquake.managementPlatform.mapper.OnOffMapper;
 import com.earthquake.managementPlatform.mapper.ScheduleMapper;
@@ -26,50 +25,41 @@ import java.util.Map;
 @Component
 @EnableScheduling
 public class UploadFileScheduleService implements SchedulingConfigurer {
+    private static String cron = "* * * * * *";
     @Resource
     ScheduleMapper scheduleMapper;
-
     @Resource
     OnOffMapper onOffMapper;
-
+    @Resource
+    UploadFileService uploadFileService;
+    @Resource
+    FtpFileMethod ftpFileMethod;
+    @Resource
+    FtpPredictionFileMethod ftpPredictionFileMethod;
     @Resource
     private RestTemplate restTemplate;
-
-    private  static String cron = "* * * * * *";
-
     @Value("${disasterInfoCode.url}")
     private String disasterInfoCodeUrl;
-
     @Value("${informationStorage.url}")
     private String informationStorageUrl;
 
-
-    @Resource
-    UploadFileService uploadFileService;
-
-    @Resource
-    FtpFileMethod ftpFileMethod;
-
-    @Resource
-    FtpPredictionFileMethod ftpPredictionFileMethod;
-
     @Override
-    public void configureTasks(ScheduledTaskRegistrar scheduledTaskRegistrar){
-        scheduledTaskRegistrar.addTriggerTask(doTask(),getTrigger());
+    public void configureTasks(ScheduledTaskRegistrar scheduledTaskRegistrar) {
+        scheduledTaskRegistrar.addTriggerTask(doTask(), getTrigger());
     }
 
-    private Runnable doTask(){
+    private Runnable doTask() {
         return new Runnable() {
             @SneakyThrows
             @Override
             public void run() {
-                Map<JSONArray,String> map = uploadFileService.uploadEarthquakeInfoFiles();
-                if(map!=null)
-                    log.info(restTemplate.postForObject(disasterInfoCodeUrl+"/v1/disasterInfoCode",map, PostVo.class).getData().toString());
+                Map<JSONArray, String> map = uploadFileService.uploadEarthquakeInfoFiles();
+                if (map != null)
+                    log.info(restTemplate.postForObject(disasterInfoCodeUrl + "/v1/disasterInfoCode", map, PostVo.class).getData().toString());
                 else
                     log.info("目前无基本震情文件");
                 boolean status = onOffMapper.getReadingFiles();
-                if(status) {
+                if (status) {
                     map = uploadFileService.uploadFiles(ftpFileMethod);
                     if (map != null)
                         log.info(restTemplate.postForObject(disasterInfoCodeUrl + "/v1/disasterInfoCode", map, PostVo.class).getData().toString());
@@ -80,14 +70,14 @@ public class UploadFileScheduleService implements SchedulingConfigurer {
                         log.info(restTemplate.postForObject(informationStorageUrl + "/v1/informationPredictionStorage", map, PostVo.class).getMsg());
                     else
                         log.info("目前无灾情预测文件");
+                } else {
+                    log.info("读取文件开关未开启！");
                 }
-                else
-                {log.info("读取文件开关未开启！");}
             }
         };
     }
 
-    private Trigger getTrigger(){
+    private Trigger getTrigger() {
         return new Trigger() {
             @SneakyThrows
             @Override

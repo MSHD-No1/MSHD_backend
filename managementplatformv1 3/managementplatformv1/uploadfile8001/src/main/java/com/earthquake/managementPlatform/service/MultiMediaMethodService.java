@@ -12,7 +12,7 @@ public class MultiMediaMethodService {
     @Resource
     MultiMediaTypeFactory multiMediaTypeFactory;
 
-    public String uploadMultiMedia(MultipartFile uploadFile){
+    public String uploadMultiMedia(MultipartFile uploadFile) {
         MultiMediaMethod multiMediaMethod = multiMediaTypeFactory.createMultiMedia(uploadFile.getOriginalFilename());
         return multiMediaMethod.uploadMultiMedia(uploadFile);
     }

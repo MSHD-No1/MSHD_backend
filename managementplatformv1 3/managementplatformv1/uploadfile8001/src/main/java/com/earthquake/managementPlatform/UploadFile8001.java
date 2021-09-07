@@ -5,7 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
-import java.net.*;
+import java.net.Authenticator;
+import java.net.PasswordAuthentication;
 
 @SpringBootApplication
 @EnableEurekaClient
@@ -28,15 +29,18 @@ public class UploadFile8001 {
 //        Authenticator.setDefault(new MyAuthenticator("userName", "Password"));
 
 
-        SpringApplication.run(UploadFile8001.class,args);
+        SpringApplication.run(UploadFile8001.class, args);
     }
+
     static class MyAuthenticator extends Authenticator {
         private final String user;
         private final String password;
+
         public MyAuthenticator(String user, String password) {
             this.user = user;
             this.password = password;
         }
+
         protected PasswordAuthentication getPasswordAuthentication() {
             return new PasswordAuthentication(user, password.toCharArray());
         }

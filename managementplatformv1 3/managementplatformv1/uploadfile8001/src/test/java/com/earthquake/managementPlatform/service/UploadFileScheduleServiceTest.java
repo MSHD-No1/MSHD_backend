@@ -7,7 +7,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
-
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -24,11 +23,11 @@ class UploadFileScheduleServiceTest {
 
     @Test
     public void TemplateTest() throws Exception {
-        Map<JSONArray,String> map = uploadFileService.uploadFiles(ftpFileMethod);
+        Map<JSONArray, String> map = uploadFileService.uploadFiles(ftpFileMethod);
 //        log.info(restTemplate.getForObject("http://CLOUD-DISASTERINFOCODE-SEVICE/v1/hello",String.class));
-        if(map!=null)
+        if (map != null)
 //            log.info(restTemplate.getForObject("http://CLOUD-DISASTERINFOCODE-SEVICE/v1/hello",String.class));
-        log.info(restTemplate.postForObject("http://CLOUD-DISASTERINFOCODE-SEVICE/v1/disasterInfoCode",map,ArrayList.class).toString());
+            log.info(restTemplate.postForObject("http://CLOUD-DISASTERINFOCODE-SEVICE/v1/disasterInfoCode", map, ArrayList.class).toString());
         else
             log.info("空");
 

@@ -6,16 +6,19 @@ import org.apache.poi.ss.usermodel.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
 public class ExcelBehavior implements FileBehavior {
-    /* Return sheet data in a two dimensional list.
-     * Each element in the outer list is represent a row,
-     * each element in the inner list represent a column.
+    /* Return sheet data in a two-dimensional list.
+     * Each element in the outer list represent a row,
+     * Each element in the inner list represent a column.
      * The first row is the column name row.*/
     private static List<List<String>> getSheetDataList(Sheet sheet) {
         List<List<String>> ret = new ArrayList<List<String>>();
@@ -93,57 +96,8 @@ public class ExcelBehavior implements FileBehavior {
         return ret;
     }
 
-    /* Return a text table string from the string list. */
-    private static String getTextTableStringFromList(List<List<String>> dataTable) {
-        StringBuffer strBuf = new StringBuffer();
-        if (dataTable != null) {
-            // Get all row count.
-            int rowCount = dataTable.size();
-            // Loop in the all rows.
-            for (int i = 0; i < rowCount; i++) {
-                // Get each row.
-                List<String> row = dataTable.get(i);
-                // Get one row column count.
-                int columnCount = row.size();
-                // Loop in the row columns.
-                for (int j = 0; j < columnCount; j++) {
-                    // Get column value.
-                    String column = row.get(j);
-                    // Append column value and a white space to separate value.
-                    strBuf.append(column);
-                    strBuf.append("    ");
-                }
-                // Add a return character at the end of the row.
-                strBuf.append("\r\n");
-            }
-        }
-        return strBuf.toString();
-    }
-
-    /* Write string data to a file.*/
-    private static void writeStringToFile(String data, String fileName) {
-        try {
-            // Get current executing class working directory.
-            String currentWorkingFolder = System.getProperty("user.dir");
-            // Get file path separator.
-            String filePathSeperator = System.getProperty("file.separator");
-            // Get the output file absolute path.
-            String filePath = currentWorkingFolder + filePathSeperator + fileName;
-            // Create File, FileWriter and BufferedWriter object.
-            File file = new File(filePath);
-            FileWriter fw = new FileWriter(file);
-            BufferedWriter buffWriter = new BufferedWriter(fw);
-            // Write string data to the output file, flush and close the buffered writer object.
-            buffWriter.write(data);
-            buffWriter.flush();
-            buffWriter.close();
-            System.out.println(filePath + " has been created.");
-        } catch (IOException ex) {
-            System.err.println(ex.getMessage());
-        }
-    }
-
     public JSONArray transferToJson(String filePath) throws IOException {
+        JSONArray data = new JSONArray();
         File excelFile = new File(filePath.trim());
         InputStream in = new FileInputStream(excelFile);
         Workbook excelWorkBook = new HSSFWorkbook(in);
@@ -153,20 +107,15 @@ public class ExcelBehavior implements FileBehavior {
             String sheetName = sheet.getSheetName();
             if (sheetName != null && sheetName.length() > 0) {
                 List<List<String>> sheetDataTable = getSheetDataList(sheet);
-
                 String jsonString = getJSONStringFromList(sheetDataTable);
-                String jsonFileName = sheet.getSheetName() + ".json";
-
-                writeStringToFile(jsonString, jsonFileName);
-
-                String textTableString = getTextTableStringFromList(sheetDataTable);
-                String textTableFileName = sheet.getSheetName() + ".txt";
-
-                writeStringToFile(textTableString, textTableFileName);
+                data = new JSONArray(jsonString);
             }
         }
         excelWorkBook.close();
-        JSONArray datas = new JSONArray();
-        return datas;
+        for (int i = 0; i < data.length(); i++) {
+            JSONObject obj = data.getJSONObject(i);
+            log.error(obj.toString());
+        }
+        return data;
     }
 }

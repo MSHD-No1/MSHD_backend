@@ -2,7 +2,7 @@ package com.earthquake.managementPlatform.entities;
 
 import java.util.List;
 
-public class GetVo<T>{
+public class GetVo<T> {
     private int code;
     private String msg;
     private int count;

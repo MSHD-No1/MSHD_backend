@@ -24,6 +24,6 @@ public class AddRecordService {
         BufferedReaderMethod bufferedReaderMethod = new BufferedReaderMethod();
         JSONObject jsonObject = bufferedReaderMethod.BufferedReaderToJson(bufferedReader);
         String ss = URLEncoder.encode(jsonObject.toString(), "utf-8");
-        return restTemplate.postForObject(disasterInfoCodeUrl+"/v1/disasterInfoCodeToRecode",ss, PostVo.class);
+        return restTemplate.postForObject(disasterInfoCodeUrl + "/v1/disasterInfoCodeToRecode", ss, PostVo.class);
     }
 }

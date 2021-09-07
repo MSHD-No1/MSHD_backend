@@ -12,19 +12,19 @@ public class SquareStatistics {
         this.square = square;
     }
 
-    public void setDate(String date) {
-        this.date = date;
-    }
-
     public String getDate() {
         return date;
     }
 
-    public void setSquare(double square) {
-        this.square = square;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public double getSquare() {
         return square;
+    }
+
+    public void setSquare(double square) {
+        this.square = square;
     }
 }

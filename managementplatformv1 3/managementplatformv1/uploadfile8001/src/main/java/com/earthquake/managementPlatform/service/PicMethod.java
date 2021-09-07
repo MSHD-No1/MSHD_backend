@@ -10,7 +10,7 @@ import java.io.IOException;
 
 @Slf4j
 @Component
-public class PicMethod implements MultiMediaMethod{
+public class PicMethod implements MultiMediaMethod {
 
     @Value("${file.save-path}")
     private String fileSavePath;
@@ -26,24 +26,23 @@ public class PicMethod implements MultiMediaMethod{
 
     @Override
     public String uploadMultiMedia(MultipartFile uploadFile) {
-        try{
+        try {
             DayDate dayDate = new DayDate();
-            String date = dayDate.getYear()+dayDate.getMonth()+dayDate.getDay();
-            String picPath = fileSavePath + File.separator + date+ File.separator +filePicSavePath;
-            String showPicPath = nginxIp + File.separator + nginxPicPath + File.separator + date+ File.separator +filePicSavePath;
+            String date = dayDate.getYear() + dayDate.getMonth() + dayDate.getDay();
+            String picPath = fileSavePath + File.separator + date + File.separator + filePicSavePath;
+            String showPicPath = nginxIp + File.separator + nginxPicPath + File.separator + date + File.separator + filePicSavePath;
             File dir = new File(picPath);
-            if(!dir.exists()){
+            if (!dir.exists()) {
                 dir.mkdirs();
                 log.info("图片目录创建完毕！");
-            }
-            else{
+            } else {
                 log.info("图片目录已存在！");
             }
-            String fileName=uploadFile.getOriginalFilename();    //得到文件名
-            String localSavePath = picPath+'/'+fileName;
-            File file=new File(localSavePath);    //得到文件路径
+            String fileName = uploadFile.getOriginalFilename();    //得到文件名
+            String localSavePath = picPath + '/' + fileName;
+            File file = new File(localSavePath);    //得到文件路径
             uploadFile.transferTo(file);
-            return "http://"+showPicPath+File.separator+fileName;
+            return "http://" + showPicPath + File.separator + fileName;
         } catch (IOException e) {
             e.printStackTrace();
             return "上传失败";

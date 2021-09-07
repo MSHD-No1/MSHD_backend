@@ -13,7 +13,7 @@ class AdministrativeRegionCode12MapperTest {
     AdministrativeRegionCode12Mapper administrativeRegionCode12Mapper;
 
     @Test
-    public void getProvinceTest(){
+    public void getProvinceTest() {
         log.info(administrativeRegionCode12Mapper.getProvinceCode("北京市"));
     }
 

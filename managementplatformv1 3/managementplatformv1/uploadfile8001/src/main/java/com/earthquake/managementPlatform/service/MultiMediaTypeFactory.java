@@ -8,10 +8,11 @@ import javax.annotation.Resource;
 public class MultiMediaTypeFactory {
     @Resource
     PicMethod picMethod;
-    public MultiMediaMethod createMultiMedia(String filePath){
+
+    public MultiMediaMethod createMultiMedia(String filePath) {
         MultiMediaMethod multiMediaMethod = null;
         String[] strArray = filePath.split("\\.");
-        int suffixIndex = strArray.length-1;
+        int suffixIndex = strArray.length - 1;
 
         switch (strArray[suffixIndex]) {
             case "jpg":

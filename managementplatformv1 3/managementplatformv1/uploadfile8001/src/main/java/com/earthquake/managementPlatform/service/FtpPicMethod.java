@@ -2,6 +2,7 @@ package com.earthquake.managementPlatform.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -9,20 +10,19 @@ import java.io.OutputStream;
 
 @Slf4j
 @Component
-public class FtpPicMethod extends FtpMethod{
+public class FtpPicMethod extends FtpMethod {
     @Override
     public String downloadPic(String source, String picName) {
-        String ftpPathPic = source+File.separator+ftpRelativePicPath;
+        String ftpPathPic = source + File.separator + ftpRelativePicPath;
         DayDate dayDate = new DayDate();
-        String date = dayDate.getYear()+dayDate.getMonth()+dayDate.getDay();
-        String savePathPic = fileSavePath+File.separator+date+File.separator+filePicSavePath;
-        String showPathPic = "http://"+nginxIp+File.separator+nginxPicPath+File.separator+date+File.separator+filePicSavePath;
+        String date = dayDate.getYear() + dayDate.getMonth() + dayDate.getDay();
+        String savePathPic = fileSavePath + File.separator + date + File.separator + filePicSavePath;
+        String showPathPic = "http://" + nginxIp + File.separator + nginxPicPath + File.separator + date + File.separator + filePicSavePath;
         File dir = new File(savePathPic);
-        if(!dir.exists()){
+        if (!dir.exists()) {
             dir.mkdirs();
             log.info("目录创建完毕");
-        }
-        else{
+        } else {
             log.info("目录已存在！");
         }
         //登录
@@ -46,12 +46,12 @@ public class FtpPicMethod extends FtpMethod{
                 }
                 for (String ff : fs) {
                     String ftpName = new String(ff.getBytes(serverCharset), localCharset);
-                    if(ftpName.equals(picName)) {
+                    if (ftpName.equals(picName)) {
                         log.info(savePathPic + File.separator + ftpName);
                         File file = new File(savePathPic + File.separator + ftpName);
                         try (OutputStream os = new FileOutputStream(file)) {
                             ftpClient.retrieveFile(ftpName, os);
-                            log.info(ftpName+"下载文件成功！");
+                            log.info(ftpName + "下载文件成功！");
                             return showPathPic + File.separator + ftpName;
                         } catch (Exception e) {
                             log.error(e.getMessage(), e);

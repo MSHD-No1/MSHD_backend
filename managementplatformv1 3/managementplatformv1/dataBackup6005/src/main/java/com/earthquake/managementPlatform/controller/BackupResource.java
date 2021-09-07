@@ -16,11 +16,11 @@ public class BackupResource {
     BackupTimeMapper backupTimeMapper;
 
     @PostMapping("/v1/changeBackupTime/{time}")
-    public PostVo changeSchedule(@PathVariable("time") int time){
-        int result = backupTimeMapper.update(new BackupTime(1,time));
-        if(result == 1)
-            return new PostVo(0,"修改成功！",null);
+    public PostVo changeSchedule(@PathVariable("time") int time) {
+        int result = backupTimeMapper.update(new BackupTime(1, time));
+        if (result == 1)
+            return new PostVo(0, "修改成功！", null);
         else
-            return  new PostVo(1,"修改失败！",null);
+            return new PostVo(1, "修改失败！", null);
     }
 }

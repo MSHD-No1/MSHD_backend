@@ -6,7 +6,7 @@ import java.util.Date;
 public class DayDate {
     private final Date date;
 
-    public DayDate(){
+    public DayDate() {
         this.date = new Date();
     }
 
@@ -14,20 +14,20 @@ public class DayDate {
         this.date = date;
     }
 
-    public String getYear(){
+    public String getYear() {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         return String.valueOf(calendar.get(Calendar.YEAR));
     }
 
-    public String getMonth(){
+    public String getMonth() {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
-        int month = calendar.get(Calendar.MONTH)+1;
+        int month = calendar.get(Calendar.MONTH) + 1;
         return String.valueOf(month < 10 ? "0" + month : month);
     }
 
-    public String getDay(){
+    public String getDay() {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         int day = calendar.get(Calendar.DATE);

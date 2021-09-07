@@ -13,8 +13,8 @@ class SequenceCodeTest {
     SequenceCode sequenceCode;
 
     @Test
-    public void CodeForSequenceTest(){
-        log.info(sequenceCode.CodeForSequence("140108000000","551"));
+    public void CodeForSequenceTest() {
+        log.info(sequenceCode.CodeForSequence("140108000000", "551"));
     }
 
 }

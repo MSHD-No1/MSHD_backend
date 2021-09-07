@@ -10,6 +10,6 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 @EnableDiscoveryClient
 public class UserManagement5001 {
     public static void main(String[] args) {
-        SpringApplication.run(UserManagement5001.class,args);
+        SpringApplication.run(UserManagement5001.class, args);
     }
 }

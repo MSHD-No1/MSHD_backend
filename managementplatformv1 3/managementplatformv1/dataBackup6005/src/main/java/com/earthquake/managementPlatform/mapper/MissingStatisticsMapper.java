@@ -1,7 +1,9 @@
 package com.earthquake.managementPlatform.mapper;
 
 import com.earthquake.managementPlatform.entities.MissingStatistics;
-import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Update;
 
 @Mapper
 public interface MissingStatisticsMapper {

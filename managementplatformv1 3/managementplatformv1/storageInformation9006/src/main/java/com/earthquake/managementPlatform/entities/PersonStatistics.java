@@ -12,19 +12,19 @@ public class PersonStatistics {
         this.number = number;
     }
 
-    public void setDate(String date) {
-        this.date = date;
-    }
-
     public String getDate() {
         return date;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public int getNumber() {
         return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
     }
 }

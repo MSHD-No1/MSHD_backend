@@ -12,19 +12,19 @@ public class SecondaryDisasterStatistics {
         this.count = count;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
     public String getStatus() {
         return status;
     }
 
-    public void setCount(int count) {
-        this.count = count;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public int getCount() {
         return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 }

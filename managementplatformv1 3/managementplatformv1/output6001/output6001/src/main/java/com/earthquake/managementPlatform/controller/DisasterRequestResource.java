@@ -1,4 +1,3 @@
-
 package com.earthquake.managementPlatform.controller;
 
 import com.earthquake.managementPlatform.entities.DisasterRequest;
@@ -21,11 +20,10 @@ public class DisasterRequestResource {
     DisasterRequestMapper disasterRequestMapper;
     @Resource
     RestTemplate restTemplate;
-    @Value("${storageInformation.url}")
-    private String storageInformationUrl;
-
     @Resource
     OutPutService outPutService;
+    @Value("${storageInformation.url}")
+    private String storageInformationUrl;
 
     @GetMapping("/v1/disasterRequest")
     public GetVo<DisasterRequest> disasterInfoAll(HttpServletRequest request) {

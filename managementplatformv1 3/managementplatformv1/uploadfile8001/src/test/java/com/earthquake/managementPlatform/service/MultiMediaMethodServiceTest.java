@@ -16,6 +16,7 @@ import java.io.IOException;
 class MultiMediaMethodServiceTest {
     @Resource
     MultiMediaMethodService multiMediaMethodService;
+
     @Test
     public void uploadMultiMediaTest() throws IOException {
         String strUrl = "C:\\Users\\chens\\Pictures\\Saved Pictures\\nnn.png";

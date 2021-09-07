@@ -26,20 +26,20 @@ public class DisasterPredictionStorage implements DisasterInformationStorage {
     private String source;
     private JSONObject data;
 
-    public void setSource(String source) {
-        this.source = source;
-    }
-
     public String getSource() {
         return source;
     }
 
-    public void setData(JSONObject data) {
-        this.data = data;
+    public void setSource(String source) {
+        this.source = source;
     }
 
     public JSONObject getData() {
         return data;
+    }
+
+    public void setData(JSONObject data) {
+        this.data = data;
     }
 
     @Override

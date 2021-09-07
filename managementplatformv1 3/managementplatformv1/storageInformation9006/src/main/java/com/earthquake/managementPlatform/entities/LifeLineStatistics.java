@@ -12,19 +12,19 @@ public class LifeLineStatistics {
         this.count = count;
     }
 
-    public void setGrade(String grade) {
-        this.grade = grade;
-    }
-
     public String getGrade() {
         return grade;
     }
 
-    public void setCount(int count) {
-        this.count = count;
+    public void setGrade(String grade) {
+        this.grade = grade;
     }
 
     public int getCount() {
         return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 }

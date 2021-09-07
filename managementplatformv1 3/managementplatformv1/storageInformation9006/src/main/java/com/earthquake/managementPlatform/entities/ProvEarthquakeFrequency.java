@@ -13,19 +13,19 @@ public class ProvEarthquakeFrequency {
         this.count = count;
     }
 
-    public void setCount(int count) {
-        this.count = count;
-    }
-
     public int getCount() {
         return count;
     }
 
-    public void setProCode(String proCode) {
-        this.proCode = proCode;
+    public void setCount(int count) {
+        this.count = count;
     }
 
     public String getProCode() {
         return proCode;
+    }
+
+    public void setProCode(String proCode) {
+        this.proCode = proCode;
     }
 }

@@ -24,12 +24,10 @@ class UploadFileServiceTest {
 
     @Test
     public void uploadRealTimeFilesTest() throws Exception {
-        Map<JSONArray,String> map= uploadFileService.uploadRealTimeFiles("501");
-        if(map == null)
-        {
+        Map<JSONArray, String> map = uploadFileService.uploadRealTimeFiles("501");
+        if (map == null) {
             log.info("目前无文件");
-        }
-        else
+        } else
             log.info(map.toString());
     }
 

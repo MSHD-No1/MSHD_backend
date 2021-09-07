@@ -13,9 +13,9 @@ class AdministrativeRegionCode12Test {
     AdministrativeRegionCode12 administrativeRegionCode12;
 
     @Test
-    public void codeForAdministrativeRegionTest(){
+    public void codeForAdministrativeRegionTest() {
 
-        administrativeRegionCode12.setAdministrativeRegionCode12("北京市","市辖区","东城区","东华门街道办事处","多福巷社区居委会");
+        administrativeRegionCode12.setAdministrativeRegionCode12("北京市", "市辖区", "东城区", "东华门街道办事处", "多福巷社区居委会");
         AdministrativeRegionCode administrativeRegionCode = administrativeRegionCode12;
         log.info(administrativeRegionCode.codeForAdministrativeRegion());
 

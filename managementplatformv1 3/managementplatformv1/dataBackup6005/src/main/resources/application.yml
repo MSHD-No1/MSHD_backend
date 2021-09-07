@@ -39,8 +39,8 @@ spring:
     name: cloud-dataBackup-service
 
   devtools:
-      livereload:
-        port: 35730
+    livereload:
+      port: 35730
 
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource

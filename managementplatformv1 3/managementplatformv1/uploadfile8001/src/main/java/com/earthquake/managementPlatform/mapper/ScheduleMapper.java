@@ -6,5 +6,6 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface ScheduleMapper {
     String getSchedule();
+
     int updateSchedule(Schedule schedule);
 }

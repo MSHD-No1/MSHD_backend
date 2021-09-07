@@ -6,9 +6,9 @@ import org.junit.jupiter.api.Test;
 @Slf4j
 class DayDateTest {
     @Test
-    public void DayDateTest(){
+    public void DayDateTest() {
         DayDate dayDate = new DayDate();
-        log.info(dayDate.getYear()+dayDate.getMonth()+dayDate.getDay());
+        log.info(dayDate.getYear() + dayDate.getMonth() + dayDate.getDay());
     }
 
 }

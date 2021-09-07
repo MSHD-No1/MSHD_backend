@@ -18,7 +18,7 @@ import java.util.Map;
 
 @Slf4j
 @Component
-public class FtpFileMethod extends FtpMethod{
+public class FtpFileMethod extends FtpMethod {
     @Resource
     ParamConfig paramConfig;
 
@@ -95,12 +95,12 @@ public class FtpFileMethod extends FtpMethod{
     //下载文件
     @Override
     public Map<String, String> downloadFiles() throws Exception {
-        Map<String,String> map = new HashMap<>();
+        Map<String, String> map = new HashMap<>();
         DayDate dayDate = new DayDate();
-        String date = dayDate.getYear()+dayDate.getMonth()+dayDate.getDay();
+        String date = dayDate.getYear() + dayDate.getMonth() + dayDate.getDay();
         //登录
         super.login();
-        if(!FTPReply.isPositiveCompletion(ftpClient.getReplyCode())){
+        if (!FTPReply.isPositiveCompletion(ftpClient.getReplyCode())) {
             closeConnect();
             return null;
         }
@@ -109,7 +109,7 @@ public class FtpFileMethod extends FtpMethod{
         // 设置被动模式，开通一个端口来传输数据
         ftpClient.enterLocalPassiveMode();
         if (ftpClient != null) {
-            for (String ftpPath:paramConfig.li) {
+            for (String ftpPath : paramConfig.li) {
                 try {
 
                     // 对路径进行编码
@@ -131,26 +131,25 @@ public class FtpFileMethod extends FtpMethod{
                         String ftpName = new String(ff.getBytes(localCharset), serverCharset);
 //                        log.info(ftpName);
 //                        log.info(ftpRelativePicPath);
-                        if (!(ftpName.equals(ftpRelativePicPath))){
-                            log.info(fileSavePath + File.separator + date+File.separator +ftpName);
+                        if (!(ftpName.equals(ftpRelativePicPath))) {
+                            log.info(fileSavePath + File.separator + date + File.separator + ftpName);
                             File dir = new File(fileSavePath + File.separator + date);
-                            if(!dir.exists()){
+                            if (!dir.exists()) {
                                 dir.mkdirs();
                                 log.info("目录创建完毕");
-                            }
-                            else{
+                            } else {
                                 log.info("目录已存在！");
                             }
                             log.info(ftpName);
-                            File file = new File(fileSavePath + File.separator + date+File.separator+ftpName);
+                            File file = new File(fileSavePath + File.separator + date + File.separator + ftpName);
                             try (OutputStream os = new FileOutputStream(file)) {
                                 os.flush();
                                 ftpClient.retrieveFile(ftpName, os);
 //                                removeFile(basePath + ftpPath, ff);
-                                log.info(fileSavePath + File.separator + date+File.separator+ftpName + "下载成功！");
+                                log.info(fileSavePath + File.separator + date + File.separator + ftpName + "下载成功！");
                                 map.put(fileSavePath + File.separator + date + File.separator + ftpName, ftpPath);
                             } catch (ConnectException e) {
-                                log.error(fileSavePath + File.separator + date+ File.separator +ftpName + "下载失败！");
+                                log.error(fileSavePath + File.separator + date + File.separator + ftpName + "下载失败！");
                                 return null;
                             }
                             removeFile(basePath + ftpPath, ff);

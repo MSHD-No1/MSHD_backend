@@ -19,32 +19,26 @@ public abstract class FtpMethod {
      * "该目录下没有文件
      */
     public static final String DIR_CONTAINS_NO_FILE = "该目录下没有文件";
-
-    /**
-     * 本地字符编码
-     **/
-    public static String localCharset = "GBK";
-
     /**
      * FTP协议里面，规定文件名编码为iso-8859-1
      **/
     public static final String serverCharset = "ISO-8859-1";
-
     /**
      * UTF-8字符编码
      **/
     public static final String CHARSET_UTF8 = "UTF-8";
-
     /**
      * OPTS UTF8字符串常量
      **/
     public static final String OPTS_UTF8 = "OPTS UTF8";
-
     /**
      * 设置缓冲区大小4M
      **/
     public static final int BUFFER_SIZE = 1024 * 1024 * 4;
-
+    /**
+     * 本地字符编码
+     **/
+    public static String localCharset = "GBK";
     /**
      * FTPClient对象
      **/
@@ -80,7 +74,26 @@ public abstract class FtpMethod {
     @Value("${nginx.pic-path}")
     public String nginxPicPath;
 
-//    /**
+    /**
+     * FTP服务器路径编码转换
+     *
+     * @param ftpPath FTP服务器路径
+     * @return String
+     */
+    public static String changeEncoding(String ftpPath) {
+        String directory = null;
+        try {
+            if (FTPReply.isPositiveCompletion(ftpClient.sendCommand(OPTS_UTF8, "ON"))) {
+                localCharset = CHARSET_UTF8;
+            }
+            directory = new String(ftpPath.getBytes(localCharset), serverCharset);
+        } catch (Exception e) {
+            log.error("路径编码转换失败", e);
+        }
+        return directory;
+    }
+
+    //    /**
 //     * 连接FTP服务器
 //     *
 //     * @param address  地址，如：127.0.0.1
@@ -124,30 +137,11 @@ public abstract class FtpMethod {
         }
     }
 
-    /**
-     * FTP服务器路径编码转换
-     *
-     * @param ftpPath FTP服务器路径
-     * @return String
-     */
-    public static String changeEncoding(String ftpPath) {
-        String directory = null;
-        try {
-            if (FTPReply.isPositiveCompletion(ftpClient.sendCommand(OPTS_UTF8, "ON"))) {
-                localCharset = CHARSET_UTF8;
-            }
-            directory = new String(ftpPath.getBytes(localCharset), serverCharset);
-        } catch (Exception e) {
-            log.error("路径编码转换失败", e);
-        }
-        return directory;
-    }
-
-    public Map<String,String> downloadFiles() throws Exception {
+    public Map<String, String> downloadFiles() throws Exception {
         return null;
     }
 
-    public String downloadPic(String source,String picName){
+    public String downloadPic(String source, String picName) {
         return null;
     }
 

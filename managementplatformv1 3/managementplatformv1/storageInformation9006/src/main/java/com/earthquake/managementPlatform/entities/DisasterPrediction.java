@@ -21,52 +21,52 @@ public class DisasterPrediction {
         return D_ID;
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public String getGrade() {
-        return grade;
-    }
-
-    public String getIntensity() {
-        return intensity;
-    }
-
-    public String getPicture() {
-        return picture;
-    }
-
-    public String getS_ID() {
-        return S_ID;
-    }
-
     public void setD_ID(String d_ID) {
         D_ID = d_ID;
     }
 
-    public String getType() {
-        return type;
+    public String getDate() {
+        return date;
     }
 
     public void setDate(String date) {
         this.date = date;
     }
 
+    public String getGrade() {
+        return grade;
+    }
+
     public void setGrade(String grade) {
         this.grade = grade;
+    }
+
+    public String getIntensity() {
+        return intensity;
     }
 
     public void setIntensity(String intensity) {
         this.intensity = intensity;
     }
 
+    public String getPicture() {
+        return picture;
+    }
+
     public void setPicture(String picture) {
         this.picture = picture;
     }
 
+    public String getS_ID() {
+        return S_ID;
+    }
+
     public void setS_ID(String s_ID) {
         S_ID = s_ID;
+    }
+
+    public String getType() {
+        return type;
     }
 
     public void setType(String type) {

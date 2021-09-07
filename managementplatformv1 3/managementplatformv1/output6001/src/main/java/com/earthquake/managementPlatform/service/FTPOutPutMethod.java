@@ -18,32 +18,26 @@ public abstract class FTPOutPutMethod {
      * "该目录下没有文件
      */
     public static final String DIR_CONTAINS_NO_FILE = "该目录下没有文件";
-
-    /**
-     * 本地字符编码
-     **/
-    public static String localCharset = "GBK";
-
     /**
      * FTP协议里面，规定文件名编码为iso-8859-1
      **/
     public static final String serverCharset = "ISO-8859-1";
-
     /**
      * UTF-8字符编码
      **/
     public static final String CHARSET_UTF8 = "UTF-8";
-
     /**
      * OPTS UTF8字符串常量
      **/
     public static final String OPTS_UTF8 = "OPTS UTF8";
-
     /**
      * 设置缓冲区大小4M
      **/
     public static final int BUFFER_SIZE = 1024 * 1024 * 4;
-
+    /**
+     * 本地字符编码
+     **/
+    public static String localCharset = "GBK";
     /**
      * FTPClient对象
      **/
@@ -63,6 +57,25 @@ public abstract class FTPOutPutMethod {
 
     @Value("${ftp.base-path}")
     public String basePath;
+
+    /**
+     * FTP服务器路径编码转换
+     *
+     * @param ftpPath FTP服务器路径
+     * @return String
+     */
+    public static String changeEncoding(String ftpPath) {
+        String directory = null;
+        try {
+            if (FTPReply.isPositiveCompletion(ftpClient.sendCommand(OPTS_UTF8, "ON"))) {
+                localCharset = CHARSET_UTF8;
+            }
+            directory = new String(ftpPath.getBytes(localCharset), serverCharset);
+        } catch (Exception e) {
+            log.error("路径编码转换失败", e);
+        }
+        return directory;
+    }
 
     //    /**
 //     * 连接FTP服务器
@@ -102,24 +115,5 @@ public abstract class FTPOutPutMethod {
                 log.error("关闭FTP连接失败", e);
             }
         }
-    }
-
-    /**
-     * FTP服务器路径编码转换
-     *
-     * @param ftpPath FTP服务器路径
-     * @return String
-     */
-    public static String changeEncoding(String ftpPath) {
-        String directory = null;
-        try {
-            if (FTPReply.isPositiveCompletion(ftpClient.sendCommand(OPTS_UTF8, "ON"))) {
-                localCharset = CHARSET_UTF8;
-            }
-            directory = new String(ftpPath.getBytes(localCharset), serverCharset);
-        } catch (Exception e) {
-            log.error("路径编码转换失败", e);
-        }
-        return directory;
     }
 }

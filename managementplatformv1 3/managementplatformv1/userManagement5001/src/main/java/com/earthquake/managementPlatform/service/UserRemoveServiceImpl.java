@@ -6,16 +6,16 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 
 @Service
-public class UserRemoveServiceImpl implements  UserRemoveService{
+public class UserRemoveServiceImpl implements UserRemoveService {
     @Resource
     UserMapper userMapper;
 
     @Override
     public int userRemove(String username) {
         int flag = userMapper.deleteByUsername(username);
-        if(flag == 1)
+        if (flag == 1)
             return 0;
-        else{
+        else {
             return -1;
         }
     }

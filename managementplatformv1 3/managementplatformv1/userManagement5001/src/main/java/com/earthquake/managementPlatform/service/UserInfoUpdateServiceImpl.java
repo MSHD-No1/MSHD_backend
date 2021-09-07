@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 
 @Service
-public class UserInfoUpdateServiceImpl implements UserInfoUpdateService{
+public class UserInfoUpdateServiceImpl implements UserInfoUpdateService {
 
     @Resource
     UserMapper userMapper;
@@ -16,10 +16,9 @@ public class UserInfoUpdateServiceImpl implements UserInfoUpdateService{
     public int updateUsername(String newUsername, String oldUsername) {
         User user = userMapper.getUserByUsername(newUsername);
         int res = 0;
-        if(user == null) {
-            userMapper.updateUsernameInfo(newUsername,oldUsername);
-        }
-        else{
+        if (user == null) {
+            userMapper.updateUsernameInfo(newUsername, oldUsername);
+        } else {
             res = -1;
         }
         return res;
@@ -27,11 +26,10 @@ public class UserInfoUpdateServiceImpl implements UserInfoUpdateService{
 
     @Override
     public int updatePassword(String password, String username) {
-        int flag = userMapper.updateUserPasswordInfo(password,username);
-        if(flag == 1){
+        int flag = userMapper.updateUserPasswordInfo(password, username);
+        if (flag == 1) {
             return 0;
-        }
-        else{
+        } else {
             return -1;
         }
     }

@@ -36,7 +36,7 @@ public class OtherStructureResource {
     }
 
     @GetMapping("/v1/lastOtherStructureByTime")
-    public GetVo<SquareStatistics>  getLastOtherStructureByTime() {
+    public GetVo<SquareStatistics> getLastOtherStructureByTime() {
         List<SquareStatistics> squareStatistics = otherStructureMapper.getLastOtherStructureByTime();
         return new GetVo<>(0, "获取数据成功！", squareStatistics.size(), squareStatistics);
     }

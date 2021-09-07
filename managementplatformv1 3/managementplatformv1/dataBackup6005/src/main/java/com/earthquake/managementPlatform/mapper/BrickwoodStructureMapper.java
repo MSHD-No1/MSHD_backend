@@ -1,7 +1,9 @@
 package com.earthquake.managementPlatform.mapper;
 
-import com.earthquake.managementPlatform.entities.*;
-import org.apache.ibatis.annotations.*;
+import com.earthquake.managementPlatform.entities.BrickwoodStructure;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Update;
 
 @Mapper
 public interface BrickwoodStructureMapper {

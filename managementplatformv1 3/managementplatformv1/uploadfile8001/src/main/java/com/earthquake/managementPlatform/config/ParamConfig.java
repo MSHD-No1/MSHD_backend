@@ -10,6 +10,7 @@ import java.util.List;
 @ConfigurationProperties("data-source")
 public class ParamConfig {
     public List<String> li = new ArrayList<>();
+    public List<String> predictionLi = new ArrayList<>();
 
     public List<String> getLi() {
         return li;
@@ -19,13 +20,11 @@ public class ParamConfig {
         this.li = li;
     }
 
-    public List<String> predictionLi = new ArrayList<>();
+    public List<String> getPredictionLi() {
+        return predictionLi;
+    }
 
     public void setPredictionLi(List<String> predictionLi) {
         this.predictionLi = predictionLi;
-    }
-
-    public List<String> getPredictionLi() {
-        return predictionLi;
     }
 }

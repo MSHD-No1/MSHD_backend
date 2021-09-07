@@ -12,7 +12,7 @@ public abstract class DisasterFile {
         this.filePath = filePath;
     }
 
-    public JSONArray fileToJson() throws IOException{
+    public JSONArray fileToJson() throws IOException {
         return fileBehavior.transferToJson(filePath);
     }
 }
