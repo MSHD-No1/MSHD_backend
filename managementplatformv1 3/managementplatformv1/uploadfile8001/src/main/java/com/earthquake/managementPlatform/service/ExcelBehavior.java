@@ -111,6 +111,7 @@ public class ExcelBehavior implements FileBehavior {
                 data = new JSONArray(jsonString);
             }
         }
+
         excelWorkBook.close();
         for (int i = 0; i < data.length(); i++) {
             JSONObject obj = data.getJSONObject(i);
