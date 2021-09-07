@@ -9,10 +9,16 @@ public class FileTypeFactory {
         String[] strArray = filePath.split("\\.");
         int suffixIndex = strArray.length - 1;
 
-        if (strArray[suffixIndex].equals("xml")) {
-            disasterFile = new XmlFile(filePath);
-        } else if (strArray[suffixIndex].equals("json")) {
-            disasterFile = new JsonFile(filePath);
+        switch (strArray[suffixIndex]) {
+            case "xml":
+                disasterFile = new XmlFile(filePath);
+                break;
+            case "json":
+                disasterFile = new JsonFile(filePath);
+                break;
+            case "xlsx":
+                disasterFile = new ExcelFile(filePath);
+                break;
         }
         return disasterFile;
     }
