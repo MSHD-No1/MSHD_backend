@@ -1,118 +1,125 @@
 package com.earthquake.managementPlatform.service;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @Slf4j
 public class ExcelBehavior implements FileBehavior {
-    /* Return sheet data in a two-dimensional list.
-     * Each element in the outer list represent a row,
-     * Each element in the inner list represent a column.
-     * The first row is the column name row.*/
-    private static List<List<String>> getSheetDataList(Sheet sheet) {
-        List<List<String>> ret = new ArrayList<List<String>>();
-        // Get the first and last sheet row number.
-        int firstRowNum = sheet.getFirstRowNum();
-        int lastRowNum = sheet.getLastRowNum();
-        if (lastRowNum > 0) {
-            // Loop in sheet rows.
-            for (int i = firstRowNum; i < lastRowNum + 1; i++) {
-                // Get current row object.
-                Row row = sheet.getRow(i);
-                // Get first and last cell number.
-                int firstCellNum = row.getFirstCellNum();
-                int lastCellNum = row.getLastCellNum();
-                // Create a String list to save column data in a row.
-                List<String> rowDataList = new ArrayList<String>();
-                // Loop in the row cells.
-                for (int j = firstCellNum; j < lastCellNum; j++) {
-                    // Get current cell.
-                    Cell cell = row.getCell(j);
-                    // Get cell type.
-                    int cellType = cell.getCellType();
-                    if (cellType == CellType.NUMERIC.getCode()) {
-                        double numberValue = cell.getNumericCellValue();
-                        // BigDecimal is used to avoid double value is counted use Scientific counting method.
-                        // For example the original double variable value is 12345678, but jdk translated the value to 1.2345678E7.
-                        String stringCellValue = BigDecimal.valueOf(numberValue).toPlainString();
-                        rowDataList.add(stringCellValue);
-                    } else if (cellType == CellType.STRING.getCode()) {
-                        String cellValue = cell.getStringCellValue();
-                        rowDataList.add(cellValue);
-                    } else if (cellType == CellType.BOOLEAN.getCode()) {
-                        boolean numberValue = cell.getBooleanCellValue();
-                        String stringCellValue = String.valueOf(numberValue);
-                        rowDataList.add(stringCellValue);
-                    } else if (cellType == CellType.BLANK.getCode()) {
-                        rowDataList.add("");
-                    }
-                }
-                // Add current row data list in the return list.
-                ret.add(rowDataList);
-            }
+    public static void main(String[] args) throws IOException {
+        String filePath = "/home/ayamir/Documents/Template.xlsx";
+        Workbook book = new XSSFWorkbook(filePath);
+        Sheet sheet = book.getSheetAt(0);
+        JSONArray data = read(sheet, book);
+        for (int i = 0; i < data.length(); i++) {
+            JSONObject obj = data.getJSONObject(i);
+            log.error(obj.toString());
         }
-        return ret;
     }
 
-    /* Return a JSON string from the string list. */
-    private static String getJSONStringFromList(List<List<String>> dataTable) {
-        String ret = "";
-        if (dataTable != null) {
-            int rowCount = dataTable.size();
-            if (rowCount > 1) {
-                // Create a JSONObject to store table data.
-                JSONObject tableJsonObject = new JSONObject();
-                // The first row is the header row, store each column name.
-                List<String> headerRow = dataTable.get(0);
-                int columnCount = headerRow.size();
-                // Loop in the row data list.
-                for (int i = 1; i < rowCount; i++) {
-                    // Get current row data.
-                    List<String> dataRow = dataTable.get(i);
-                    // Create a JSONObject object to store row data.
-                    JSONObject rowJsonObject = new JSONObject();
-                    for (int j = 0; j < columnCount; j++) {
-                        String columnName = headerRow.get(j);
-                        String columnValue = dataRow.get(j);
-                        rowJsonObject.put(columnName, columnValue);
-                    }
-                    tableJsonObject.put("Row " + i, rowJsonObject);
+    public static JSONArray read(Sheet sheet, Workbook book) throws IOException {
+        int rowStart = sheet.getFirstRowNum();    // 首行下标
+        int rowEnd = sheet.getLastRowNum();    // 尾行下标
+        // 如果首行与尾行相同，表明只有一行，直接返回空数组
+        if (rowStart == rowEnd) {
+            book.close();
+            return new JSONArray();
+        }
+        // 获取第一行JSON对象键
+        Row firstRow = sheet.getRow(rowStart);
+        int cellStart = firstRow.getFirstCellNum();
+        int cellEnd = firstRow.getLastCellNum();
+        Map<Integer, String> keyMap = new HashMap<Integer, String>();
+        for (int j = cellStart; j < cellEnd; j++) {
+            keyMap.put(j, getValue(firstRow.getCell(j), rowStart, j, book, true));
+        }
+        // 获取每行JSON对象的值
+        JSONArray array = new JSONArray();
+        for (int i = rowStart + 1; i <= rowEnd; i++) {
+            Row eachRow = sheet.getRow(i);
+            JSONObject obj = new JSONObject();
+            StringBuilder sb = new StringBuilder();
+            for (int k = cellStart; k < cellEnd; k++) {
+                if (eachRow != null) {
+                    String val = getValue(eachRow.getCell(k), i, k, book, false);
+                    sb.append(val);        // 所有数据添加到里面，用于判断该行是否为空
+                    obj.put(keyMap.get(k), val);
                 }
-                // Return string format data of JSONObject object.
-                ret = tableJsonObject.toString();
+            }
+            if (sb.toString().length() > 0) {
+                array.put(obj);
             }
         }
-        return ret;
+        book.close();
+        return array;
+    }
+
+    public static String getValue(Cell cell, int rowNum, int index, Workbook book, boolean isKey) throws IOException {
+        // 空白或空
+        if (cell == null || cell.getCellTypeEnum() == CellType.BLANK) {
+            if (isKey) {
+                book.close();
+                throw new NullPointerException(String.format("the key on row %s index %s is null ", ++rowNum, ++index));
+            } else {
+                return "";
+            }
+        }
+
+        // 0. 数字 类型
+        if (cell.getCellTypeEnum() == CellType.NUMERIC) {
+            if (HSSFDateUtil.isCellDateFormatted(cell)) {
+                Date date = cell.getDateCellValue();
+                DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                return df.format(date);
+            }
+            String val = cell.getNumericCellValue() + "";
+            val = val.toUpperCase();
+            if (val.contains("E")) {
+                val = val.split("E")[0].replace(".", "");
+            }
+            return val;
+        }
+
+        // 1. String类型
+        if (cell.getCellTypeEnum() == CellType.STRING) {
+            String val = cell.getStringCellValue();
+            if (val == null || val.trim().length() == 0) {
+                if (book != null) {
+                    book.close();
+                }
+                return "";
+            }
+            return val.trim();
+        }
+
+        // 2. 公式 CELL_TYPE_FORMULA
+        if (cell.getCellTypeEnum() == CellType.FORMULA) {
+            return cell.getStringCellValue();
+        }
+
+        // 4. 布尔值 CELL_TYPE_BOOLEAN
+        if (cell.getCellTypeEnum() == CellType.BOOLEAN) {
+            return cell.getBooleanCellValue() + "";
+        }
+
+        // 5.	错误 CELL_TYPE_ERROR
+        return "";
     }
 
     public JSONArray transferToJson(String filePath) throws IOException {
-        JSONArray data = new JSONArray();
-        File excelFile = new File(filePath.trim());
-        InputStream in = new FileInputStream(excelFile);
-        Workbook excelWorkBook = new HSSFWorkbook(in);
-        int totalSheetNumber = excelWorkBook.getNumberOfSheets();
-        for (int i = 0; i < totalSheetNumber; i++) {
-            Sheet sheet = excelWorkBook.getSheetAt(i);
-            String sheetName = sheet.getSheetName();
-            if (sheetName != null && sheetName.length() > 0) {
-                List<List<String>> sheetDataTable = getSheetDataList(sheet);
-                String jsonString = getJSONStringFromList(sheetDataTable);
-                data = new JSONArray(jsonString);
-            }
-        }
-
-        excelWorkBook.close();
+        Workbook book = new XSSFWorkbook(filePath);
+        Sheet sheet = book.getSheetAt(0);
+        JSONArray data = read(sheet, book);
         for (int i = 0; i < data.length(); i++) {
             JSONObject obj = data.getJSONObject(i);
             log.error(obj.toString());
