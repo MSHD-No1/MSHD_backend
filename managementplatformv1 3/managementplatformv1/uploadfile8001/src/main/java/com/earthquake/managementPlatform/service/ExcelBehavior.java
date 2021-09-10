@@ -16,7 +16,16 @@ import java.util.Map;
 
 @Slf4j
 public class ExcelBehavior implements FileBehavior {
+    /**
+     * @Project Name:MSHD
+     * @File Name: ExcelBehavior
+     * @Description: 本地测试Excel导入功能
+     * @ HISTORY:
+     * Created 2021.9.6 刘广田
+     * Modified 2021.9.6 刘广田
+     **/
     public static void main(String[] args) throws IOException {
+        // 这里的绝对路径需要修改
         String filePath = "/home/ayamir/Documents/Template.xlsx";
         Workbook book = new XSSFWorkbook(filePath);
         Sheet sheet = book.getSheetAt(0);
@@ -27,6 +36,13 @@ public class ExcelBehavior implements FileBehavior {
         }
     }
 
+    /**
+     * @Project Name:MSHD
+     * @File Name: ExcelBehavior
+     * @Description: 将Excel的1个sheet中内容转换成JSONArray
+     * @ HISTORY:
+     * Created 2021.9.6 刘广田
+     **/
     public static JSONArray read(Sheet sheet, Workbook book) throws IOException {
         int rowStart = sheet.getFirstRowNum();    // 首行下标
         int rowEnd = sheet.getLastRowNum();    // 尾行下标
@@ -63,6 +79,14 @@ public class ExcelBehavior implements FileBehavior {
         book.close();
         return array;
     }
+
+    /**
+     * @Project Name:MSHD
+     * @File Name: ExcelBehavior
+     * @Description: 取Excel每个单元格中的值
+     * @ HISTORY:
+     * Created 2021.9.6 刘广田
+     **/
 
     public static String getValue(Cell cell, int rowNum, int index, Workbook book, boolean isKey) throws IOException {
         // 空白或空
@@ -116,6 +140,14 @@ public class ExcelBehavior implements FileBehavior {
         return "";
     }
 
+    /**
+     * @Project Name:MSHD
+     * @File Name: ExcelBehavior
+     * @Description: 实现Excel转换为JSONArray
+     * @ HISTORY:
+     * Created 2021.9.6 刘广田
+     * Modified 2021.9.6 刘广田
+     **/
     public JSONArray transferToJson(String filePath) throws IOException {
         Workbook book = new XSSFWorkbook(filePath);
         Sheet sheet = book.getSheetAt(0);
